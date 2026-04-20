@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react';
 
+// This page requires client-side rendering
+export const revalidate = 0;
+
 export default function GalleryPage() {
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
