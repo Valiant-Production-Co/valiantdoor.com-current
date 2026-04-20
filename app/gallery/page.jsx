@@ -25,10 +25,10 @@ export default function GalleryPage() {
 
         if (response.ok) {
           const data = await response.json();
-          console.log('Photos loaded:', data);
+          console.log('Photos loaded from Supabase:', data);
           setPhotos(data);
         } else {
-          console.error('Supabase API error:', response.status, response.statusText);
+          console.warn(`Supabase API error: ${response.status}. Loading sample photos instead.`);
           // Load sample photos if Supabase fails
           loadSamplePhotos();
         }
