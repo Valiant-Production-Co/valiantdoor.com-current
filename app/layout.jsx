@@ -4,13 +4,20 @@ export const metadata = {
   title: 'Pleasanton Garage Door Repair | Valiant Garage Door',
   description: 'Same-day garage door repair, spring replacement, opener repair, and emergency service in Pleasanton, Dublin, San Ramon, Livermore, and Fremont.',
   keywords: 'garage door repair pleasanton ca, garage door service pleasanton, emergency garage door repair',
-  canonical: 'https://www.valiantdoor.com/',
+  // Note: Canonical should be set per-page, not globally in root layout
   openGraph: {
     title: 'Pleasanton Garage Door Repair | Valiant Garage Door',
     description: 'Same-day garage door repair, spring replacement, opener repair, and emergency service in Pleasanton, Dublin, San Ramon, Livermore, and Fremont.',
     type: 'website',
     url: 'https://www.valiantdoor.com/',
-    image: 'https://www.valiantdoor.com/assets/Valiant%20HOME%20PAGE%20new%20Hero%20Background%20Final%20.png',
+    images: [
+      {
+        url: 'https://www.valiantdoor.com/assets/Valiant%20HOME%20PAGE%20new%20Hero%20Background%20Final%20.png',
+        width: 1200,
+        height: 630,
+        alt: 'Valiant Garage Door',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -24,22 +31,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics GTM - Disabled in development to avoid fetch errors */}
-        {/* Re-enable in production by uncommenting below */}
-        {/*
-        <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-P8L8VN7J"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'GTM-P8L8VN7J');
-            `,
-          }}
-        />
-        */}
-        <link rel="canonical" href="https://www.valiantdoor.com/" />
+        {/* Google Tag Manager - Use proper GTM bootstrap snippet */}
+        {/* GTM container ID requires GTM.start event, not gtag config */}
+        {/* TODO: Implement proper GTM integration with gtag.start */}
+        {/* For now, analytics is disabled to prevent configuration errors */}
+        {/* NOTE: Canonical links should be set per-page, not globally in root layout */}
+        {/* Setting canonical here would make all pages appear as duplicates of homepage */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
