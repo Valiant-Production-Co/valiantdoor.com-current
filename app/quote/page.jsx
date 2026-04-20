@@ -1,5 +1,3 @@
-'use client';
-
 export const metadata = {
   title: 'Request a Quote | Valiant Garage Door',
   description: 'Get a free garage door repair quote from Valiant. Call now or book instantly with our calendar system. Same-day service available.',
