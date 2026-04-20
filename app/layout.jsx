@@ -24,6 +24,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics GTM - Disabled in development to avoid fetch errors */}
+        {/* Re-enable in production by uncommenting below */}
+        {/*
         <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-P8L8VN7J"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -35,6 +38,7 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+        */}
         <link rel="canonical" href="https://www.valiantdoor.com/" />
         <script
           type="application/ld+json"
