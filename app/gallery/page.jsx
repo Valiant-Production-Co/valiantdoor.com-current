@@ -25,10 +25,17 @@ export default function GalleryPage() {
 
         if (response.ok) {
           const data = await response.json();
+          console.log('Photos loaded:', data);
           setPhotos(data);
+        } else {
+          console.error('Supabase API error:', response.status, response.statusText);
+          // Load sample photos if Supabase fails
+          loadSamplePhotos();
         }
       } catch (error) {
         console.error('Error fetching photos:', error);
+        // Load sample photos if fetch fails
+        loadSamplePhotos();
       } finally {
         setLoading(false);
       }
@@ -36,6 +43,72 @@ export default function GalleryPage() {
 
     fetchPhotos();
   }, []);
+
+  const loadSamplePhotos = () => {
+    const samplePhotos = [
+      {
+        id: 1,
+        location: 'Pleasanton, CA',
+        city: 'Pleasanton',
+        latitude: 37.6624,
+        longitude: -121.8863,
+        photo_url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
+        title: 'Premium Hardware Installation',
+        description: 'Professional stainless steel hardware installation in Pleasanton',
+        alt_text: 'Stainless steel garage door hardware',
+        service_type: 'Installation',
+      },
+      {
+        id: 2,
+        location: 'Dublin, CA',
+        city: 'Dublin',
+        latitude: 37.7019,
+        longitude: -121.8135,
+        photo_url: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
+        title: 'Opener Replacement',
+        description: 'Complete garage door opener replacement and testing',
+        alt_text: 'New garage door opener installed',
+        service_type: 'Opener Repair',
+      },
+      {
+        id: 3,
+        location: 'San Ramon, CA',
+        city: 'San Ramon',
+        latitude: 37.7797,
+        longitude: -121.9948,
+        photo_url: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop',
+        title: 'Spring Replacement',
+        description: 'High-tension spring replacement service',
+        alt_text: 'New garage door spring installation',
+        service_type: 'Spring Replacement',
+      },
+      {
+        id: 4,
+        location: 'Livermore, CA',
+        city: 'Livermore',
+        latitude: 37.6821,
+        longitude: -121.7670,
+        photo_url: 'https://images.unsplash.com/photo-1509664158642-0911b399e46d?w=600&h=400&fit=crop',
+        title: 'Track Alignment',
+        description: 'Professional track alignment and repair',
+        alt_text: 'Garage door track alignment service',
+        service_type: 'Repair',
+      },
+      {
+        id: 5,
+        location: 'Fremont, CA',
+        city: 'Fremont',
+        latitude: 37.5485,
+        longitude: -121.9886,
+        photo_url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
+        title: 'Panel Replacement',
+        description: 'Wood panel garage door replacement',
+        alt_text: 'New wood panel garage door installed',
+        service_type: 'Repair',
+      },
+    ];
+    setPhotos(samplePhotos);
+  };
 
   const uniqueCities = [...new Set(photos.map((p) => p.city))];
   const filteredPhotos = selectedCity
