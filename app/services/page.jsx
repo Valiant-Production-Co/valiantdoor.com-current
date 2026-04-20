@@ -1,8 +1,4 @@
-export const metadata = {
-  title: 'Garage Door Services & Repair | Valiant Garage Door',
-  description: 'Professional garage door repair, opener service, spring replacement, emergency repairs, and custom fabrication in the Tri-Valley and East Bay.',
-  canonical: 'https://www.valiantdoor.com/services',
-};
+'use client';
 
 export default function ServicesPage() {
   const servicesSchema = {

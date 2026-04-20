@@ -1,8 +1,4 @@
-export const metadata = {
-  title: 'Garage Door Repair in Livermore, CA | Valiant Garage Door',
-  description: 'Garage door repair, spring replacement, and emergency service in Livermore, CA. Same-day service available.',
-  canonical: 'https://www.valiantdoor.com/garage-door-repair-livermore',
-};
+'use client';
 
 export default function LivermorePage() {
   const localSchema = {

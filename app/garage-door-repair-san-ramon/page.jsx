@@ -1,8 +1,4 @@
-export const metadata = {
-  title: 'Garage Door Repair in San Ramon, CA | Valiant Garage Door',
-  description: 'Garage door repair, spring replacement, and emergency service in San Ramon, CA. Professional same-day service.',
-  canonical: 'https://www.valiantdoor.com/garage-door-repair-san-ramon',
-};
+'use client';
 
 export default function SanRamonPage() {
   const localSchema = {

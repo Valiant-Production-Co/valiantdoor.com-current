@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  staticPageGenerationTimeout: 180,
   images: {
     remotePatterns: [
       {
@@ -23,6 +24,12 @@ const nextConfig = {
         permanent: true,
       },
     ];
+  },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
   },
 };
 

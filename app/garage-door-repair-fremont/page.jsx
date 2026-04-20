@@ -1,8 +1,4 @@
-export const metadata = {
-  title: 'Garage Door Repair in Fremont, CA | Valiant Garage Door',
-  description: 'Garage door repair, spring replacement, and emergency service in Fremont, CA. Professional same-day service.',
-  canonical: 'https://www.valiantdoor.com/garage-door-repair-fremont',
-};
+'use client';
 
 export default function FremontPage() {
   const localSchema = {

@@ -1,8 +1,4 @@
-export const metadata = {
-  title: 'Garage Door Repair in Dublin, CA | Valiant Garage Door',
-  description: 'Garage door repair, spring replacement, and emergency service in Dublin, CA. Same-day service available in the Tri-Valley.',
-  canonical: 'https://www.valiantdoor.com/garage-door-repair-dublin-ca',
-};
+'use client';
 
 export default function DublinPage() {
   const localSchema = {
