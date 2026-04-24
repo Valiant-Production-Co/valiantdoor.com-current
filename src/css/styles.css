@@ -1747,6 +1747,7 @@ a {
 .yelp-logo-link img {
   width: 56px;
   height: 56px;
+  object-fit: scale-down;
 }
 
 .yelp-spotlight-copy {
@@ -4141,16 +4142,31 @@ textarea {
 }
 
 .founder-preview-media {
-  margin: 0;
+  margin: 0 auto;
   padding: 16px;
   border-radius: 18px;
   border: 1px solid rgba(199,163,75,0.34);
   background: rgba(6,6,8,0.76);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-self: stretch;
+  width: 900px;
+  height: 300px;
+  min-height: 275px;
+  max-width: 1000px;
+  justify-content: center;
 }
 
 .founder-preview-media img {
   width: 100%;
   margin: 0 auto;
+  min-height: 200px;
+  height: 275px;
+  max-width: 50%;
+  object-position: right;
+  margin-right: auto;
+  object-fit: scale-down;
 }
 
 @media (max-width: 980px) {
