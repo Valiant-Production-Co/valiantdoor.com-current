@@ -114,58 +114,29 @@ const setupPageSwipe = () => {
 setupPageSwipe();
 
 const setupHousecallChat = () => {
-  if (!document.body || document.querySelector("#hcp-chat-prompt")) return;
-
-  // Load the chat widget only after user intent so it does not tax LCP/INP on first paint.
-  let chatLoader = null;
+  let chatLoaded = false;
 
   const loadChatWidget = () => {
-    if (chatLoader) return chatLoader;
+    if (chatLoaded) return;
+    chatLoaded = true;
 
-    chatLoader = new Promise((resolve) => {
-      const existingScript = document.querySelector("#housecall-pro-chat-bubble");
-      if (existingScript) {
-        resolve();
-        return;
-      }
+    const existingScript = document.querySelector("#housecall-pro-chat-bubble");
+    if (existingScript) return;
 
-      const script = document.createElement("script");
-      script.id = "housecall-pro-chat-bubble";
-      script.src = "https://chat.housecallpro.com/proChat.js";
-      script.type = "text/javascript";
-      script.defer = true;
-      script.dataset.color = "#0E6FBE";
-      script.dataset.organization = "544de216-f35f-4c0b-835a-7950591bbd80";
-      script.addEventListener("load", () => resolve(), { once: true });
-      script.addEventListener("error", () => resolve(), { once: true });
-      document.body.appendChild(script);
-    });
-
-    return chatLoader;
+    const script = document.createElement("script");
+    script.id = "housecall-pro-chat-bubble";
+    script.src = "https://chat.housecallpro.com/proChat.js";
+    script.type = "text/javascript";
+    script.defer = true;
+    script.dataset.color = "#0E6FBE";
+    script.dataset.organization = "544de216-f35f-4c0b-835a-7950591bbd80";
+    document.body.appendChild(script);
   };
 
-  const prompt = document.createElement("button");
-  prompt.type = "button";
-  prompt.id = "hcp-chat-prompt";
-  prompt.className = "hcp-chat-prompt";
-  prompt.textContent = "Chat with us now";
-  prompt.setAttribute("aria-label", "Open chat");
-
-  const openChat = async () => {
-    await loadChatWidget();
-    window.setTimeout(() => {
-      const chatTrigger = document.querySelector(
-        '[aria-label*="chat" i], [class*="chat"], [id*="chat"], iframe[src*="housecallpro"], iframe[src*="prochat"]'
-      );
-      if (chatTrigger instanceof HTMLElement) chatTrigger.click();
-      else window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    }, 250);
-  };
-
-  prompt.addEventListener("click", openChat);
-  prompt.addEventListener("pointerenter", loadChatWidget, { once: true });
-  prompt.addEventListener("focus", loadChatWidget, { once: true });
-  document.body.appendChild(prompt);
+  // Load chat widget on first user interaction to keep initial load fast
+  ["scroll", "click", "touchstart", "mousemove"].forEach((evt) => {
+    window.addEventListener(evt, loadChatWidget, { once: true, passive: true });
+  });
 };
 
 setupHousecallChat();
