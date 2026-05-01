@@ -1,7 +1,5 @@
 import './globals.css';
 
-import Script from 'next/script';
-
 const heroImage = 'https://www.valiantdoor.com/assets/Valiant%20HOME%20PAGE%20new%20Hero%20Background%20Final%20.png';
 const gtmContainerId = 'GTM-P8L8VN7J';
 
@@ -35,9 +33,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <Script
+        <script
           id="google-tag-manager"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){
