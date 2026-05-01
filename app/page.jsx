@@ -77,7 +77,8 @@ export default function Home() {
             </div>
           </div>
           <figure className="founder-preview-media">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2Fb2436361d20a48f2985dda1b54b0b953%2F13c52c6d5263457f8fdc6b91baa34c65" alt="Certified Residential Door Systems Technician credential for Valentino Ramirez" loading="lazy" decoding="async" width="2000" height="1285" />
+            <img className="founder-preview-card-image" src="https://cdn.builder.io/api/v1/image/assets%2Fb2436361d20a48f2985dda1b54b0b953%2F13c52c6d5263457f8fdc6b91baa34c65" alt="Certified Residential Door Systems Technician credential for Valentino Ramirez" loading="lazy" decoding="async" width="2000" height="1285" />
+            <img className="founder-preview-card-image" src="/assets/valiant-business-card.webp" alt="Business card for Valentino Ramirez, founder of Valiant Garage Door" loading="lazy" decoding="async" width="900" height="589" />
           </figure>
         </div>
       </section>

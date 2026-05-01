@@ -4150,6 +4150,7 @@ textarea {
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 14px;
   align-self: stretch;
   width: 100%;
   height: auto;
@@ -4158,11 +4159,13 @@ textarea {
   justify-content: center;
 }
 
-.founder-preview-media img {
+.founder-preview-media img,
+.founder-preview-card-image {
   width: 100%;
   margin: 0 auto;
   height: auto;
   max-width: 100%;
+  border-radius: 12px;
   object-position: center;
   object-fit: contain;
 }
