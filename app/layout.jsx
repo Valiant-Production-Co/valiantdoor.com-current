@@ -1,10 +1,14 @@
 import './globals.css';
 
+import Script from 'next/script';
+
+const heroImage = 'https://www.valiantdoor.com/assets/Valiant%20HOME%20PAGE%20new%20Hero%20Background%20Final%20.png';
+const gtmContainerId = 'GTM-P8L8VN7J';
+
 export const metadata = {
   title: 'Pleasanton Garage Door Repair | Valiant Garage Door',
   description: 'Same-day garage door repair, spring replacement, opener repair, and emergency service in Pleasanton, Dublin, San Ramon, Livermore, and Fremont.',
   keywords: 'garage door repair pleasanton ca, garage door service pleasanton, emergency garage door repair',
-  // Note: Canonical should be set per-page, not globally in root layout
   openGraph: {
     title: 'Pleasanton Garage Door Repair | Valiant Garage Door',
     description: 'Same-day garage door repair, spring replacement, opener repair, and emergency service in Pleasanton, Dublin, San Ramon, Livermore, and Fremont.',
@@ -12,7 +16,7 @@ export const metadata = {
     url: 'https://www.valiantdoor.com/',
     images: [
       {
-        url: 'https://www.valiantdoor.com/assets/Valiant%20HOME%20PAGE%20new%20Hero%20Background%20Final%20.png',
+        url: heroImage,
         width: 1200,
         height: 630,
         alt: 'Valiant Garage Door',
@@ -23,7 +27,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Pleasanton Garage Door Repair | Valiant Garage Door',
     description: 'Same-day garage door repair, spring replacement, opener repair, and emergency service in Pleasanton, Dublin, San Ramon, Livermore, and Fremont.',
-    image: 'https://www.valiantdoor.com/assets/Valiant%20HOME%20PAGE%20new%20Hero%20Background%20Final%20.png',
+    images: [heroImage],
   },
 };
 
@@ -31,12 +35,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Google Tag Manager - Use proper GTM bootstrap snippet */}
-        {/* GTM container ID requires GTM.start event, not gtag config */}
-        {/* TODO: Implement proper GTM integration with gtag.start */}
-        {/* For now, analytics is disabled to prevent configuration errors */}
-        {/* NOTE: Canonical links should be set per-page, not globally in root layout */}
-        {/* Setting canonical here would make all pages appear as duplicates of homepage */}
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){
+                w[l]=w[l]||[];
+                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],
+                  j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${gtmContainerId}');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -60,7 +75,17 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }

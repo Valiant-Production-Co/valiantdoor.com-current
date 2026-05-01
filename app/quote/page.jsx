@@ -105,7 +105,7 @@ export default function QuotePage() {
         </div>
       </section>
 
-      <style jsx>{`
+      <style>{`
         .quote-header {
           padding: 60px 20px;
           background: linear-gradient(135deg, #0b0b0c 0%, #111214 100%);
