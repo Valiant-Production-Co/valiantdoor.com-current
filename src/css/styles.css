@@ -265,6 +265,23 @@ a {
   font-size: 0.65rem;
 }
 
+/* Button background images */
+.home-seo-actions a.btn.outline:nth-child(1) {
+  background-color: #ae1723;
+  background-image: url(https://cdn.builder.io/api/v1/image/assets%2Fb2436361d20a48f2985dda1b54b0b953%2F206a906ba92c4ab681aaed190d2f1066);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.home-seo-actions a.btn.outline:nth-child(2),
+.founder-preview-actions a.btn.outline:nth-child(2) {
+  background-image: url(https://cdn.builder.io/api/v1/image/assets%2Fb2436361d20a48f2985dda1b54b0b953%2F206a906ba92c4ab681aaed190d2f1066);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 /* Home page */
 .page-home .hero-home,
 .page-services .services-hero {
@@ -1846,7 +1863,7 @@ a {
 
 .hcp-inline-booking-label {
   margin: 0 0 8px;
-  font-size: 0.74rem;
+  font-size: 30px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold-soft);
@@ -1874,8 +1891,64 @@ a {
   opacity: 0.95;
 }
 
+/* Hide specific paragraphs */
+.form-section:nth-of-type(1) > .form-card > p:nth-of-type(4) {
+  font-size: 0;
+  line-height: 0;
+  font-weight: 100;
+  color: rgba(0, 0, 0, 1);
+}
+
+.form-section:nth-of-type(2) > .form-card > p:nth-of-type(2) {
+  font-size: 0;
+  line-height: 0;
+  font-weight: 100;
+  color: rgba(0, 0, 0, 1);
+  border-style: none;
+  border-color: rgba(0, 0, 0, 1);
+}
+
+.form-meta-contact {
+  border-width: 1px;
+  border-style: none;
+  font-size: 0;
+  line-height: 0;
+  font-weight: 100;
+  color: rgba(0, 0, 0, 1);
+}
+
+#hcp-lead-iframe {
+  border-radius: 12px;
+  width: 100%;
+  align-self: center;
+  height: 1200px;
+}
+
+.hcp-lead-embed {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
 .hcp-inline-booking-link {
-  margin: 10px 0 0;
+  height: auto;
+  font-family: "Island Moments", sans-serif;
+  font-size: 34px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: auto;
+  align-self: stretch;
+  flex-grow: 0;
+  border-width: 5px;
+  overflow: hidden;
+  border-color: rgba(95, 89, 10, 1);
+  border-style: double;
+  border-radius: 13px;
+  margin: 10px auto;
+  display: flex;
 }
 
 .hcp-inline-booking-link a {
@@ -1883,6 +1956,17 @@ a {
   text-decoration: underline;
   text-decoration-color: rgba(199, 163, 75, 0.62);
   text-underline-offset: 0.16em;
+  height: auto;
+  object-position: 50% 75%;
+  scale: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .page-quote .form-card {
@@ -1900,6 +1984,26 @@ a {
   font-weight: 400;
   letter-spacing: 0.02em;
   color: var(--gold-soft);
+  border-style: solid;
+  border-color: rgba(240, 179, 13, 1);
+  border-width: 5px;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+#service-locator-title {
+  color: rgba(0, 0, 0, 1);
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: 2px;
+  font-style: italic;
+  text-decoration: underline;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgba(224, 206, 35, 1);
+  border-radius: 1217px;
+  overflow: hidden;
+  background-color: rgba(160, 130, 29, 0.73);
 }
 
 .page-quote .form-card > p {
@@ -1908,8 +2012,37 @@ a {
   margin-right: auto;
 }
 
+.form-section:nth-of-type(1) > .form-card > p:nth-of-type(2) {
+  font-size: 44px;
+  color: rgba(172, 135, 62, 1);
+  font-weight: 900;
+  text-decoration: underline;
+  font-style: italic;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 1px 3px 0 rgba(255, 255, 255, 1);
+  border-style: groove;
+  border-width: 1px;
+}
+
 .quote-service-area-note {
   margin: 0 0 14px;
+  font-size: 0;
+  line-height: 0;
+  font-weight: 100;
+  color: rgba(0, 0, 0, 1);
+}
+
+.form-section:nth-of-type(2) {
+  font-family: "Jolly Lodger", display;
+}
+
+.form-section:nth-of-type(2) .form-card {
+  border-style: none;
+  height: auto;
+  flex-grow: 0;
+  width: auto;
+  align-self: center;
 }
 
 .quote-service-area-grid {
@@ -1924,6 +2057,10 @@ a {
   border-radius: 14px;
   background: linear-gradient(145deg, rgba(199, 163, 75, 0.08), rgba(10, 10, 11, 0.9));
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .quote-service-area-card h3 {
@@ -1933,6 +2070,7 @@ a {
 
 .quote-service-area-card p {
   margin: 0;
+  text-align: center;
   color: var(--muted);
 }
 
@@ -1950,7 +2088,7 @@ a {
   min-width: 0 !important;
   min-height: 820px;
   margin: 0 auto;
-  border: 0 !important;
+  border: 1px solid rgba(236, 245, 243, 1) !important;
   background: transparent;
 }
 
@@ -2016,6 +2154,22 @@ textarea {
   margin-top: 4px;
 }
 
+.form-meta-contact {
+  border-width: 1px;
+  border-style: none;
+  font-size: 0;
+  line-height: 0;
+  font-weight: 100;
+  color: rgba(0, 0, 0, 1);
+}
+
+.form-section:nth-of-type(1) > .form-card > .form-meta:nth-of-type(1) {
+  font-size: 0;
+  line-height: 0;
+  font-weight: 100;
+  color: rgba(0, 0, 0, 1);
+}
+
 .form-actions {
   margin-top: 16px;
   text-align: center;
@@ -2072,6 +2226,68 @@ textarea {
 .footer-links a {
   color: rgba(245, 242, 236, 0.82);
   text-decoration: none;
+  font-size: 20px;
+}
+
+.footer-links a:nth-child(1) {
+  font-family: "Almendra Display", display;
+  border-width: 1px;
+  border-style: none;
+  border-color: rgba(211, 161, 23, 1);
+  color: rgba(244, 187, 4, 0.89);
+  font-weight: 600;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.footer-links a:nth-child(2),
+.footer-links a:nth-child(3),
+.footer-links a:nth-child(4),
+.footer-links a:nth-child(5),
+.footer-links a:nth-child(6),
+.footer-links a:nth-child(7) {
+  border-width: 1px;
+  border-style: none;
+  color: rgba(249, 179, 6, 0.96);
+  font-weight: 600;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.footer-links a:nth-child(2) {
+  border-color: rgba(245, 166, 35, 1);
+  color: rgba(249, 179, 6, 0.96);
+}
+
+.footer-links a:nth-child(3) {
+  color: rgba(246, 177, 6, 0.96);
+}
+
+.footer-links a:nth-child(4) {
+  font-weight: 800;
+  color: rgba(249, 178, 7, 0.96);
+}
+
+.footer-links a:nth-child(5),
+.footer-links a:nth-child(6),
+.footer-links a:nth-child(7) {
+  color: rgba(246, 176, 4, 0.96);
+}
+
+.footer-links a:nth-child(8) {
+  font-family: "Irish Grover", display;
+  color: rgba(245, 166, 35, 1);
+  font-weight: 900;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.footer-links a:nth-child(9) {
+  font-family: "Irish Grover", display;
+  color: rgba(245, 166, 35, 1);
+  font-weight: 900;
+  font-style: italic;
+  text-decoration: underline;
 }
 
 .footer-links a:hover,
@@ -2084,11 +2300,11 @@ textarea {
 }
 
 .footer-legal p:first-child {
-  font-size: clamp(1.08rem, 2.1vw, 1.5rem);
+  font-size: 30px;
+  letter-spacing: 2px;
   font-family: "Brush Script MT", "Snell Roundhand", "Segoe Script", cursive;
   font-weight: 500;
-  color: rgba(233, 211, 157, 0.92);
-  letter-spacing: 0.04em;
+  color: rgba(208, 2, 27, 1);
   text-shadow:
     0 1px 0 rgba(0, 0, 0, 0.6),
     0 0 10px rgba(199, 163, 75, 0.2);
@@ -2096,12 +2312,9 @@ textarea {
 
 .footer-service-area {
   margin-top: 2px;
-  font-size: clamp(0.72rem, 1.2vw, 0.9rem);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: rgba(245, 242, 236, 0.78);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 20px;
+  font-family: "Garamond", serif;
+  color: rgba(208, 2, 27, 1);
 }
 
 .page-sitemap .page-hero {
@@ -3809,8 +4022,12 @@ textarea {
   right: 22px;
   bottom: 90px;
   z-index: 2147483600;
-  background: #0e6fbe;
-  color: #fff;
+  background-color: rgba(245, 166, 35, 1);
+  background-image: url(https://cdn.builder.io/api/v1/image/assets%2Fb2436361d20a48f2985dda1b54b0b953%2F5ce3172617e04f7aae9e488c2f65e7f0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: rgba(255, 255, 255, 1);
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
   padding: 8px 14px;
@@ -3820,6 +4037,7 @@ textarea {
   line-height: 1;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
   cursor: pointer;
+  font-family: "Georgia", serif;
 }
 
 .hcp-chat-prompt:hover,
@@ -4093,7 +4311,7 @@ textarea {
   grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
   gap: 18px;
   align-items: center;
-  border: 1px solid rgba(199, 163, 75, 0.34);
+  border: 1px solid rgba(235, 162, 18, 0.86);
   border-radius: 20px;
   padding: clamp(18px, 3vw, 28px);
   background:
@@ -4119,6 +4337,10 @@ textarea {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  background-image: url(https://cdn.builder.io/api/v1/image/assets%2Fb2436361d20a48f2985dda1b54b0b953%2F5ce3172617e04f7aae9e488c2f65e7f0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .founder-preview-highlights {
@@ -4145,7 +4367,7 @@ textarea {
   margin: 0 auto;
   padding: 16px;
   border-radius: 18px;
-  border: 1px solid rgba(199,163,75,0.34);
+  border: 1px solid rgba(248, 179, 10, 0.34);
   background: rgba(6,6,8,0.76);
   display: flex;
   align-items: center;
@@ -4163,11 +4385,8 @@ textarea {
 .founder-preview-card-image {
   width: 100%;
   margin: 0 auto;
-  height: auto;
-  max-width: 100%;
-  border-radius: 12px;
-  object-position: center;
-  object-fit: contain;
+  object-fit: scale-down;
+  object-position: center top;
 }
 
 @media (max-width: 980px) {
