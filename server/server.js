@@ -281,10 +281,27 @@ function validateBookingBody(body) {
   if (!body.email && !body.phone) {
     errors.push('at least one of email or phone is required');
   }
-  if (body.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(body.email).trim())) {
+  if (body.email && !isValidEmailAddress(String(body.email).trim())) {
     errors.push('email is invalid');
   }
   return errors;
+}
+
+/**
+ * Basic email format check without regex backtracking risk.
+ * Avoids ReDoS-vulnerable patterns.
+ */
+function isValidEmailAddress(email) {
+  if (!email || email.length > 254) return false;
+  const atIdx = email.indexOf('@');
+  if (atIdx < 1 || atIdx !== email.lastIndexOf('@')) return false;
+  const local = email.slice(0, atIdx);
+  const domain = email.slice(atIdx + 1);
+  if (!local || !domain) return false;
+  if (local.includes(' ') || domain.includes(' ')) return false;
+  const dotIdx = domain.lastIndexOf('.');
+  if (dotIdx < 1 || dotIdx >= domain.length - 2) return false;
+  return true;
 }
 
 async function handleBookings(req, res) {

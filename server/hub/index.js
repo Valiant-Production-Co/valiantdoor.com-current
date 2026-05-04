@@ -14,6 +14,16 @@ const webhooksRouter = require('./routes/webhooks');
 const app = express();
 const PORT = Number(process.env.PORT) || 3001;
 
+// ── Fail fast in production if critical secrets are missing ───────────────────
+if (process.env.NODE_ENV === 'production') {
+  if (!process.env.SESSION_SECRET) {
+    throw new Error('SESSION_SECRET must be set in production. See .env.example.');
+  }
+  if (!process.env.ADMIN_PASSWORD) {
+    throw new Error('ADMIN_PASSWORD must be set in production. See .env.example.');
+  }
+}
+
 // ── Trust proxy when running behind nginx / Caddy ─────────────────────────────
 app.set('trust proxy', 1);
 

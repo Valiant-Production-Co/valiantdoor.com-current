@@ -92,8 +92,14 @@ async function createCalendarEvent(booking) {
   const event = {
     summary,
     description,
-    start: { dateTime: start.toISOString(), timeZone: 'America/Los_Angeles' },
-    end: { dateTime: end.toISOString(), timeZone: 'America/Los_Angeles' },
+    start: {
+      dateTime: start.toISOString(),
+      timeZone: process.env.TIMEZONE || 'America/Los_Angeles',
+    },
+    end: {
+      dateTime: end.toISOString(),
+      timeZone: process.env.TIMEZONE || 'America/Los_Angeles',
+    },
   };
 
   if (booking.email) {

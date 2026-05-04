@@ -379,13 +379,13 @@
           body: JSON.stringify(payload),
         })
           .then(function (res) { return res.json().then(function (data) { return { status: res.status, data: data }; }); })
-          .then(function (r) {
+          .then(function (result) {
             setLoading(false);
-            if (r.status === 201 && r.data.ok) {
+            if (result.status === 201 && result.data.ok) {
               form.reset();
-              showNotice('✅ ' + r.data.message, false);
+              showNotice('✅ ' + result.data.message, false);
             } else {
-              var msgs = (r.data.errors || [r.data.error || 'Unexpected error']).join('. ');
+              var msgs = (result.data.errors || [result.data.error || 'Unexpected error']).join('. ');
               showNotice('⚠️ ' + msgs, true);
             }
           })
