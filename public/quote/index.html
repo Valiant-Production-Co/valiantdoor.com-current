@@ -192,7 +192,6 @@
         <div class="form-card">
           <h1 id="quote-title" class="quote-title">Request Garage Door Service in Pleasanton and the Tri-Valley</h1>
           <p>Use this form to request garage door repair, spring replacement, opener service, custom fabrication, maintenance, or same-day emergency help. We respond quickly so customers in Pleasanton and the surrounding Tri-Valley know when to expect follow-up and what service details we need to get the job moving.</p>
-          <p>HOUSECALL PRO LEAD FORM</p>
           <p class="form-meta">
             Serving Pleasanton, Dublin, Livermore, San Ramon, Fremont, and nearby East Bay communities. Email:
             <a href="mailto:vm@valiantdoor.com">vm@valiantdoor.com</a>.
@@ -200,8 +199,58 @@
           </p>
           <p>Tell us whether you need emergency garage door repair, a broken spring replacement, opener troubleshooting, or help with custom fabrication so we can route your request to the right service workflow immediately.</p>
 
-          <div id="book-online" class="hcp-inline-booking" aria-label="Garage door service request form">
-            <p class="hcp-inline-booking-label">Housecall Pro lead form</p>
+          <!-- ── Native booking form (posts to /api/bookings) ── -->
+          <form id="valiant-booking-form" class="valiant-booking-form" novalidate aria-label="Request service form">
+            <div class="vbf-row">
+              <div class="vbf-field">
+                <label for="vbf-name">Full Name <span aria-hidden="true">*</span></label>
+                <input id="vbf-name" name="name" type="text" autocomplete="name" required placeholder="Jane Smith" />
+              </div>
+              <div class="vbf-field">
+                <label for="vbf-service">Service Needed <span aria-hidden="true">*</span></label>
+                <select id="vbf-service" name="service" required>
+                  <option value="" disabled selected>Select a service…</option>
+                  <option value="Garage Door Repair">Garage Door Repair</option>
+                  <option value="Spring Replacement">Spring Replacement</option>
+                  <option value="Opener Repair / Install">Opener Repair / Install</option>
+                  <option value="Emergency Service">Emergency Service</option>
+                  <option value="New Door Installation">New Door Installation</option>
+                  <option value="Maintenance / Tune-Up">Maintenance / Tune-Up</option>
+                  <option value="Custom Fabrication">Custom Fabrication</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="vbf-row">
+              <div class="vbf-field">
+                <label for="vbf-email">Email</label>
+                <input id="vbf-email" name="email" type="email" autocomplete="email" placeholder="jane@example.com" />
+              </div>
+              <div class="vbf-field">
+                <label for="vbf-phone">Phone</label>
+                <input id="vbf-phone" name="phone" type="tel" autocomplete="tel" placeholder="(925) 555-0100" />
+              </div>
+            </div>
+            <div class="vbf-field">
+              <label for="vbf-address">Service Address</label>
+              <input id="vbf-address" name="address" type="text" autocomplete="street-address" placeholder="123 Main St, Pleasanton CA 94588" />
+            </div>
+            <div class="vbf-field">
+              <label for="vbf-preferred-time">Preferred Date / Time Window</label>
+              <input id="vbf-preferred-time" name="preferred_time" type="text" placeholder="e.g. Tue Jun 17 morning, or 2026-06-17T09:00" />
+            </div>
+            <div class="vbf-field">
+              <label for="vbf-notes">Additional Notes</label>
+              <textarea id="vbf-notes" name="notes" rows="3" placeholder="Describe the issue, gate code, or anything else we should know…"></textarea>
+            </div>
+            <div class="vbf-notice" aria-live="polite" id="vbf-notice" hidden></div>
+            <button class="vbf-submit" type="submit">Request Service</button>
+            <p class="form-meta" style="margin-top:10px">* Name and service are required. Provide at least one of email or phone.</p>
+          </form>
+          <!-- ── End native booking form ── -->
+
+          <div id="book-online" class="hcp-inline-booking" aria-label="Housecall Pro booking form">
+            <p class="hcp-inline-booking-label">Also available: Housecall Pro booking</p>
             <!--Start of Housecallpro Lead Capture code-->
             <script
               async
@@ -273,5 +322,100 @@
     </footer>
 
     <script src="/js/main.min.js"></script>
-  </body>
+    <script>
+    /* ── Valiant booking form handler ───────────────────────────────────── */
+    (function () {
+      var form = document.getElementById('valiant-booking-form');
+      var notice = document.getElementById('vbf-notice');
+      if (!form) return;
+
+      function showNotice(msg, isError) {
+        notice.textContent = msg;
+        notice.className = 'vbf-notice ' + (isError ? 'vbf-notice-error' : 'vbf-notice-success');
+        notice.hidden = false;
+        notice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function setLoading(loading) {
+        var btn = form.querySelector('.vbf-submit');
+        btn.disabled = loading;
+        btn.textContent = loading ? 'Sending…' : 'Request Service';
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        notice.hidden = true;
+
+        var name = form.querySelector('[name="name"]').value.trim();
+        var service = form.querySelector('[name="service"]').value;
+        var email = form.querySelector('[name="email"]').value.trim();
+        var phone = form.querySelector('[name="phone"]').value.trim();
+
+        if (!name || name.length < 2) {
+          return showNotice('Please enter your full name.', true);
+        }
+        if (!service) {
+          return showNotice('Please select the service you need.', true);
+        }
+        if (!email && !phone) {
+          return showNotice('Please provide at least one of email or phone so we can reach you.', true);
+        }
+
+        var payload = {
+          name: name,
+          service: service,
+          email: email || undefined,
+          phone: phone || undefined,
+          address: form.querySelector('[name="address"]').value.trim() || undefined,
+          preferred_time: form.querySelector('[name="preferred_time"]').value.trim() || undefined,
+          notes: form.querySelector('[name="notes"]').value.trim() || undefined,
+        };
+
+        setLoading(true);
+
+        fetch('/api/bookings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+          .then(function (res) { return res.json().then(function (data) { return { status: res.status, data: data }; }); })
+          .then(function (r) {
+            setLoading(false);
+            if (r.status === 201 && r.data.ok) {
+              form.reset();
+              showNotice('✅ ' + r.data.message, false);
+            } else {
+              var msgs = (r.data.errors || [r.data.error || 'Unexpected error']).join('. ');
+              showNotice('⚠️ ' + msgs, true);
+            }
+          })
+          .catch(function () {
+            setLoading(false);
+            showNotice('⚠️ Network error. Please call us at (925) 409-4974 or email vm@valiantdoor.com.', true);
+          });
+      });
+    })();
+    </script>
+    <style>
+    /* ── Valiant booking form styles ─────────────────────────────────────── */
+    .valiant-booking-form{margin:20px 0 24px}
+    .vbf-row{display:flex;gap:14px;flex-wrap:wrap}
+    .vbf-row .vbf-field{flex:1;min-width:200px}
+    .vbf-field{margin-bottom:14px;display:flex;flex-direction:column}
+    .vbf-field label{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#c7a34b;margin-bottom:5px;font-weight:600}
+    .vbf-field input,
+    .vbf-field select,
+    .vbf-field textarea{background:#0a0a0c;border:1px solid #333;border-radius:7px;color:#e8e0cc;padding:9px 12px;font-size:.88rem;font-family:inherit;transition:border-color .2s}
+    .vbf-field input:focus,
+    .vbf-field select:focus,
+    .vbf-field textarea:focus{outline:none;border-color:#c7a34b}
+    .vbf-field select option{background:#0f1012}
+    .vbf-field textarea{resize:vertical;min-height:76px}
+    .vbf-submit{appearance:none;border:1px solid #c7a34b;border-radius:999px;background:rgba(10,10,11,.9);color:#c7a34b;font-family:inherit;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:box-shadow .2s,opacity .2s}
+    .vbf-submit:hover:not(:disabled),.vbf-submit:focus-visible{box-shadow:0 0 18px rgba(199,163,75,.36);opacity:.95}
+    .vbf-submit:disabled{opacity:.5;cursor:not-allowed}
+    .vbf-notice{padding:12px 16px;border-radius:8px;font-size:.85rem;margin-bottom:14px}
+    .vbf-notice-success{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);color:#4ade80}
+    .vbf-notice-error{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:#fca5a5}
+    </style>
 </html>

@@ -1,2 +1,7 @@
 .vercel
 .env*.local
+
+# Hub server – runtime data and secrets
+server/hub/.env
+server/hub/data/
+server/hub/node_modules/

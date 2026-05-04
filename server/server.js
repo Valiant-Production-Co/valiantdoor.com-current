@@ -1,4 +1,6 @@
 const crypto = require('crypto');
+const fs = require('fs');
+const os = require('os');
 const http = require('http');
 const https = require('https');
 
@@ -267,6 +269,86 @@ async function handleIndexNowWebhook(req, res) {
   }
 }
 
+/** Validate booking fields; returns array of error strings. */
+function validateBookingBody(body) {
+  const errors = [];
+  if (!body.name || String(body.name).trim().length < 2) {
+    errors.push('name is required (min 2 characters)');
+  }
+  if (!body.service || String(body.service).trim().length < 2) {
+    errors.push('service is required');
+  }
+  if (!body.email && !body.phone) {
+    errors.push('at least one of email or phone is required');
+  }
+  if (body.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(body.email).trim())) {
+    errors.push('email is invalid');
+  }
+  return errors;
+}
+
+async function handleBookings(req, res) {
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST,OPTIONS');
+    sendJson(res, 405, { error: 'Method not allowed' });
+    return;
+  }
+
+  let body;
+  try {
+    const rawBody = await readRawBody(req);
+    const ct = String(req.headers['content-type'] || '');
+    if (ct.includes('application/json')) {
+      body = rawBody.length ? JSON.parse(rawBody.toString('utf8')) : {};
+    } else if (ct.includes('application/x-www-form-urlencoded')) {
+      body = Object.fromEntries(new URLSearchParams(rawBody.toString('utf8')));
+    } else {
+      body = rawBody.length ? JSON.parse(rawBody.toString('utf8')) : {};
+    }
+  } catch {
+    sendJson(res, 400, { ok: false, errors: ['Invalid request body'] });
+    return;
+  }
+
+  const errors = validateBookingBody(body);
+  if (errors.length) {
+    sendJson(res, 400, { ok: false, errors });
+    return;
+  }
+
+  const booking = {
+    id: crypto.randomUUID(),
+    name: String(body.name).trim(),
+    email: body.email ? String(body.email).trim().toLowerCase() : null,
+    phone: body.phone ? String(body.phone).trim() : null,
+    address: body.address ? String(body.address).trim() : null,
+    service: String(body.service).trim(),
+    preferred_time: body.preferred_time ? String(body.preferred_time).trim() : null,
+    notes: body.notes ? String(body.notes).trim() : null,
+    status: 'pending',
+    created_at: new Date().toISOString(),
+  };
+
+  // Persist to /tmp/bookings.json (best-effort; ephemeral on serverless)
+  try {
+    const filePath = `${os.tmpdir()}/valiant_bookings.json`;
+    let list = [];
+    if (fs.existsSync(filePath)) {
+      list = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    }
+    list.push(booking);
+    fs.writeFileSync(filePath, JSON.stringify(list, null, 2), 'utf8');
+  } catch {
+    // Non-fatal on serverless
+  }
+
+  sendJson(res, 201, {
+    ok: true,
+    id: booking.id,
+    message: 'Booking received. We will contact you shortly to confirm your appointment.',
+  });
+}
+
 module.exports = async (req, res) => {
   const url = new URL(req.url, 'https://www.valiantdoor.com');
   const path = url.pathname;
@@ -283,6 +365,11 @@ module.exports = async (req, res) => {
 
   if (path === '/api/indexnow-webhook') {
     await handleIndexNowWebhook(req, res);
+    return;
+  }
+
+  if (path === '/api/bookings') {
+    await handleBookings(req, res);
     return;
   }
 

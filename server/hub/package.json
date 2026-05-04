@@ -1,0 +1,22 @@
+{
+  "name": "valiant-hub",
+  "version": "1.0.0",
+  "description": "Valiant Garage Door – VM booking/integration hub",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "googleapis": "^140.0.1"
+  }
+}
