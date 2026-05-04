@@ -48,10 +48,36 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
       maxAge: 8 * 60 * 60 * 1000, // 8 hours
     },
   })
 );
+
+// ── CSRF protection for admin form routes ─────────────────────────────────────
+// Generate and persist a CSRF token in the session; validate it on state-
+// changing POST requests to admin paths.
+app.use((req, res, next) => {
+  // Seed a CSRF token once per session
+  if (!req.session.csrfToken) {
+    const { randomBytes } = require('crypto');
+    req.session.csrfToken = randomBytes(24).toString('hex');
+  }
+  // Expose helper so admin routes can embed the token in forms
+  res.locals.csrfToken = req.session.csrfToken;
+
+  // Validate CSRF token on admin form POST submissions
+  const adminPostPaths = ['/admin/login', '/admin/logout'];
+  if (req.method === 'POST' && adminPostPaths.includes(req.path)) {
+    const submitted = req.body && req.body._csrf;
+    if (!submitted || submitted !== req.session.csrfToken) {
+      res.status(403).send('<p>Invalid or missing CSRF token. Please reload and try again.</p>');
+      return;
+    }
+  }
+
+  next();
+});
 
 // ── Routes ────────────────────────────────────────────────────────────────────
 app.use(bookingsRouter);

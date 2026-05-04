@@ -6,7 +6,7 @@ const { listBookings } = require('../lib/db');
 const router = Router();
 
 /** Render a simple HTML admin dashboard. */
-function renderAdmin(bookings) {
+function renderAdmin(bookings, csrfToken) {
   const rows = bookings
     .map((b) => {
       const gcal = b.gcal_event_id
@@ -70,6 +70,7 @@ function renderAdmin(bookings) {
   <h1>Valiant Hub — Bookings</h1>
   <span class="count">${bookings.length} record${bookings.length !== 1 ? 's' : ''}</span>
   <form class="logout" action="/admin/logout" method="post">
+    <input type="hidden" name="_csrf" value="${esc(csrfToken)}">
     <button type="submit">Log out</button>
   </form>
 </div>
@@ -137,6 +138,7 @@ router.get('/admin/login', (req, res) => {
   <h1>Valiant Hub</h1>
   ${req.query.error ? '<p class="err">Incorrect password. Try again.</p>' : ''}
   <form method="post" action="/admin/login">
+    <input type="hidden" name="_csrf" value="${esc(res.locals.csrfToken || '')}">
     <label for="password">Admin Password</label>
     <input id="password" name="password" type="password" autocomplete="current-password" required>
     <button type="submit">Sign in</button>
@@ -165,7 +167,7 @@ router.post('/admin/logout', (req, res) => {
 // ── Dashboard ──────────────────────────────────────────────────────────────────
 router.get('/admin', requireAdmin, (req, res) => {
   const bookings = listBookings();
-  res.send(renderAdmin(bookings));
+  res.send(renderAdmin(bookings, res.locals.csrfToken));
 });
 
 module.exports = router;
