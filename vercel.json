@@ -183,6 +183,56 @@
       "permanent": false
     },
     {
+      "source": "/COMMUNITY-PROJECT",
+      "destination": "/community-garage-door-project",
+      "permanent": true
+    },
+    {
+      "source": "/services/PLEASANTON-BROKEN-SPRING-REPAIR",
+      "destination": "/garage-door-spring-replacement",
+      "permanent": true
+    },
+    {
+      "source": "/SERVICES/PLEASANTON-BROKEN-SPRING-REPAIR",
+      "destination": "/garage-door-spring-replacement",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-emergency-repair.html",
+      "destination": "/how-to-emergency-repair",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-repair-east-dublin",
+      "destination": "/garage-door-repair-dublin-ca",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-repair-near-fallon-road-dublin",
+      "destination": "/garage-door-repair-dublin-ca",
+      "permanent": true
+    },
+    {
+      "source": "/blog/garage-door-off-track-repair",
+      "destination": "/blog/garage-door-off-track",
+      "permanent": true
+    },
+    {
+      "source": "/blog/garage-door-safety-sensor-how-to-fix-it",
+      "destination": "/blog/garage-door-sensor-problems",
+      "permanent": true
+    },
+    {
+      "source": "/Garage-Door-Service-Excellence",
+      "destination": "/mission",
+      "permanent": true
+    },
+    {
+      "source": "/search-atlas-growth",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
@@ -206,14 +256,6 @@
   ],
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/SERVICES/PLEASANTON-BROKEN-SPRING-REPAIR",
-      "destination": "/services/PLEASANTON-BROKEN-SPRING-REPAIR/index.html"
-    },
-    {
-      "source": "/SERVICES/PLEASANTON-BROKEN-SPRING-REPAIR/",
-      "destination": "/services/PLEASANTON-BROKEN-SPRING-REPAIR/index.html"
-    },
     {
       "source": "/blog/how-to-tell-if-your-garage-door-needs-emergency-repair",
       "destination": "/blog/how-to-tell-if-your-garage-door-needs-emergency-repair/index.html"
