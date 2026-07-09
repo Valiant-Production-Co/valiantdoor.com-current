@@ -1,61 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.valiantdoor.com/Garage-Door-Service-Excellence</loc>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
-      <image:title>Valiant Garage Door shield logo</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp</image:loc>
-      <image:title>Valiant Garage Door</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/google.svg</image:loc>
-      <image:title>Google Business Profile</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/yelp.svg</image:loc>
-      <image:title>Yelp Reviews</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/facebook.svg</image:loc>
-      <image:title>Valiant Garage Door on Facebook</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/instagram.svg</image:loc>
-      <image:title>Valiant Garage Door on Instagram</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/youtube.svg</image:loc>
-      <image:title>Valiant Garage Door on YouTube</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/tiktok.svg</image:loc>
-      <image:title>Valiant Garage Door on TikTok</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/nextdoor.svg</image:loc>
-      <image:title>Valiant Garage Door on Nextdoor</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/thumbtack.svg</image:loc>
-      <image:title>Valiant Garage Door on Thumbtack</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/service-excellence/service-excellence-hero.webp</image:loc>
-      <image:title>Blueprint for Service Excellence with Valiant shield technical drawing</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/service-excellence/boutique-master-operator-model.webp</image:loc>
-      <image:title>The Transition to the Boutique Master Operator Model with IDA certification and operational summary</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-v-polished.webp</image:loc>
-      <image:title>Valiant Garage Door V mark</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://www.valiantdoor.com/about-valentino-ramirez</loc>
     <image:image>
       <image:loc>https://www.valiantdoor.com/assets/home-optimized/shield-192.webp</image:loc>
@@ -107,65 +52,6 @@
     <image:image>
       <image:loc>https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg</image:loc>
       <image:title>Map location pin</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.valiantdoor.com/amazon-alexa</loc>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
-      <image:title>Valiant Garage Door shield logo</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp</image:loc>
-      <image:title>Valiant Garage Door</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/google.svg</image:loc>
-      <image:title>Google Business Profile</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/yelp.svg</image:loc>
-      <image:title>Yelp Reviews</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/facebook.svg</image:loc>
-      <image:title>Valiant Garage Door on Facebook</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/instagram.svg</image:loc>
-      <image:title>Valiant Garage Door on Instagram</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/youtube.svg</image:loc>
-      <image:title>Valiant Garage Door on YouTube</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/tiktok.svg</image:loc>
-      <image:title>Valiant Garage Door on TikTok</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/nextdoor.svg</image:loc>
-      <image:title>Valiant Garage Door on Nextdoor</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/thumbtack.svg</image:loc>
-      <image:title>Valiant Garage Door on Thumbtack</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/alexa/valiant-alexa-icon-512.webp</image:loc>
-      <image:title>Valiant Garage Door Alexa app icon</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/credentials/bbb-certificate-of-accreditation-valiant-garage-door.webp</image:loc>
-      <image:title>Better Business Bureau certificate of accreditation for Valiant Garage Door valid through February 2027</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/credentials/duns-registered-valiant-garage-door.webp</image:loc>
-      <image:title>Dun and Bradstreet D-U-N-S registered badge</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-v-polished.webp</image:loc>
-      <image:title>Valiant Garage Door V mark</image:title>
     </image:image>
   </url>
   <url>
@@ -852,49 +738,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.valiantdoor.com/blog/garage-door-off-track-repair</loc>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
-      <image:title>Valiant shield</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp</image:loc>
-      <image:title>Valiant Garage Door</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/google.svg</image:loc>
-      <image:title>Google Business Profile</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/yelp.svg</image:loc>
-      <image:title>Yelp Reviews</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/facebook.svg</image:loc>
-      <image:title>Valiant Garage Door on Facebook</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/instagram.svg</image:loc>
-      <image:title>Valiant Garage Door on Instagram</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/youtube.svg</image:loc>
-      <image:title>Valiant Garage Door on YouTube</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/tiktok.svg</image:loc>
-      <image:title>Valiant Garage Door on TikTok</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/nextdoor.svg</image:loc>
-      <image:title>Valiant Garage Door on Nextdoor</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/thumbtack.svg</image:loc>
-      <image:title>Valiant Garage Door on Thumbtack</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://www.valiantdoor.com/blog/garage-door-opener-not-working-fix</loc>
     <image:image>
       <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
@@ -1162,53 +1005,6 @@
     <image:image>
       <image:loc>https://www.valiantdoor.com/assets/icons/thumbtack.svg</image:loc>
       <image:title>Valiant Garage Door on Thumbtack</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.valiantdoor.com/blog/garage-door-safety-sensor-how-to-fix-it</loc>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
-      <image:title>Valiant shield</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp</image:loc>
-      <image:title>Valiant Garage Door</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/google.svg</image:loc>
-      <image:title>Google Business Profile</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/yelp.svg</image:loc>
-      <image:title>Yelp Reviews</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/facebook.svg</image:loc>
-      <image:title>Valiant Garage Door on Facebook</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/instagram.svg</image:loc>
-      <image:title>Valiant Garage Door on Instagram</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/youtube.svg</image:loc>
-      <image:title>Valiant Garage Door on YouTube</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/tiktok.svg</image:loc>
-      <image:title>Valiant Garage Door on TikTok</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/nextdoor.svg</image:loc>
-      <image:title>Valiant Garage Door on Nextdoor</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/thumbtack.svg</image:loc>
-      <image:title>Valiant Garage Door on Thumbtack</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-v-polished.webp</image:loc>
-      <image:title>Valiant V</image:title>
     </image:image>
   </url>
   <url>
@@ -3581,49 +3377,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.valiantdoor.com/garage-door-repair-east-dublin</loc>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
-      <image:title>Valiant shield</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp</image:loc>
-      <image:title>Valiant Garage Door</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/google.svg</image:loc>
-      <image:title>Google Business Profile</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/yelp.svg</image:loc>
-      <image:title>Yelp Reviews</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/facebook.svg</image:loc>
-      <image:title>Valiant Garage Door on Facebook</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/instagram.svg</image:loc>
-      <image:title>Valiant Garage Door on Instagram</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/youtube.svg</image:loc>
-      <image:title>Valiant Garage Door on YouTube</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/tiktok.svg</image:loc>
-      <image:title>Valiant Garage Door on TikTok</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/nextdoor.svg</image:loc>
-      <image:title>Valiant Garage Door on Nextdoor</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/thumbtack.svg</image:loc>
-      <image:title>Valiant Garage Door on Thumbtack</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://www.valiantdoor.com/garage-door-repair-fremont</loc>
     <image:image>
       <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
@@ -3762,49 +3515,6 @@
     <image:image>
       <image:loc>https://www.valiantdoor.com/assets/logo/valiant-v-polished.webp</image:loc>
       <image:title>Valiant Garage Door V mark</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.valiantdoor.com/garage-door-repair-near-fallon-road-dublin</loc>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
-      <image:title>Valiant shield</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp</image:loc>
-      <image:title>Valiant Garage Door</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/google.svg</image:loc>
-      <image:title>Google Business Profile</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/yelp.svg</image:loc>
-      <image:title>Yelp Reviews</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/facebook.svg</image:loc>
-      <image:title>Valiant Garage Door on Facebook</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/instagram.svg</image:loc>
-      <image:title>Valiant Garage Door on Instagram</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/youtube.svg</image:loc>
-      <image:title>Valiant Garage Door on YouTube</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/tiktok.svg</image:loc>
-      <image:title>Valiant Garage Door on TikTok</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/nextdoor.svg</image:loc>
-      <image:title>Valiant Garage Door on Nextdoor</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/thumbtack.svg</image:loc>
-      <image:title>Valiant Garage Door on Thumbtack</image:title>
     </image:image>
   </url>
   <url>
@@ -5248,49 +4958,6 @@
     <image:image>
       <image:loc>https://www.valiantdoor.com/assets/logo/valiant-v-polished.webp</image:loc>
       <image:title>Valiant V</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.valiantdoor.com/search-atlas-growth</loc>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp</image:loc>
-      <image:title>Valiant shield</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp</image:loc>
-      <image:title>Valiant Garage Door</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/google.svg</image:loc>
-      <image:title>Google Business Profile</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/yelp.svg</image:loc>
-      <image:title>Yelp Reviews</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/facebook.svg</image:loc>
-      <image:title>Valiant Garage Door on Facebook</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/instagram.svg</image:loc>
-      <image:title>Valiant Garage Door on Instagram</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/youtube.svg</image:loc>
-      <image:title>Valiant Garage Door on YouTube</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/tiktok.svg</image:loc>
-      <image:title>Valiant Garage Door on TikTok</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/nextdoor.svg</image:loc>
-      <image:title>Valiant Garage Door on Nextdoor</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.valiantdoor.com/assets/icons/thumbtack.svg</image:loc>
-      <image:title>Valiant Garage Door on Thumbtack</image:title>
     </image:image>
   </url>
   <url>
