@@ -3,9 +3,24 @@
 //
 // Requires the env var HOUSECALL_PRO_API_KEY (Bearer token created by a
 // Housecall Pro Admin in the App Store -> API section; lead creation requires
-// a MAX plan). Optional: HOUSECALL_PRO_LEAD_SOURCE to tag the lead source.
+// a MAX plan). Optional: HOUSECALL_PRO_LEAD_SOURCE to override the lead source
+// name (must exactly match a source in Housecall Pro; defaults to "Lead Form").
+// Creates a customer via POST https://api.housecallpro.com/customers.
 
-const HCP_LEADS_ENDPOINT = 'https://api.housecallpro.com/v1/leads';
+const HCP_CUSTOMERS_ENDPOINT = 'https://api.housecallpro.com/customers';
+const DEFAULT_LEAD_SOURCE = 'Lead Form';
+
+// The lead source must exactly match a source configured in Housecall Pro.
+// Guard against an env var that was set to something invalid (e.g. an embed
+// snippet or HTML): only accept a short, plain-text name.
+function resolveLeadSource() {
+  const configured = (process.env.HOUSECALL_PRO_LEAD_SOURCE || '').trim();
+  const looksLikePlainName =
+    configured &&
+    configured.length <= 60 &&
+    !/[<>{}\n\r]/.test(configured);
+  return looksLikePlainName ? configured : DEFAULT_LEAD_SOURCE;
+}
 
 function readJsonBody(req) {
   return new Promise((resolve) => {
@@ -131,20 +146,18 @@ module.exports = async (req, res) => {
     notesLines.push('Customer indicated photos were attached on the website form.');
   }
 
-  const customer = { first_name, last_name };
-  if (email && isEmail(email)) customer.email = email;
-  if (mobile_number) customer.mobile_number = mobile_number;
-
+  // Housecall Pro's /customers endpoint expects flat fields (no wrapper).
   const payload = {
-    customer,
+    first_name,
+    last_name,
+    lead_source: resolveLeadSource(),
     notes: notesLines.join('\n'),
   };
-  if (process.env.HOUSECALL_PRO_LEAD_SOURCE) {
-    payload.lead_source = process.env.HOUSECALL_PRO_LEAD_SOURCE;
-  }
+  if (email && isEmail(email)) payload.email = email;
+  if (mobile_number) payload.mobile_number = mobile_number;
 
   // Require at least one way to contact the lead.
-  if (!customer.email && !customer.mobile_number) {
+  if (!payload.email && !payload.mobile_number) {
     res.statusCode = 400;
     res.end(
       JSON.stringify({ ok: false, error: 'A phone number or email is required.' })
@@ -153,7 +166,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const hcpRes = await fetch(HCP_LEADS_ENDPOINT, {
+    const hcpRes = await fetch(HCP_CUSTOMERS_ENDPOINT, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
