@@ -2,18 +2,19 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://www.valiantdoor.com/sitemap-pages.xml</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.valiantdoor.com/sitemap-blog.xml</loc>
-    <lastmod>2026-06-26</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.valiantdoor.com/sitemap-searchatlas-growth.xml</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-08-16</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.valiantdoor.com/sitemap-images.xml</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-08-17</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://www.valiantdoor.com/sitemap-video.xml</loc>
+    <lastmod>2026-08-16</lastmod>
+  </sitemap>
+  <sitemap><loc>https://www.valiantdoor.com/sitemap-portfolio.xml</loc><lastmod>2026-10-09</lastmod></sitemap>
 </sitemapindex>

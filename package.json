@@ -8,10 +8,22 @@
     "lib": "lib"
   },
   "scripts": {
+    "vercel-build": "node scripts/refresh-related-projects.cjs && node scripts/refresh-seo-reference.cjs && node scripts/refresh-seo-completion.cjs && node scripts/refresh-page-styles.cjs && node scripts/refresh-business-credentials.cjs && node scripts/refresh-tracking-assets.cjs && node scripts/inject-speed-insights.mjs && node scripts/remove-obsolete-searchatlas.cjs && node scripts/refresh-video-url-semantics.cjs && node scripts/refresh-image-dimensions.cjs",
     "dev": "node server.js",
     "start": "node server.js",
-    "test": "node -e \"require('./api/authority-dashboard.js'); console.log('authority dashboard api ok')\" && npm run validate:indexing",
-    "validate:indexing": "python3 scripts/validate_indexing_contract.py"
+    "test": "node scripts/refresh-business-credentials.cjs && node -e \"require('./api/authority-dashboard.js'); console.log('authority dashboard api ok')\" && node tests/test-blog-publishing.cjs && node tests/test-blog-sync.cjs && npm run validate:indexing && python3 scripts/validate_site_seo.py && node --test tests/business-schema.test.cjs tests/nextdoor-attribution.test.cjs && npm run test:tracking && npm run test:site-audit && npm run test:seo-completion && npm run test:seo-reference && npm run test:editorial-copy && npm run test:agent-discovery && npm run test:spring-calculator && npm run test:surgical-fixes",
+    "validate:indexing": "python3 scripts/validate_indexing_contract.py",
+    "sync:reviews": "node --env-file-if-exists=/vercel/share/.env.project scripts/sync-review-schema.mjs",
+    "index:site": "node index-site.js",
+    "search-console:dry-run": "node index-site.js --dry-run",
+    "test:tracking": "node --test tests/marketing-tracking.test.cjs",
+    "test:site-audit": "node --test tests/page-styles.test.cjs tests/faq-schema.test.cjs tests/google-measurement-csp.test.cjs tests/site-audit-navigation.test.cjs",
+    "test:seo-reference": "node --test tests/seo-reference.test.cjs",
+    "test:editorial-copy": "node --test tests/editorial-copy.test.cjs",
+    "test:seo-completion": "node scripts/refresh-seo-completion.cjs && node --test tests/seo-completion.test.cjs",
+    "test:agent-discovery": "node --test tests/webmcp.test.cjs tests/ai-catalog.test.cjs tests/agent-discovery-assets.test.cjs",
+    "test:spring-calculator": "node --test tests/spring-calculator.test.cjs",
+    "test:surgical-fixes": "CHAT_TEST_MINIFIED=1 node --test tests/clarity-bootstrap.test.cjs tests/obsolete-searchatlas.test.cjs tests/blog-toc.test.cjs tests/video-url-semantics.test.cjs tests/image-dimensions.test.cjs tests/chat-on-demand.test.cjs tests/shared-asset-refresh.test.cjs"
   },
   "repository": {
     "type": "git",
@@ -26,9 +38,24 @@
   },
   "homepage": "https://github.com/valiantdoor-web/valiantdoor.com-current#readme",
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.6.1",
+    "@vercel/speed-insights": "^2.0.0",
     "cheerio": "^1.2.0",
+    "googleapis": "^173.0.0",
     "openai": "^6.44.0",
     "sharp": "^0.35.3"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "clean-css": "5.3.3",
+    "jsdom": "30.1.2"
+  },
+  "overrides": {
+    "@vercel/cli-config": {
+      "zod": "4.6.6"
+    }
+  }
 }

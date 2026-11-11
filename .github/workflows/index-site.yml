@@ -1,0 +1,81 @@
+name: Search Console Sitemap and Inspection
+
+# Supported Google Search Console workflow:
+# - every run submits the canonical sitemap;
+# - push runs inspect only changed canonical pages;
+# - manual runs inspect every canonical page.
+# URL Inspection reports status; it does not request indexing.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: search-console-site
+  cancel-in-progress: false
+
+jobs:
+  search-console:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - run: npm ci
+
+      - name: Determine changed page URLs
+        if: github.event_name == 'push'
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          BASE="$BEFORE"
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "${BASE}^{commit}" 2>/dev/null; then
+            if git rev-parse HEAD~1 >/dev/null 2>&1; then BASE="HEAD~1"; else BASE=""; fi
+          fi
+          if [ -z "$BASE" ]; then
+            echo "No base commit to diff; inspecting nothing (use a manual run for full inspection)."
+            FILES=""
+          else
+            echo "Diffing $BASE..$AFTER"
+            FILES=$(git diff --name-only "$BASE" "$AFTER" -- public | grep '\.html$' || true)
+          fi
+          echo "Changed HTML files:"; echo "$FILES"
+          URLS=$(printf '%s\n' "$FILES" | node -e '
+            const base="https://www.valiantdoor.com";
+            const rl=require("readline").createInterface({input:process.stdin});
+            const out=new Set();
+            rl.on("line",(f)=>{
+              f=f.trim();
+              if(!f.startsWith("public/")||!f.endsWith(".html")) return;
+              let p=f.slice("public".length).replace(/index\.html$/,"/").replace(/\.html$/,"");
+              if(p!=="/"&&p.endsWith("/")) p=p.slice(0,-1);
+              out.add(base+(p===""?"/":p));
+            });
+            rl.on("close",()=>process.stdout.write([...out].join("\n")));
+          ')
+          echo "Mapped URLs:"; echo "$URLS"
+          echo "INDEX_MODE=changed" >> "$GITHUB_ENV"
+          {
+            echo "INDEX_URLS<<INDEX_EOF"
+            echo "$URLS"
+            echo "INDEX_EOF"
+          } >> "$GITHUB_ENV"
+
+      - name: Submit sitemap and inspect selected URLs
+        env:
+          GOOGLE_SEARCH_CONSOLE_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_KEY }}
+          LEGACY_INDEXING_KEY: ${{ secrets.INDEXING_KEY }}
+        run: |
+          KEY="${GOOGLE_SEARCH_CONSOLE_KEY:-$LEGACY_INDEXING_KEY}"
+          if [ -z "$KEY" ]; then
+            echo "::error::Set the GOOGLE_SEARCH_CONSOLE_KEY repository secret. INDEXING_KEY remains a temporary fallback."
+            exit 1
+          fi
+          export GOOGLE_SEARCH_CONSOLE_KEY="$KEY"
+          node index-site.js

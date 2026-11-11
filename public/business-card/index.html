@@ -1,7 +1,13 @@
 <!DOCTYPE html><html lang="en"><head>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script async src="https://594683.tctm.co/t.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0b0b0d">
     <title>Valiant Digital Business Card</title>
     <meta name="description" content="Save and share the Valiant Garage Door digital business card for service requests, referrals, reviews, and booking.">
@@ -16,6 +22,10 @@
     <meta name="twitter:title" content="Valiant Garage Door Digital Business Card">
     <meta name="twitter:description" content="Save Valiant Garage Door for service requests, reviews, booking, and referrals.">
     <meta name="twitter:image" content="https://www.valiantdoor.com/assets/valiant-business-card.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/global-chrome.min.css?v=fa7313ee4a0f">
     <style>
       :root {
         color-scheme: dark;
@@ -66,7 +76,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, rgba(0,0,0,0.48), rgba(0,0,0,0.10)), url('/assets/valiant-business-card.png') center/cover no-repeat;
+        background: linear-gradient(90deg, rgba(0,0,0,0.48), rgba(0,0,0,0.10)), url('/assets/valiant-business-card.webp') center/cover no-repeat;
         opacity: 0.18;
         z-index: -2;
       }
@@ -85,7 +95,16 @@
         filter: drop-shadow(0 10px 22px rgba(0,0,0,0.45));
       }
       .brand-kicker { margin: 0 0 4px; color: var(--gold-2); text-transform: uppercase; letter-spacing: .18em; font-size: .74rem; font-weight: 800; }
-      .brand-name { margin: 0; font-size: clamp(1.9rem, 7vw, 4.1rem); line-height: .92; letter-spacing: -.045em; }
+      .brand-name {
+        margin: 0;
+        color: var(--gold-2);
+        font-family: "Great Vibes", "Brush Script MT", "Snell Roundhand", "Segoe Script", cursive;
+        font-size: clamp(3rem, 8vw, 5.6rem);
+        font-weight: 400;
+        line-height: .82;
+        letter-spacing: .01em;
+        text-shadow: 0 8px 28px rgba(0, 0, 0, .58);
+      }
       .owner { margin: 12px 0 0; color: var(--muted); font-size: 1.04rem; }
       .owner strong { color: var(--text); }
       .summary { margin: 20px 0 0; max-width: 54ch; color: var(--muted); line-height: 1.65; }
@@ -140,50 +159,7 @@
         .brand-row { align-items: flex-start; }
       }
     </style>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://www.valiantdoor.com/#business",
-      "makesOffer": [
-        {
-          "@type": "Offer",
-          "@id": "https://www.valiantdoor.com/#emergency-offer",
-          "name": "After-Hours Emergency Garage Door Service",
-          "description": "24/7 after-hours emergency garage door service. Flat-rate $100 emergency service call.",
-          "price": "100",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "availableAtOrFrom": { "@type": "Place", "name": "Pleasanton, CA and the East Bay" }
-        }
-      ],
-      "warranty": {
-        "@type": "WarrantyPromise",
-        "durationOfWarranty": { "@type": "QuantitativeValue", "value": 10, "unitCode": "ANN" },
-        "warrantyScope": "10-year warranty on garage door repairs and installed parts"
-      },
-        "name": "Valiant Garage Door",
-        "url": "https://www.valiantdoor.com/",
-        "telephone": "9254094974",
-        "email": "vm@valiantdoor.com",
-        "image": "https://www.valiantdoor.com/assets/valiant-business-card.png",
-        "founder": {
-          "@type": "Person",
-          "name": "Valentino Ramirez",
-          "jobTitle": "Founder & Master Technician"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "3588 Pimlico Dr",
-          "addressLocality": "Pleasanton",
-          "addressRegion": "CA",
-          "postalCode": "94588",
-          "addressCountry": "US"
-        },
-        "areaServed": ["Pleasanton, CA", "Dublin, CA", "Livermore, CA", "Fremont, CA", "San Ramon, CA", "Danville, CA", "Sunol, CA"],
-        "description": "Valiant Garage Door Is Pleasanton-Based, Serving Danville, Fremont, Sunol and Surrounding Areas With Expert Garage Door Repair, Emergency Service, Spring Replacement,Openers,Complex Systems, And Precision System Upgrades. We’re Known For Fast Response, Honest Pricing, Clear Long-Term Solutions, And Repair-First Service."
-      }
-    </script>
+
   <!-- Nextdoor Pixel Code -->
   <script type="text/javascript">
     !function(e,n){var t,p;e.ndp||((t=e.ndp=function(){
@@ -200,14 +176,18 @@
     <img height="1" width="1" style="display:none"
        src="https://flask.nextdoor.com/pixel?pid=fe411d2f-ce90-47be-a0c0-061dcde0eeb1&ev=PAGE_VIEW&noscript=1"/ alt="">
   </noscript>
-<!-- End Nextdoor Pixel Code -->  
+<!-- End Nextdoor Pixel Code -->
 
 <meta name="valiant:primary-keyword" content="same-day garage door repair Pleasanton CA">
 <meta name="valiant:high-intent-focus" content="same-day garage door repair; high-intent garage door service; Valiant Garage Door project proof; East Bay garage door repair">
 <meta name="valiant:service-area-focus" content="Pleasanton and the East Bay">
-<script type="application/ld+json" data-valiant-page-intent="">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.valiantdoor.com/business-card#valiant-page-intent","url":"https://www.valiantdoor.com/business-card","name":"Valiant Digital Business Card","keywords":["same-day garage door repair Pleasanton CA","same-day garage door repair","high-intent garage door service","Valiant Garage Door project proof","East Bay garage door repair"],"about":[{"@type":"Service","name":"same-day garage door repair","areaServed":"Pleasanton and the East Bay"},{"@type":"LocalBusiness","name":"Valiant Garage Door","telephone":"9254094974"}],"image":["https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp"],"dateModified":"2026-06-26"}</script></head>
-  <body>
-    <main class="wrap" aria-labelledby="card-title">
+<meta name="contractor-license" content="CA Contractor License #1160068">
+<link rel="stylesheet" href="/css/credentials.min.css?v=c6b7a3ba5484">
+
+<script type="application/ld+json" data-valiant-business-graph>{"@context":"https://schema.org","@graph":[{"@type":["HomeAndConstructionBusiness","LocalBusiness"],"@id":"https://www.valiantdoor.com/#business","name":"Valiant Garage Door","legalName":"Valiant Garage Door LLC","url":"https://www.valiantdoor.com/","telephone":"9254094974","email":"vm@valiantdoor.com","description":"Pleasanton-based garage door repair, spring replacement, opener service, maintenance, new door installation and commercial garage door service across the Tri-Valley and nearby East Bay communities.","logo":"https://www.valiantdoor.com/assets/logo/valiant-logo-gold.png","image":"https://www.valiantdoor.com/assets/home-optimized/shield-192.webp","address":{"@type":"PostalAddress","streetAddress":"3588 Pimlico Dr","addressLocality":"Pleasanton","addressRegion":"CA","postalCode":"94588","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":37.6980775,"longitude":-121.8631748},"areaServed":[{"@type":"City","name":"Pleasanton, CA"},{"@type":"City","name":"Dublin, CA"},{"@type":"City","name":"Livermore, CA"},{"@type":"City","name":"Fremont, CA"},{"@type":"City","name":"San Ramon, CA"},{"@type":"City","name":"Danville, CA"},{"@type":"City","name":"Sunol, CA"}],"sameAs":["https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w","https://www.yelp.com/biz/valiant-garage-door-pleasanton","https://www.instagram.com/valiantgaragedoor","https://www.linkedin.com/company/valiant-garage-door","https://www.facebook.com/ValiantGD","https://www.pinterest.com/valiantgd","https://www.x.com/valiantgd","https://www.tiktok.com/@valiantdoor","https://www.youtube.com/@Valiantdoor","https://nextdoor.com/page/valiant-garage-door-pleasanton/","https://www.diamondcertified.org/report/valiant-garage-door/"],"hasMap":"https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w","identifier":{"@type":"PropertyValue","propertyID":"California CSLB contractor license","value":"1160068"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"California Contractor License #1160068","credentialCategory":"Contractor license","identifier":"1160068","recognizedBy":{"@type":"Organization","name":"California Contractors State License Board","url":"https://www.cslb.ca.gov/"},"url":"https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=1160068"},"hasCertification":{"@type":"Certification","name":"Diamond Certified","certificationIdentification":"2953","description":"Diamond Certified since August 2026.","issuedBy":{"@type":"Organization","name":"Diamond Certified","url":"https://www.diamondcertified.org/"},"url":"https://www.diamondcertified.org/report/valiant-garage-door/"},"additionalProperty":[{"@type":"PropertyValue","name":"Contractor's bond","value":"$25,000 with American Contractors Indemnity Company; bond 101085976; effective July 7, 2026."},{"@type":"PropertyValue","name":"LLC employee/worker bond","value":"$100,000 with Allegheny Casualty Company; bond ACC006A003914; effective July 8, 2026."},{"@type":"PropertyValue","name":"Liability insurance","value":"$2,000,000 with Spinnaker Insurance Company; policy CSG0050855800; effective July 5, 2026 through July 5, 2027."},{"@type":"PropertyValue","name":"Workers' compensation record","value":"CSLB exemption for no employees; effective July 9, 2026."}],"contactPoint":[{"@type":"ContactPoint","telephone":"9254094974","contactType":"customer service","areaServed":"US-CA","availableLanguage":["English"]}],"priceRange":"$","makesOffer":[{"@type":"Offer","@id":"https://www.valiantdoor.com/#emergency-offer","name":"After-Hours Emergency Garage Door Service","description":"After-hours appointments at 7:00 PM or later have a $100 service charge before approved parts, repairs, conversions, or upgrades.","price":"100","priceCurrency":"USD","availability":"https://schema.org/InStock","availableAtOrFrom":{"@type":"Place","name":"Pleasanton, CA and the East Bay"}}]},{"@type":"WebPage","@id":"https://www.valiantdoor.com/business-card#valiant-page-intent","url":"https://www.valiantdoor.com/business-card","name":"Valiant Digital Business Card","keywords":["same-day garage door repair Pleasanton CA","same-day garage door repair","high-intent garage door service","Valiant Garage Door project proof","East Bay garage door repair"],"about":[{"@type":"Service","name":"same-day garage door repair","areaServed":"Pleasanton and the East Bay"},{"@id":"https://www.valiantdoor.com/#business"}],"image":["https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp"],"dateModified":"2026-06-26"},{"@type":"WebSite","@id":"https://www.valiantdoor.com/#website","url":"https://www.valiantdoor.com/","name":"Valiant Garage Door","publisher":{"@id":"https://www.valiantdoor.com/#business"}}]}</script>
+</head>
+  <body class="page-business-card">
+<main class="wrap" aria-labelledby="card-title">
       <section class="card">
         <div class="hero">
           <div>
@@ -225,7 +205,7 @@
             <a class="button primary" href="/business-card/contact.vcf" download="valiant-garage-door.vcf">Save Contact</a>
             <a class="button" href="tel:+19254094974">Call (925) 409-4974</a>
             <a class="button" href="sms:+19254094974">Text Valiant</a>
-            <a class="button dark" href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate</a>
+            <a class="button dark" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate</a>
           </div>
         </div>
 
@@ -256,6 +236,15 @@
           </article>
         </section>
 
+<section class="valiant-location-map" aria-labelledby="valiant-map-title" style="padding:28px 22px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 id="valiant-map-title">Find Valiant Garage Door</h2>
+    <p>3588 Pimlico Dr, Pleasanton, CA 94588</p>
+    <iframe title="Valiant Garage Door — Google Maps location in Pleasanton" src="https://www.google.com/maps?cid=10157678710175988802&amp;output=embed" width="1200" height="360" style="display:block;width:100%;max-width:100%;border:0;border-radius:16px;background:#eee;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&amp;query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w" target="_blank" rel="noopener noreferrer">Open Valiant Garage Door in Google Maps &rarr;</a></p>
+  </div>
+</section>
+
         <section class="share-panel" aria-label="Share and NFC setup">
           <div class="share-copy">
             <h2>NFC tag / QR destination</h2>
@@ -275,7 +264,23 @@
           <p>Use this page for direct sharing. For search and service details, visit <a href="/garage-door-repair-pleasanton">Pleasanton garage door repair</a> or <a href="/quote">request service</a>.</p>
         </footer>
       </section>
-    </main>
+    <p class="valiant-process-reference"><a href="/proof-before-proposal">Proof Before Proposal</a> — Documented findings, clear recommendations, and completed-work evidence. <a href="/proof-before-proposal#recognition">Credentials &amp; Housecall Pro recognition</a> · <a href="/proof-before-proposal#experience">Industry appearance</a></p>
+</main>
+<aside class="valiant-credentials" data-valiant-credential-details aria-label="Valiant Garage Door credentials">
+  <details>
+    <summary>Licensed · Diamond Certified · Bonded · Insured <span>View verification details</span></summary>
+    <dl>
+      <div><dt>California contractor license</dt><dd><a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=1160068" target="_blank" rel="noopener noreferrer">CSLB #1160068</a> · Valiant Garage Door LLC</dd></div>
+      <div><dt>Diamond Certified</dt><dd><a href="https://www.diamondcertified.org/report/valiant-garage-door/" target="_blank" rel="noopener noreferrer">Certificate #2953</a> · Certified since August 2026</dd></div>
+      <div><dt>Contractor’s bond</dt><dd>$25,000 · American Contractors Indemnity Company · Bond #101085976 · Effective July 7, 2026</dd></div>
+      <div><dt>LLC employee/worker bond</dt><dd>$100,000 · Allegheny Casualty Company · Bond #ACC006A003914 · Effective July 8, 2026</dd></div>
+      <div><dt>Liability insurance</dt><dd>$2,000,000 · Spinnaker Insurance Company · Policy #CSG0050855800 · July 5, 2026 – July 5, 2027</dd></div>
+      <div><dt>Workers’ compensation record</dt><dd>CSLB exemption for no employees, effective July 9, 2026. The LLC employee/worker bond is separate from workers’ compensation insurance.</dd></div>
+    </dl>
+    <p><a href="/credentials">License, certification &amp; insurance information →</a> · <a href="/quote">Request service</a></p>
+  </details>
+</aside>
+
     <script>
       (function () {
         var cardUrl = 'https://www.valiantdoor.com/business-card';
@@ -314,6 +319,7 @@
         }
       })();
     </script>
-  <script src="/js/webmcp.js" defer></script>
+  <script src="/js/webmcp.min.js?v=53169822d74f" defer></script>
+  <script src="/js/global-chrome.min.js?v=d5806a68578c" defer></script>
 
 </body></html>

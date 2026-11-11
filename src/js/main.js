@@ -3,8 +3,6 @@ const siteNav = document.querySelector(".site-nav");
 const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJreu0MBcWcgMRQnyWHvhS94w";
 const FONT_STYLESHEET_HREF = "https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap";
 const HOUSECALL_PRO_BOOK_URL = "https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true";
-const BOTPRESS_INJECT_SCRIPT_SRC = "https://cdn.botpress.cloud/webchat/v3.6/inject.js";
-const BOTPRESS_CONFIG_SCRIPT_SRC = "https://files.bpcontent.cloud/2026/05/01/11/20260501112742-4945ZV3N.js";
 const CALLTRACKING_SCRIPT_SRC = "https://app.800.com/calltracking/index.js?token=OFdsQlpNcWtkdi9PUy93a3hHeUkwdz09&backend=https://api.800.com/";
 const HOUSECALL_PRO_EXECUTE_CODE_CARD = {
   blocks: [
@@ -251,7 +249,6 @@ const loadExternalScript = (url, { defer = false, async = true } = {}) =>
   });
 
 let hasInitializedBotpressEnhancements = false;
-let botpressLoadPromise = null;
 
 const initializeBotpressEnhancements = () => {
   if (hasInitializedBotpressEnhancements) return;
@@ -261,98 +258,16 @@ const initializeBotpressEnhancements = () => {
   setupBotpressFallbackAssistant();
 };
 
-const loadBotpressOnDemand = () => {
-  if (botpressLoadPromise) return botpressLoadPromise;
-  botpressLoadPromise = Promise.allSettled([
-    loadExternalScript(BOTPRESS_INJECT_SCRIPT_SRC),
-    loadExternalScript(BOTPRESS_CONFIG_SCRIPT_SRC, { defer: true }),
-  ]).finally(() => {
-    initializeBotpressEnhancements();
-  });
-  return botpressLoadPromise;
-};
-
-const openBotpressWhenReady = (attempt = 0) => {
-  if (typeof window.botpress?.open === "function") {
-    try {
-      window.botpress.open();
-      return;
-    } catch (error) {}
-  }
-
-  const trigger = document.querySelector('.bpFab, .bpFabWrapper, #fab-root button, img[role="button"]');
-  if (trigger instanceof HTMLElement) {
-    trigger.click();
-    return;
-  }
-
-  if (attempt >= 40) return;
-  window.setTimeout(() => openBotpressWhenReady(attempt + 1), 250);
-};
-
-const setupBotpressShell = () => {
-  if (document.querySelector('[data-valiant-bot-shell]')) return;
-
-  const shell = document.createElement('button');
-  shell.type = 'button';
-  shell.setAttribute('data-valiant-bot-shell', 'true');
-  shell.setAttribute('aria-label', 'Open Valiant chat assistant');
-  shell.style.position = 'fixed';
-  shell.style.right = '10px';
-  shell.style.bottom = document.body?.classList.contains('page-gallery') ? '180px' : '44px';
-  shell.style.zIndex = '40';
-  shell.style.display = 'grid';
-  shell.style.placeItems = 'center';
-  shell.style.gap = '4px';
-  shell.style.width = '88px';
-  shell.style.padding = '6px 4px 2px';
-  shell.style.border = '0';
-  shell.style.borderRadius = '24px';
-  shell.style.background = 'transparent';
-  shell.style.cursor = 'pointer';
-
-  const image = document.createElement('img');
-  image.src = '/assets/valiant-bot-widget-static-shield-20260629.png';
-  image.alt = '';
-  image.width = 72;
-  image.height = 72;
-  image.loading = 'eager';
-  image.decoding = 'async';
-  image.style.width = '72px';
-  image.style.height = '72px';
-  image.style.objectFit = 'contain';
-  image.style.filter = 'drop-shadow(0 10px 22px rgba(0, 0, 0, 0.36))';
-
-  const label = document.createElement('span');
-  label.textContent = 'Valiant AI Assistant';
-  label.style.color = '#ffcc66';
-  label.style.fontSize = '0.68rem';
-  label.style.fontWeight = '700';
-  label.style.letterSpacing = '0.14em';
-  label.style.textTransform = 'uppercase';
-  label.style.textShadow = '0 2px 8px rgba(0, 0, 0, 0.55)';
-
-  shell.append(image, label);
-
-  shell.addEventListener('click', () => {
-    label.textContent = 'Loading';
-    shell.disabled = true;
-    loadBotpressOnDemand().finally(() => {
-      shell.style.display = 'none';
-      openBotpressWhenReady();
-    });
-  });
-
-  const hideShellIfBotExists = () => {
-    if (document.querySelector('.bpFab, .bpFabWrapper, #fab-root')) {
-      shell.style.display = 'none';
-    }
-  };
-
-  document.body.appendChild(shell);
-  hideShellIfBotExists();
-  window.setInterval(hideShellIfBotExists, 1000);
-};
+// The floating chat launcher itself now lives entirely in global-chrome.js
+// (#valiant-chat-fab), which is loaded on every page. This used to also have
+// a separate, older shield+label launcher (setupBotpressShell) defined here,
+// but both launchers rendered simultaneously (stacked, overlapping icons with
+// clipped text in the bottom-right corner) since neither knew about the
+// other. The duplicate legacy launcher has been removed; global-chrome.js's
+// launcher calls window.__valiantInitBotpressEnhancements() (exposed below)
+// once it starts loading Botpress, so FAB sizing and the fallback assistant
+// still activate regardless of which code path triggers the load.
+window.__valiantInitBotpressEnhancements = initializeBotpressEnhancements;
 
 const setupDeferredThirdPartyScripts = () => {
   if (!document.body?.classList.contains("page-home")) return;
@@ -412,6 +327,7 @@ const setupDeferredHomeHousecallEmbeds = () => {
 
 
 const setupDeferredHomepageTracking = () => {
+  if (!/^(?:www\.)?valiantdoor\.(?:com|io)$/.test(window.location.hostname)) return;
   if (!document.body?.classList.contains("page-home")) return;
   if (window.__valiantHomepageTrackingDeferred === true) return;
   window.__valiantHomepageTrackingDeferred = true;
@@ -522,7 +438,6 @@ const setupProjectMapShells = () => {
 setupProjectMapShells();
 
 setupDeferredHomeHousecallEmbeds();
-setupBotpressShell();
 setupDeferredThirdPartyScripts();
 
 const setupPhotoAlbum = () => {
@@ -973,12 +888,12 @@ const BOTPRESS_FAB_SIZE_STYLE = `
       .bpWebchat.bpOpen.bpFABWebchat {
         left: 8px !important;
         right: 8px !important;
-        top: 8px !important;
+        top: 60px !important;
         bottom: 8px !important;
         width: calc(100vw - 16px) !important;
         max-width: calc(100vw - 16px) !important;
-        height: calc(100dvh - 16px) !important;
-        max-height: calc(100dvh - 16px) !important;
+        height: calc(100dvh - 68px) !important;
+        max-height: calc(100dvh - 68px) !important;
       }
 
       .bpWebchat.bpOpen .bpContainer,
@@ -1079,34 +994,90 @@ const watchBotpressFabSize = () => {
 };
 
 
+const HCP_BOOK_URL = "https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true";
+const VALIANT_PHONE = "(925) 409-4974";
+const VALIANT_BOOK_CTA = " Book Free Estimate Instantly: " + HCP_BOOK_URL + " or call " + VALIANT_PHONE + ".";
+
 const createValiantBotFallbackReply = (messageText) => {
-  const normalized = String(messageText || "").toLowerCase();
+  const t = String(messageText || "").toLowerCase();
 
-  if (/\b(areas?|serve|service areas?|city|cities|where)\b/.test(normalized)) {
-    return "Valiant Garage Door serves Pleasanton, Dublin, Livermore, Fremont, San Ramon, Danville, Sunol, and nearby East Bay communities. Tell us your city and what is wrong with the door, or use Book Free Estimate Instantly to request service.";
+  // Service areas
+  if (/\b(areas?|serve|service areas?|city|cities|where|location|cover)\b/.test(t)) {
+    return "Valiant Garage Door serves Pleasanton, Dublin, Livermore, Fremont, San Ramon, Danville, Sunol, Pleasant Hill, Alamo, Blackhawk, Castro Valley, Hayward, Newark, and nearby East Bay communities." + VALIANT_BOOK_CTA;
   }
 
-  if (/\b(emergency|stuck|trapped|off.?track|won'?t close|won'?t open|broken cable|unsafe)\b/.test(normalized)) {
-    return "If the door is stuck, off track, unsafe, or will not open or close, stop using it and request emergency garage door service. Use Book Free Estimate Instantly or call Valiant Garage Door so a technician can review the route and availability.";
+  // Emergency / urgent
+  if (/\b(emergency|stuck|trapped|off.?track|won'?t close|won'?t open|broken cable|unsafe|urgent|now|asap|help)\b/.test(t)) {
+    return "If your garage door is stuck, off track, unsafe, or will not open or close, stop using it immediately. Do not force the door or opener. Valiant Garage Door offers same-day emergency repair across the East Bay. Call " + VALIANT_PHONE + " right now or book emergency service instantly: " + HCP_BOOK_URL;
   }
 
-  if (/\b(spring|springs|torsion|extension|snapped|heavy)\b/.test(normalized)) {
-    return "For a broken or heavy garage door spring, do not force the door or opener. Valiant Garage Door handles spring replacement with balance and safety testing. Share your city and door size, or use Book Free Estimate Instantly to request service.";
+  // Springs
+  if (/\b(spring|springs|torsion|extension|snapped|heavy|broke.*spring)\b/.test(t)) {
+    return "Broken garage door spring? Do not force the door. Valiant Garage Door handles torsion and extension spring replacement with balance and safety testing. Spring repair typically runs $159 to $249 depending on type and size. Most repairs take 30 to 60 minutes." + VALIANT_BOOK_CTA;
   }
 
-  if (/\b(opener|remote|keypad|sensor|motor|liftmaster|genie|chamberlain)\b/.test(normalized)) {
-    return "Valiant Garage Door can help with opener diagnostics, remotes, keypads, safety sensors, travel limits, and motor issues. Tell us the opener brand and what it is doing, or use Book Free Estimate Instantly to request an appointment.";
+  // Cables
+  if (/\b(cable|cables|snapped cable|frayed)\b/.test(t)) {
+    return "A snapped or frayed garage door cable is a safety hazard. Stop using the door and keep it closed. Valiant Garage Door replaces cables same-day across the East Bay." + VALIANT_BOOK_CTA;
   }
 
-  if (/\b(price|cost|quote|estimate|how much)\b/.test(normalized)) {
-    return "Pricing depends on the door, parts, access, and diagnosis. Use the online request form or Book Free Estimate Instantly and include photos if you can, so Valiant Garage Door can review the issue and next steps.";
+  // Openers
+  if (/\b(opener|remote|keypad|sensor|motor|liftmaster|genie|chamberlain|chain|belt|drive)\b/.test(t)) {
+    return "Valiant Garage Door repairs and installs LiftMaster, Chamberlain, and Genie openers. Services include diagnostics, remotes, keypads, safety sensors, travel limits, force settings, and motor replacement. New opener installation starts at $229 for standard overhead and $249 for wall-mount." + VALIANT_BOOK_CTA;
   }
 
-  if (/\b(install|installation|new door|replace door|door replacement)\b/.test(normalized)) {
-    return "Valiant Garage Door can help review repair, opener, maintenance, and emergency service options. Share your city and what is happening with the door, or use Book Free Estimate Instantly to start the request.";
+  // Pricing
+  if (/\b(price|cost|quote|estimate|how much|rate|fee|charge|pricing)\b/.test(t)) {
+    return "Here are typical starting prices:\n• Spring replacement: $159 to $249\n• Opener installation: $229 to $249 (starting labor)\n• Off-track repair: varies by damage\n• Cable repair: varies by door type\nFinal pricing depends on parts, door size, and labor. Get an itemized estimate with photos: " + HCP_BOOK_URL + " or call " + VALIANT_PHONE;
   }
 
-  return "Yes — Valiant Garage Door can help with garage door repair, spring replacement, opener repair, maintenance, commercial service, and emergency service. Tell us your city and what is wrong, or use Book Free Estimate Instantly to request service.";
+  // Maintenance
+  if (/\b(maintenance|tune.?up|inspect|lubricat|balance|tune|service|check.?up|prevent)\b/.test(t)) {
+    return "Regular maintenance extends door life and prevents emergencies. Valiant Garage Door offers tune-ups including roller inspection, track alignment, lubrication, balance testing, and safety sensor checks." + VALIANT_BOOK_CTA;
+  }
+
+  // Commercial
+  if (/\b(commercial|business|warehouse|industrial|storefront|loading dock|roll.?up|sectional)\b/.test(t)) {
+    return "Yes, Valiant Garage Door handles commercial and light-commercial garage doors including sectional doors, rolling steel, and loading dock doors across the East Bay." + VALIANT_BOOK_CTA;
+  }
+
+  // New doors / installation
+  if (/\b(install|installation|new door|replace.*door|door replacement|custom|carriage|design)\b/.test(t)) {
+    return "Valiant Garage Door installs custom and new garage doors including carriage house and modern designs. We help you choose the right door for your home, handle removal of the old door, and complete installation with balance and safety testing." + VALIANT_BOOK_CTA;
+  }
+
+  // Noise
+  if (/\b(noise|noisy|loud|squeak|grind|bang|rattle|sound)\b/.test(t)) {
+    return "A noisy garage door usually means worn rollers, loose hardware, or lack of lubrication. Valiant Garage Door can diagnose and fix the source of the noise with a tune-up." + VALIANT_BOOK_CTA;
+  }
+
+  // Booking / appointment
+  if (/\b(book|appointment|schedule|availability|today|same.?day|when|how soon|time)\b/.test(t)) {
+    return "You can book instantly: " + HCP_BOOK_URL + "\nOr call " + VALIANT_PHONE + " for same-day scheduling. Most repairs are completed the same day across Pleasanton, Dublin, Livermore, Fremont, San Ramon, and nearby East Bay cities.";
+  }
+
+  // Hours
+  if (/\b(hours?|open|closed|when.*available|today)\b/.test(t)) {
+    return "Valiant Garage Door offers same-day and emergency repair service. Call " + VALIANT_PHONE + " for current availability or book instantly: " + HCP_BOOK_URL;
+  }
+
+  // Reviews / reputation
+  if (/\b(review|reviews|rating|google|trust|reputation|experience|years)\b/.test(t)) {
+    return "Valiant Garage Door has 12+ years of hands-on experience, over 10,000 garage doors serviced, and a strong Google Business Profile rating. We are licensed, insured, and trusted across the East Bay." + VALIANT_BOOK_CTA;
+  }
+
+  // Warranty
+  if (/\b(warranty|guarantee|guaranteed)\b/.test(t)) {
+    return "Valiant Garage Door stands behind our work. Parts and labor warranties vary by service. Ask your technician for specific warranty details on your repair." + VALIANT_BOOK_CTA;
+  }
+
+  // Contact
+  if (/\b(contact|phone|call|number|email|reach|address)\b/.test(t)) {
+    return "Call Valiant Garage Door at " + VALIANT_PHONE + "\nEmail: vm@valiantdoor.com\nAddress: 3588 Pimlico Dr, Pleasanton, CA 94588\nBook online: " + HCP_BOOK_URL;
+  }
+
+  // Default / general
+  return "Valiant Garage Door can help with garage door repair, spring replacement, opener repair and installation, cable repair, off-track repair, maintenance and tune-ups, commercial service, custom doors, and 24/7 emergency repair across Pleasanton, Dublin, Livermore, Fremont, San Ramon, and nearby East Bay cities. Tell us your city and what is wrong with the door, or book instantly: " + HCP_BOOK_URL + " or call " + VALIANT_PHONE + ".";
 };
 
 const setupBotpressFallbackAssistant = () => {
@@ -1385,93 +1356,10 @@ const setupNextdoorClickIdStorage = () => {
 
 setupNextdoorClickIdStorage();
 
-const setupNextdoorCapiLead = () => {
-  if (normalizePath(window.location.pathname) !== "/thank-you") return;
+// A thank-you page visit does not establish a booked job. Nextdoor lead/job
+// outcomes are relayed from the accepted HCP records, not arbitrary page views.
 
-  const readStorage = (storage, key) => {
-    try {
-      return storage.getItem(key) || "";
-    } catch (error) {
-      return "";
-    }
-  };
 
-  const writeStorage = (storage, key, value) => {
-    try {
-      storage.setItem(key, value);
-    } catch (error) {}
-  };
-
-  const params = new URLSearchParams(window.location.search);
-  const contactInformation = params.get("contact_information") || "";
-  const name = params.get("name") || "";
-  const nameParts = name.trim().split(/\s+/).filter(Boolean);
-  const emailFromContact = /@/.test(contactInformation) ? contactInformation : "";
-  const phoneFromContact = /\d{7,}/.test(contactInformation.replace(/\D/g, "")) ? contactInformation : "";
-
-  let externalId = readStorage(window.localStorage, "valiant_nextdoor_external_id");
-  if (!externalId) {
-    externalId = window.crypto?.randomUUID ? window.crypto.randomUUID() : `valiant-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-    writeStorage(window.localStorage, "valiant_nextdoor_external_id", externalId);
-  }
-
-  const eventStorageKey = `valiant_nextdoor_capi_lead:${window.location.pathname}:${window.location.search}`;
-  if (readStorage(window.sessionStorage, eventStorageKey)) return;
-
-  const eventId = window.crypto?.randomUUID ? window.crypto.randomUUID() : `lead-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  writeStorage(window.sessionStorage, eventStorageKey, eventId);
-
-  const payload = {
-    event_name: "LEAD",
-    event_id: eventId,
-    action_source: "website",
-    action_source_url: `${window.location.origin}${window.location.pathname}`,
-    customer: {
-      email: params.get("email") || emailFromContact,
-      phone_number: params.get("phone") || params.get("phone_number") || phoneFromContact,
-      first_name: params.get("first_name") || nameParts[0] || "",
-      last_name: params.get("last_name") || nameParts.slice(1).join(" ") || "",
-      date_of_birth: params.get("date_of_birth") || "",
-      gender: params.get("gender") || "",
-      street_address: params.get("street_address") || "",
-      city: params.get("city") || "",
-      state: params.get("state") || "CA",
-      zip_code: params.get("zip_code") || params.get("zip") || "",
-      country: params.get("country") || "US",
-      external_id: externalId,
-      click_id: params.get("ndclid") || readStorage(window.localStorage, "valiant_nextdoor_click_id")
-    },
-    custom: {
-      problem_type: params.get("problem_type") || "",
-      source_path: window.location.pathname
-    }
-  };
-
-  fetch("/api/nextdoor-capi", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(payload),
-    keepalive: true
-  }).catch(() => {});
-};
-
-setupNextdoorCapiLead();
-
-const setupGoogleAdsQuoteConversion = () => {
-  if (normalizePath(window.location.pathname) !== "/quote") return;
-
-  const fireLeadConversion = () => {
-    if (typeof window.gtag !== "function") return;
-    window.gtag("event", "ads_conversion_Submit_lead_form_1");
-  };
-
-  Array.from(
-    document.querySelectorAll('a[href*="book.housecallpro.com/book/Valiant-garage-door"]')
-  ).forEach((link) => {
-    if (link.dataset.valiantAdsLeadBound === "true") return;
-    link.dataset.valiantAdsLeadBound = "true";
-    link.addEventListener("click", fireLeadConversion);
-  });
-};
-
-setupGoogleAdsQuoteConversion();
+// Booking links are measured as booking_click by global-chrome.js. Successful
+// website form submissions emit lead_form_success and the existing Ads event
+// from lead-capture.js / estimate-upload.js after the API accepts the request.

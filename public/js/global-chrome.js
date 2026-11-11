@@ -1,0 +1,626 @@
+(() => {
+  "use strict";
+
+  // A repeated shared script must not duplicate measurement or click handlers.
+  if (window.__valiantGlobalChromeInitialized) return;
+  window.__valiantGlobalChromeInitialized = true;
+
+  const PHONE = "(925) 409-4974";
+  const PHONE_HREF = "tel:+19254094974";
+  const LICENSE_NUMBER = "1160068";
+  const LICENSE_LABEL = `CA Contractor License #${LICENSE_NUMBER}`;
+  const BOOK_URL = "https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true";
+  const currentPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  const measurementId = "G-0X81XNNJM4";
+  // This existing Google tag serves the selected GA4 destination. The stream's
+  // direct gtag loader returns 404; the verified shared tag loader returns 200.
+  const googleTagId = "AW-17968443655";
+  const productionHost = /^(?:www\.)?valiantdoor\.(?:com|io)$/.test(window.location.hostname);
+
+  // Keep campaign provenance with a lead when it leaves its landing page.
+  // Only allow marketing labels and click IDs; never store form/contact data.
+  const attributionFields = (() => {
+    const key = "valiant_marketing_attribution_v1";
+    const clean = (value) => {
+      const text = String(value || "").trim();
+      return text.length <= 150 && !/[\r\n<>@]/.test(text) ? text : "";
+    };
+    const params = new URLSearchParams(window.location.search);
+    let saved = {};
+    try {
+      saved = JSON.parse(window.localStorage.getItem(key) || "{}") || {};
+      if (!saved.updated || Date.now() - saved.updated > 90 * 86400000) saved = {};
+    } catch (_error) { saved = {}; }
+    const touch = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "gbraid", "wbraid", "ndclid", "msclkid"].forEach((name) => {
+      const value = clean(params.get(name));
+      if (value) touch[name] = value;
+    });
+    if (!touch.utm_source && (touch.gclid || touch.gbraid || touch.wbraid)) {
+      touch.utm_source = "google"; touch.utm_medium = "cpc";
+    }
+    if (!touch.utm_source && touch.ndclid) {
+      touch.utm_source = "nextdoor"; touch.utm_medium = "paid_social";
+    }
+    if (!touch.utm_source && touch.msclkid) {
+      touch.utm_source = "bing"; touch.utm_medium = "cpc";
+    }
+    if (!touch.utm_source) {
+      try {
+        const host = new URL(document.referrer).hostname.toLowerCase();
+        if (!/^(?:www\.)?valiantdoor\.(?:com|io)$/.test(host) &&
+            !/(?:^|\.)(?:housecallpro\.com|vercel\.com|vercel\.app|cloudflarebrowser\.com)$/.test(host)) {
+          touch.utm_source = /(^|\.)google\.[a-z.]+$/.test(host) ? "google" : /(^|\.)bing\.com$/.test(host) ? "bing" : host;
+          touch.utm_medium = ["google", "bing"].includes(touch.utm_source) ? "organic" : "referral";
+        }
+      } catch (_error) {}
+    }
+    if (touch.utm_source) {
+      saved.first = saved.first || touch;
+      saved.latest = touch;
+      saved.updated = Date.now();
+      try { window.localStorage.setItem(key, JSON.stringify(saved)); } catch (_error) {}
+    }
+    const fields = {};
+    ["first", "latest"].forEach((kind) => {
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "gbraid", "wbraid", "ndclid", "msclkid"].forEach((name) => {
+        const value = clean(saved[kind] && saved[kind][name]);
+        if (value) fields["attribution_" + kind + "_" + name] = value;
+      });
+    });
+    return fields;
+  })();
+  const safePageLocation = (() => {
+    const url = new URL(window.location.href);
+    const allowed = new Set(["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "gbraid", "wbraid", "ndclid", "msclkid"]);
+    Array.from(url.searchParams.keys()).forEach((name) => {
+      if (!allowed.has(name)) url.searchParams.delete(name);
+    });
+    url.hash = "";
+    return url.href;
+  })();
+
+  // Business identity and credentials are rendered in the HTML using
+  // lib/blog-business-schema.js, including pages served by the blog API.
+
+  // ---- Microsoft Clarity: load on ALL pages, not just homepage ----
+  // Previously this was trapped inside setupDeferredHomepageTracking() which
+  // only ran on page-home, leaving 100+ pages with zero session recording.
+  (function loadClarity() {
+    // The provider bootstrap reads clarity.v and invokes this callable queue.
+    // Establish it before loading the tag; retain any existing consent queue.
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+    if (
+      document.querySelector(
+        'script[data-valiant-clarity], script[src*="clarity.ms/tag/xbiv7tx2p3"]'
+      )
+    ) return;
+    const s = document.createElement('script');
+    s.src = 'https://www.clarity.ms/tag/xbiv7tx2p3';
+    s.async = true;
+    s.dataset.valiantClarity = 'true';
+    (document.head || document.documentElement).appendChild(s);
+  })();
+
+  // ---- Google Analytics 4: initialize the official Valiant property sitewide ----
+  // Keep a single Google tag queue and one official GA4 destination while
+  // preserving the verified Google Ads destinations.
+  (function loadValiantGa4() {
+    if (!productionHost) return;
+    const adsDestinations = ["AW-17968443655", "AW-17909190639"];
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+
+    const hasGtagLoader = Boolean(
+      document.querySelector('script[src*="googletagmanager.com/gtag/js"]')
+    );
+    if (!hasGtagLoader) {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src =
+        "https://www.googletagmanager.com/gtag/js?id=" +
+        encodeURIComponent(googleTagId);
+      script.dataset.valiantGa4 = measurementId;
+      (document.head || document.documentElement).appendChild(script);
+    }
+
+    const alreadyConfigured = window.dataLayer.some((entry) => {
+      try {
+        return entry && entry[0] === "config" && entry[1] === measurementId;
+      } catch (_error) {
+        return false;
+      }
+    });
+    const hasJsInitialization = window.dataLayer.some((entry) => {
+      try {
+        return entry && entry[0] === "js";
+      } catch (_error) {
+        return false;
+      }
+    });
+    if (!hasJsInitialization) {
+      window.gtag("js", new Date());
+    }
+    if (!alreadyConfigured) {
+      window.gtag("config", measurementId, { page_location: safePageLocation });
+    }
+    adsDestinations.forEach((destinationId) => {
+      const destinationConfigured = window.dataLayer.some((entry) => {
+        try {
+          return entry && entry[0] === "config" && entry[1] === destinationId;
+        } catch (_error) {
+          return false;
+        }
+      });
+      if (!destinationConfigured) {
+        window.gtag("config", destinationId, { page_location: safePageLocation });
+      }
+    });
+  })();
+
+  // Record high-intent actions without sending customer-entered values or
+  // converting ordinary clicks into Google Ads conversions.
+  const trackValiantAction = (eventName, parameters = {}) => {
+    if (!productionHost || typeof window.gtag !== "function") return;
+    window.gtag("event", eventName, {
+      page_path: currentPath,
+      page_location: safePageLocation,
+      transport_type: "beacon",
+      ...parameters,
+      // Default routing broadcasts to every configured Ads/GA destination.
+      // Action measurements belong to this GA4 stream only.
+      send_to: measurementId
+    });
+  };
+  window.ValiantAnalytics = {
+    productionHost,
+    attribution: () => ({ ...attributionFields }),
+    track: trackValiantAction,
+    leadAccepted: (formId, done) => {
+      let finished = false;
+      const finish = () => { if (!finished) { finished = true; done(); } };
+      if (!productionHost || typeof window.gtag !== "function") return finish();
+      const details = { form_id: formId || "website_lead", form_source: currentPath };
+      trackValiantAction("lead_form_success", details);
+      // Retain the already-configured key-event name, only after API success.
+      trackValiantAction("ads_conversion_Submit_lead_form_1", {
+        ...details, event_callback: finish, event_timeout: 1500
+      });
+      window.setTimeout(finish, 1500);
+    }
+  };
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    const link = event.target.closest("a[href]");
+    if (!link) return;
+
+    const href = link.getAttribute("href") || "";
+    const linkText = (link.textContent || "").replace(/\s+/g, " ").trim().slice(0, 100);
+    if (href.startsWith("tel:")) {
+      trackValiantAction("phone_click", { link_text: linkText });
+      return;
+    }
+    if (href.startsWith("sms:")) {
+      trackValiantAction("text_click", { link_text: linkText });
+      return;
+    }
+    if (/^https:\/\/book\.housecallpro\.com\/book\/Valiant-Garage-Door\//i.test(href)) {
+      trackValiantAction("booking_click", { link_text: linkText });
+      return;
+    }
+    if (/^\/(?:quote|instant-estimate)(?:[/?#]|$)/i.test(href)) {
+      trackValiantAction("estimate_click", {
+        link_text: linkText,
+        destination_path: href.split(/[?#]/, 1)[0]
+      });
+    }
+  });
+
+  document.addEventListener("submit", (event) => {
+    if (!(event.target instanceof HTMLFormElement)) return;
+    if (!event.target.matches('form[action="/thank-you"], form[data-estimate-upload]')) return;
+    trackValiantAction("lead_form_attempt", {
+      form_id: (event.target.id || "unlabeled").slice(0, 100)
+    });
+  });
+
+  if (currentPath === "/thank-you") {
+    trackValiantAction("thank_you_view", {
+      lead_type: "website_confirmation"
+    });
+  }
+
+  // ---- Nextdoor ad click ID (ndclid) capture ----
+  // Nextdoor appends ?ndclid=... to our URL when someone clicks a Nextdoor ad.
+  // We store it in a long-lived cookie so it survives across pages/sessions
+  // until the visitor submits a lead form (see lead-capture.js /
+  // estimate-upload.js), which reads this cookie and forwards the value to
+  // Housecall Pro. That's what lets the Nextdoor Conversions API relay
+  // attribute the eventual lead back to the specific ad that drove it.
+  (function captureNdclid() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var ndclid = params.get("ndclid");
+      if (!ndclid) return;
+      var maxAge = 60 * 60 * 24 * 90; // 90 days
+      document.cookie =
+        "vg_ndclid=" + encodeURIComponent(ndclid) + "; max-age=" + maxAge + "; path=/; SameSite=Lax";
+    } catch (_err) {
+      // Cookies unavailable (privacy mode, etc.) -- fail silently, never block the page.
+    }
+  })();
+
+  // ---- Live review stats: keep visible counters in sync sitewide ----
+  // Numbers come from /api/reviews, which auto-updates from the Google Places API
+  // (6h server cache) and falls back to safe static values if the API is down.
+  const syncReviewStats = (() => {
+    let done = false;
+
+    const setVisible = (name, value) => {
+      document.querySelectorAll('[data-review="' + name + '"]').forEach((el) => {
+        el.textContent = value;
+      });
+    };
+
+    return () => {
+      if (done) return;
+      done = true;
+      fetch("/api/reviews", { headers: { Accept: "application/json" } })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => {
+          if (!d) return;
+          // A stale fallback must never overwrite the count baked into the page.
+          const liveGoogle = d.source === "google-places";
+          const rating = typeof d.googleRating === "number" ? d.googleRating : null;
+          const count = typeof d.googleReviewCount === "number" ? d.googleReviewCount : null;
+          if (liveGoogle && rating !== null) setVisible("google-rating", rating.toFixed(1));
+          if (count !== null) {
+            document.querySelectorAll('[data-review="google-count"]').forEach((el) => {
+              const visible = Number(el.textContent.trim());
+              if (liveGoogle || !Number.isFinite(visible) || count >= visible) el.textContent = String(count);
+            });
+          }
+          if (typeof d.nextdoorFaves === "number") setVisible("nextdoor-faves", String(d.nextdoorFaves));
+        })
+        .catch(() => {
+          /* keep the accurate static fallback already baked into the HTML */
+        });
+    };
+  })();
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", syncReviewStats, { once: true });
+  } else {
+    syncReviewStats();
+  }
+
+  // Load the official HCP app only after explicit chat intent. The SMS link
+  // remains usable during loading or a script failure; no message is sent here.
+  (function mountHousecallProChat() {
+    const existing = () => document.getElementById("housecall-pro-chat-bubble") ||
+      document.getElementById("proChatIframe") || document.getElementById("valiant-chat-launcher");
+    if (existing()) return;
+    const add = () => {
+      if (existing()) return;
+      const hasSharedStyles = Array.from(document.querySelectorAll('link[rel~="stylesheet"][href]')).some((link) => {
+        try {
+          const url = new URL(link.href, window.location.href);
+          return url.origin === window.location.origin && /^\/css\/global-chrome(?:\.min)?\.css$/.test(url.pathname);
+        } catch { return false; }
+      });
+      // Custom landing pages intentionally omit the full shared stylesheet.
+      // Load only facade-scoped rules, never restyle their existing content.
+      if (!hasSharedStyles && !document.getElementById("valiant-chat-launcher-style")) {
+        const style = document.createElement("link");
+        style.id = "valiant-chat-launcher-style";
+        style.rel = "stylesheet";
+        style.href = "/css/chat-launcher.min.css?v=d1734eb5af5d";
+        (document.head || document.documentElement).appendChild(style);
+      }
+      const facade = document.createElement("aside");
+      facade.className = "global-chat-facade";
+      facade.setAttribute("aria-label", "Contact Valiant Garage Door");
+      facade.innerHTML = '<button id="valiant-chat-launcher" type="button">Chat with Valiant<span>Click to load secure chat</span></button><a href="sms:+19254094974">Or text us</a>';
+      const button = facade.querySelector("button");
+      let started = false;
+      button.addEventListener("click", () => {
+        if (started) return;
+        started = true;
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+        button.textContent = "Loading secure chat…";
+        const script = document.createElement("script");
+        script.id = "housecall-pro-chat-bubble";
+        script.src = "https://chat.housecallpro.com/proChat.js";
+        script.type = "text/javascript";
+        script.dataset.color = "#bcaa34";
+        script.dataset.organization = "544de216-f35f-4c0b-835a-7950591bbd80";
+        script.async = true;
+        let frameObserver;
+        let observedFrame = null;
+        const attachFrame = () => {
+          const frame = document.getElementById("proChatIframe");
+          if (!frame || frame === observedFrame) return;
+          observedFrame = frame;
+          frame.title = "Chat with Valiant Garage Door";
+          frame.addEventListener("load", () => {
+            if (frameObserver) frameObserver.disconnect();
+            facade.remove();
+          }, { once: true });
+        };
+        // The provider can append its frame before or after script.onload.
+        // Observe before insertion so a fast iframe load cannot miss its listener.
+        if (typeof MutationObserver === "function") {
+          frameObserver = new MutationObserver(attachFrame);
+          frameObserver.observe(document.body, { childList: true, subtree: true });
+        }
+        script.addEventListener("load", () => {
+          trackValiantAction("chat_widget_loaded", { provider: "housecall_pro" });
+          attachFrame();
+        }, { once: true });
+        script.addEventListener("error", () => {
+          if (frameObserver) frameObserver.disconnect();
+          started = false;
+          script.remove();
+          button.disabled = false;
+          button.removeAttribute("aria-busy");
+          button.textContent = "Retry chat · or text below";
+        }, { once: true });
+        document.body.appendChild(script);
+      });
+      document.body.appendChild(facade);
+    };
+    if (document.body) add();
+    else document.addEventListener("DOMContentLoaded", add, { once: true });
+  })();
+
+  document.querySelectorAll("section").forEach((section) => {
+    const heading = section.querySelector(":scope > h2");
+    if (heading && ["Search Atlas Intent Covered", "Search Atlas Visibility Gaps Used"].includes(heading.textContent.trim())) {
+      section.remove();
+    }
+  });
+
+  const active = (href) => {
+    if (href === "/") return currentPath === "/";
+    return currentPath === href || currentPath.startsWith(`${href}/`);
+  };
+
+  const navLink = (href, label) =>
+    `<a href="${href}"${active(href) ? ' aria-current="page"' : ""}>${label}</a>`;
+
+  const serviceLinks = [
+    ["/new-garage-door-installation", "New Door Installation"],
+    ["/garage-door-repair", "Garage Door Repair"],
+    ["/garage-door-spring-replacement", "Broken Spring Replacement"],
+    ["/garage-door-openers", "Opener Installation"],
+    ["/garage-door-cable-repair", "Cable Repair"],
+    ["/garage-door-opener-repair", "Opener Repair"],
+    ["/wayne-dalton-torsion-conversion", "Wayne-Dalton Conversion"],
+    ["/services/garage-door-maintenance", "Maintenance & Tune-Ups"],
+    ["/safety-sensors", "Safety Sensors"],
+    ["/emergency-garage-door-repair", "After-Hours Emergency"],
+    ["/services/commercial", "Commercial Service"],
+    ["/same-day-garage-door-repair-pleasanton", "Same-Day Service"]
+  ];
+  const servicesActive = active("/services") || serviceLinks.some(([href]) => active(href));
+  const servicesMenu = `
+    <div class="global-nav-services${servicesActive ? " is-current" : ""}">
+      <button class="global-services-toggle" id="globalServicesToggle" type="button" aria-controls="globalServicesMenu" aria-expanded="false">
+        <span>Services</span>
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 7 5 5 5-5"/></svg>
+      </button>
+      <div class="global-services-menu" id="globalServicesMenu" aria-labelledby="globalServicesToggle">
+        <a class="global-services-all" href="/services"${currentPath === "/services" ? ' aria-current="page"' : ""}>
+          <span><strong>Services Overview</strong><small>Compare installation, replacement, repair, opener &amp; emergency options</small></span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <div class="global-services-grid">
+          ${serviceLinks.map(([href, label]) => navLink(href, label)).join("")}
+        </div>
+      </div>
+    </div>`;
+
+  const brand = `
+    <a class="global-brand" href="/" aria-label="Valiant Garage Door home">
+      <img src="/assets/home-optimized/hero-door-shield-black-red-420.webp" alt="" width="48" height="48">
+      <span class="global-brand-text"><b>VALIANT</b><small>GARAGE DOOR</small></span>
+    </a>`;
+
+  const header = document.createElement("header");
+  header.className = "global-site-header";
+  header.innerHTML = `
+    <div class="global-wrap global-header-inner">
+      ${brand}
+      <nav class="global-main-nav" id="globalMainNav" aria-label="Primary navigation">
+        ${servicesMenu}
+        ${navLink("/service-areas", "Service Areas")}
+        ${navLink("/repair-guides", "Repair Guides")}
+        ${navLink("/portfolio", "Project Portfolio")}
+        ${navLink("/garage-door-before-after", "Before & After")}
+        ${navLink("/community-garage-door-project", "Community Project")}
+        ${navLink("/reviews-and-proof", "Reviews & Proof")}
+        ${navLink("/idea-certified-garage-door-technician", "About Us")}
+        ${navLink("/infinity-shield-garage-door-sensor", "Infinity Shield")}
+      </nav>
+      <div class="global-header-actions">
+        <a class="global-header-call js-tel" href="${PHONE_HREF}" aria-label="Call Valiant Garage Door at ${PHONE}"><span class="js-phone">${PHONE}</span></a>
+        <a class="global-header-book" href="${BOOK_URL}" target="_blank" rel="noopener noreferrer">Book Free Estimate</a>
+        <button class="global-nav-toggle" type="button" aria-controls="globalMainNav" aria-expanded="false" aria-label="Open navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>`;
+
+  const diamondCityReports = [
+    ["pleasanton", "Pleasanton"], ["dublin", "Dublin"], ["livermore", "Livermore"],
+    ["hayward", "Hayward"], ["fremont", "Fremont"], ["castro-valley", "Castro Valley"]
+  ];
+  const diamondCity = diamondCityReports.find(([slug]) => currentPath.includes(slug));
+  const diamondCityLink = diamondCity
+    ? `<a href="https://www.diamondcertified.org/category/garage-doors/ca/${diamondCity[0]}/" target="_blank" rel="noopener noreferrer">Diamond Certified ${diamondCity[1]} directory ↗</a>`
+    : "";
+  const footer = document.createElement("footer");
+  footer.className = "global-site-footer";
+  footer.innerHTML = `
+    <div class="global-wrap">
+      <aside class="global-diamond-proof" aria-labelledby="globalDiamondTitle">
+        <a class="global-diamond-image-link" href="https://www.diamondcertified.org/report/valiant-garage-door/" target="_blank" rel="noopener noreferrer" aria-label="View Valiant Garage Door's official Diamond Certified report">
+          <img src="/assets/credentials/diamond-certified-valiant-2026.webp" alt="Valiant Garage Door Diamond Certified certificate 2953: 5.0 rating from 26 verified customer surveys, certified since August 2026" loading="lazy" decoding="async" width="506" height="1272">
+        </a>
+        <div class="global-diamond-copy">
+          <p class="global-diamond-kicker">Independent verified-customer credential</p>
+          <h2 id="globalDiamondTitle">Valiant Garage Door is Diamond Certified</h2>
+          <p><strong>5.0 rating from 26 verified customer surveys.</strong> Rated Highest in Quality and Helpful Expertise, with performance guaranteed. Diamond Certified since August 2026 · Certificate #2953.</p>
+          <a class="global-diamond-link" href="https://www.diamondcertified.org/report/valiant-garage-door/" target="_blank" rel="noopener noreferrer">Read the verified Diamond Certified report <span aria-hidden="true">→</span></a>
+        </div>
+      </aside>
+
+      <section class="global-hcp-proof" aria-labelledby="globalHcpTitle">
+        <div class="global-hcp-badges">
+          <a href="/proof-before-proposal#recognition"><img src="/assets/credentials/housecall-pro-ambassador.webp" alt="Housecall Pro Ambassador" width="180" height="108" loading="lazy"></a>
+          <a href="/proof-before-proposal#recognition"><img src="/assets/credentials/housecall-pro-superpro.webp" alt="Housecall Pro SuperPro" width="180" height="108" loading="lazy"></a>
+        </div>
+        <div><p class="global-diamond-kicker">Documented service · Industry involvement</p><h2 id="globalHcpTitle">Proof Before Proposal</h2>
+        <p>See the findings, understand the recommendation, and see the completed work. Meet Valentino Ramirez, Housecall Pro Ambassador and Elite Super Pro.</p>
+        <div class="global-proof-links"><a href="/proof-before-proposal">See our process →</a><a href="https://www.diamondcertified.org/expert/valentino-ramirez/" target="_blank" rel="noopener noreferrer">Valentino’s Diamond Certified expert profile ↗</a>${diamondCityLink}<a href="/proof-before-proposal#experience">Our Housecall Pro experience →</a><a href="https://www.housecallpro.com/resources/garage-door-price-guide/" target="_blank" rel="noopener noreferrer">Featured by Housecall Pro ↗</a></div></div>
+      </section>
+      <div class="global-footer-grid">
+        <div class="global-footer-brand">
+          ${brand}
+          <p>New garage door installation, certified repair, opener service, and safety-focused recommendations for Pleasanton, the Tri-Valley, and surrounding East Bay communities.<br><strong>C.H.I. Certified Dealer • Amarr Dealer • AlumaDoor Dealer • Infinity Shield Dealer</strong></p>
+          <div class="global-socials" aria-label="Valiant Garage Door social profiles">
+            <a href="https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w" target="_blank" rel="noopener noreferrer" aria-label="Google Business Profile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-.7-.1-1.4-.2-2H12v4h5.6c-.2 1.3-1 2.4-2.1 3.1v2.6h3.4C20.8 18 22 15.3 22 12z"/></svg></a>
+            <a href="https://nextdoor.com/page/valiant-garage-door-pleasanton/" target="_blank" rel="noopener noreferrer" aria-label="Nextdoor"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"/></svg></a>
+            <a href="https://www.instagram.com/valiantgaragedoor/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+            <a href="https://www.facebook.com/ValiantGD/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg></a>
+            <a href="https://www.youtube.com/@Valiantdoor" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3-.4-4.4a2.6 2.6 0 0 0-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.6 2.6 0 0 0 2.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.6 2.6 0 0 0 1.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8C22 15 22 12 22 12zm-12 3V9l5 3z"/></svg></a>
+          </div>
+        </div>
+        <nav class="global-footer-column" aria-label="Footer services"><h2>Services</h2><ul><li><a href="/new-garage-door-installation">New Door Installation</a></li><li><a href="/garage-door-repair">Garage Door Repair</a></li><li><a href="/garage-door-spring-replacement">Spring Replacement</a></li><li><a href="/garage-door-openers">Garage Door Openers</a></li><li><a href="/infinity-shield-garage-door-sensor">Infinity Shield</a></li><li><a href="/services/garage-door-maintenance">Maintenance</a></li><li><a href="/emergency-garage-door-repair">Emergency Repair</a></li></ul></nav>
+        <nav class="global-footer-column" aria-label="Footer service areas"><h2>Service Areas</h2><ul><li><a href="/garage-door-repair-pleasanton">Pleasanton</a></li><li><a href="/garage-door-repair-dublin-ca">Dublin</a></li><li><a href="/garage-door-repair-livermore">Livermore</a></li><li><a href="/garage-door-repair-san-ramon">San Ramon</a></li><li><a href="/garage-door-repair-pleasant-hill">Pleasant Hill</a></li><li><a href="/service-areas">View All Areas</a></li></ul></nav>
+        <div class="global-footer-column"><h2>Contact</h2><ul><li><a class="js-tel" href="${PHONE_HREF}"><span class="js-phone">${PHONE}</span></a></li><li><a href="mailto:vm@valiantdoor.com">vm@valiantdoor.com</a></li><li><address style="font-style:normal;display:inline;">3588 Pimlico Dr, Pleasanton, CA 94588</address></li><li><strong>${LICENSE_LABEL}</strong></li><li><a href="/credentials">Licensed, bonded &amp; insured</a></li><li><a href="${BOOK_URL}" target="_blank" rel="noopener noreferrer">Book Free Estimate</a></li></ul></div>
+      </div>
+      <div class="global-footer-bottom"><span>&copy; 2026 Valiant Garage Door LLC. All Rights Reserved. &nbsp;&bull;&nbsp; ${LICENSE_LABEL}</span><span><a href="/privacy">Privacy Policy</a> &nbsp;&bull;&nbsp; <a href="/terms">Terms of Service</a></span></div>
+    </div>`;
+
+  const noChrome = document.body?.dataset.chrome === "off";
+
+  if (!noChrome) {
+    const existingHeader = document.querySelector("header.site-header, header.global-site-header");
+    if (existingHeader) existingHeader.replaceWith(header);
+    else {
+      const announcement = document.querySelector(".announce, .top-strip, .home-sticky-call");
+      if (announcement) announcement.insertAdjacentElement("afterend", header);
+      else document.body.prepend(header);
+    }
+  }
+
+  const enduranceMaxRoutes = new Set([
+    "/broken-spring-repair-dublin-ca",
+    "/case-studies/broken-springs",
+    "/blog/broken-garage-door-spring-repair-pleasanton",
+    "/blog/broken-spring-repair-east-bay",
+    "/blog/garage-door-spring-replacement-cost",
+    "/blog/why-garage-door-springs-break"
+  ]);
+
+  const createEnduranceMaxCard = () => {
+    const informational = currentPath.startsWith("/blog/") || currentPath.startsWith("/case-studies/");
+    const section = document.createElement("section");
+    section.className = "endurance-max-section";
+    section.setAttribute("aria-labelledby", `endurance-max-${currentPath.replace(/[^a-z0-9]+/gi, "-")}`);
+    section.innerHTML = `
+      <h2 id="endurance-max-${currentPath.replace(/[^a-z0-9]+/gi, "-")}">A Premium Torsion Spring Option</h2>
+      <article class="endurance-max-card">
+        <div class="endurance-max-media"><img src="/assets/springs/valiant-endurance-max-torsion-spring.png" alt="Valiant Endurance Max branded torsion spring" width="604" height="610" loading="lazy" decoding="async"></div>
+        <div class="endurance-max-copy">
+          <p class="endurance-max-kicker">Valiant premium spring system</p>
+          <h3>Valiant Endurance Max – Torsion Springs</h3>
+          <p class="endurance-max-price">Starting at $149</p>
+          <p>A heavy-duty torsion spring option engineered from high-tensile steel for dependable torque, repeated operating cycles, reliable door balance, and strong resistance to wear.</p>
+          <ul class="endurance-max-features" aria-label="Endurance Max features"><li>High durability</li><li>Consistent torque</li><li>Wear resistant</li><li>Low maintenance</li></ul>
+          <p class="endurance-max-note">Final installed pricing depends on door weight, spring size, cycle rating, spring count, labor, conversions, and required safety corrections.</p>
+          <a class="endurance-max-cta" href="${informational ? "/garage-door-spring-replacement" : "/quote"}">${informational ? "Explore Spring Replacement" : "Request a Spring Estimate"}</a>
+        </div>
+      </article>`;
+    return section;
+  };
+
+  const existingFooter = document.querySelector("footer.site-footer, footer.global-site-footer, body > footer");
+  if (enduranceMaxRoutes.has(currentPath) && !document.querySelector(".endurance-max-section")) {
+    const main = document.querySelector("main");
+    if (main) main.append(createEnduranceMaxCard());
+  }
+  if (!noChrome) {
+    if (existingFooter) existingFooter.replaceWith(footer);
+    else document.body.append(footer);
+  }
+
+  document.addEventListener("click", (event) => {
+    const callLink = event.target.closest('a[href^="tel:"]');
+    if (!callLink) return;
+
+    const phoneUrl = callLink.getAttribute("href");
+    if (!phoneUrl) return;
+
+    event.preventDefault();
+    try {
+      window.top.location.href = phoneUrl;
+    } catch {
+      window.location.href = phoneUrl;
+    }
+  });
+
+  const toggle = header.querySelector(".global-nav-toggle");
+  const nav = header.querySelector(".global-main-nav");
+  const services = header.querySelector(".global-nav-services");
+  const servicesToggle = header.querySelector(".global-services-toggle");
+  const setServicesOpen = (open) => {
+    services.classList.toggle("is-open", open);
+    servicesToggle.setAttribute("aria-expanded", String(open));
+  };
+  const setOpen = (open) => {
+    nav.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    if (!open) setServicesOpen(false);
+  };
+  toggle.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
+  servicesToggle.addEventListener("click", () => {
+    const desktopHover = window.matchMedia("(min-width: 881px) and (hover: hover)").matches;
+    if (desktopHover && services.classList.contains("is-open")) return;
+    setServicesOpen(!services.classList.contains("is-open"));
+  });
+  services.addEventListener("mouseenter", () => {
+    if (window.matchMedia("(min-width: 881px) and (hover: hover)").matches) setServicesOpen(true);
+  });
+  services.addEventListener("mouseleave", () => {
+    if (window.matchMedia("(min-width: 881px) and (hover: hover)").matches && !services.contains(document.activeElement)) setServicesOpen(false);
+  });
+  services.addEventListener("focusout", (event) => {
+    if (!services.contains(event.relatedTarget)) setServicesOpen(false);
+  });
+  nav.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      setServicesOpen(false);
+      setOpen(false);
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (!services.contains(event.target)) setServicesOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      const wasServicesOpen = services.classList.contains("is-open");
+      setServicesOpen(false);
+      setOpen(false);
+      if (wasServicesOpen) servicesToggle.focus();
+    }
+  });
+})();

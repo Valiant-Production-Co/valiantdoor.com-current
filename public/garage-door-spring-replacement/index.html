@@ -1,15 +1,11 @@
 <!DOCTYPE html><html lang="en"><head>
-<!-- Google Tag Manager -->
 <script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T74PV8L5');
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 <meta name="google-site-verification" content="VXT725p0jjN_ThMK3nusayRLUZaGuhZ7Oun1LD6KtOU">
-<script async="" src="//594683.tctm.co/t.js"></script>
-<script nowprocket="" nitro-exclude="" type="text/javascript" id="sa-dynamic-optimization" data-uuid="d9a71fe5-2db0-4f05-828b-2ae02031da04" src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gImQ5YTcxZmU1LTJkYjAtNGYwNS04MjhiLTJhZTAyMDMxZGEwNCI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="></script>
+<script async="" src="https://594683.tctm.co/t.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Broken Spring Repair Pleasanton | Valiant Garage Door</title>
@@ -23,19 +19,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:description" content="Broken spring repair in Pleasanton with clear starting prices, 30-60 minute install timing, safe balancing, and DuraMaster spring warranty options from Valiant Garage Door.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.valiantdoor.com/garage-door-spring-replacement">
-    <meta property="og:image" content="https://www.valiantdoor.com/assets/strategic-growth-review/valiant-duramaster-springs-technical-graphic.webp">
+    <meta property="og:image" content="https://www.valiantdoor.com/assets/spring-service-repair-hero.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Broken Spring Repair Pleasanton | Valiant Garage Door">
     <meta name="twitter:description" content="Broken spring repair in Pleasanton with clear starting prices, 30-60 minute install timing, safe balancing, and DuraMaster spring warranty options from Valiant Garage Door.">
-    <meta name="twitter:image" content="https://www.valiantdoor.com/assets/strategic-growth-review/valiant-duramaster-springs-technical-graphic.webp">
+    <meta name="twitter:image" content="https://www.valiantdoor.com/assets/spring-service-repair-hero.jpg">
 <link rel="stylesheet" href="/css/styles.min.css?v=20260703-header-buttons">
+<link rel="preload" as="image" href="/assets/springs/2026/valiant-real-parts-real-precision-spring.webp" fetchpriority="high">
     <style>
       .spring-duramaster-hero {
         position: relative;
         overflow: hidden;
-        min-height: 540px;
-        display: grid;
-        align-content: center;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(16px, 2.6vw, 26px);
         isolation: isolate;
         background:
           radial-gradient(circle at 78% 31%, rgba(236, 183, 82, .34), transparent 28%),
@@ -54,36 +51,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         opacity: .78;
         z-index: 0;
       }
-      .spring-duramaster-hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(90deg, rgba(3,5,8,.97) 0%, rgba(4,8,12,.88) 43%, rgba(4,8,12,.58) 66%, rgba(4,8,12,.78) 100%),
-          linear-gradient(180deg, rgba(4,4,5,.18), rgba(4,4,5,.72));
-        z-index: 2;
-      }
+      /* Banner artwork carries its own lettering and logo, so it is shown
+         uncropped with no darkening scrim over the top of it. */
       .spring-hero-bg {
-        position: absolute;
-        top: 50%;
-        right: clamp(18px, 4vw, 76px);
-        left: auto;
-        width: min(54vw, 650px);
-        height: min(58%, 380px);
-        transform: translateY(-50%) rotate(-2deg);
-        object-fit: contain;
-        object-position: center;
-        opacity: 1;
+        position: relative;
         z-index: 1;
-        filter:
-          drop-shadow(0 0 18px rgba(236,183,82,.32))
-          drop-shadow(0 26px 44px rgba(0,0,0,.58));
+        display: block;
+        /* Capped so the full banner - including its bullet/logo bar - and the
+           headline stay visible on load instead of running past the fold. */
+        width: min(100%, 560px);
+        margin-inline: auto;
+        height: auto;
+        aspect-ratio: 1200 / 1506;
+        object-fit: contain;
+        border-radius: 16px;
+        border: 1px solid rgba(236,215,159,.30);
+        box-shadow: 0 20px 46px rgba(0,0,0,.55);
       }
       .spring-hero-copy {
         position: relative;
         z-index: 3;
-        max-width: min(650px, 56%);
-        padding: clamp(20px, 4vw, 34px);
+        max-width: 100%;
+        padding: clamp(18px, 3vw, 30px);
         border: 1px solid rgba(236,215,159,.38);
         border-radius: 24px;
         background: linear-gradient(135deg, rgba(2,7,12,.95), rgba(8,8,10,.84));
@@ -156,14 +145,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         text-align: center;
       }
       @media (max-width: 760px) {
-        .spring-duramaster-hero { min-height: 620px; align-content: end; padding-top: 238px !important; }
+        .spring-duramaster-hero { gap: 14px; }
         .spring-duramaster-hero::before {
           background:
             radial-gradient(ellipse at 50% 20%, rgba(236,183,82,.24), transparent 43%),
             linear-gradient(115deg, rgba(236,215,159,.13) 0 1px, transparent 1px 22px);
         }
-        .spring-duramaster-hero::after { background: linear-gradient(180deg, rgba(3,5,8,.18) 0%, rgba(3,5,8,.30) 30%, rgba(3,5,8,.86) 56%, rgba(3,5,8,.98) 100%); }
-        .spring-hero-bg { top: 28px; right: 10px; left: 10px; width: calc(100% - 20px); height: 190px; transform: rotate(-1deg); object-fit: contain; object-position: center; opacity: 1; }
+        .spring-hero-bg { border-radius: 12px; }
         .spring-hero-copy { max-width: 100%; padding: 14px 13px; border-radius: 20px; background-color: rgba(1,6,11,.93); background-image: linear-gradient(180deg, rgba(1,6,11,.97), rgba(2,7,12,.89)); }
         .spring-hero-copy h1 { font-size: clamp(1.55rem, 7vw, 2.1rem) !important; line-height: 1.04; }
         .spring-hero-copy p { font-size: .92rem; line-height: 1.36; }
@@ -182,28 +170,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         transform: none !important;
       }
     </style>
-
-    <!-- Google tag (gtag.js) -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YH9SQLKHQ2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-YH9SQLKHQ2');
-      gtag('config', 'AW-17968443655');
-      gtag('config', 'AW-17909190639');
-    </script>
-
-      <!-- Clarity tracking code for https://www.valiantdoor.com/ -->
-    <script>
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "xbiv7tx2p3");
-    </script>
 <script>
     (function(w, d, t, u, o) {
         w[u] = w[u] || [], o.ts = (new Date).getTime();
@@ -253,396 +219,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         } catch (error) {}
       })();
     </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "HomeAndConstructionBusiness",
-        "LocalBusiness"
-      ],
-      "@id": "https://www.valiantdoor.com/#business",
-      "makesOffer": [
-        {
-          "@type": "Offer",
-          "@id": "https://www.valiantdoor.com/#emergency-offer",
-          "name": "After-Hours Emergency Garage Door Service",
-          "description": "24/7 after-hours emergency garage door service. Flat-rate $100 emergency service call.",
-          "price": "100",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "availableAtOrFrom": { "@type": "Place", "name": "Pleasanton, CA and the East Bay" }
-        }
-      ],
-      "warranty": {
-        "@type": "WarrantyPromise",
-        "durationOfWarranty": { "@type": "QuantitativeValue", "value": 10, "unitCode": "ANN" },
-        "warrantyScope": "10-year warranty on garage door repairs and installed parts"
-      },
-      "name": "Valiant Garage Door",
-      "alternateName": "Valiant",
-      "url": "https://www.valiantdoor.com/",
-      "telephone": "9254094974",
-      "email": "vm@valiantdoor.com",
-      "description": "Valiant Garage Door Is Pleasanton-Based, Serving Danville, Fremont, Sunol and Surrounding Areas With Expert Garage Door Repair, Emergency Service, Spring Replacement,Openers,Complex Systems, And Precision System Upgrades. We’re Known For Fast Response, Honest Pricing, Clear Long-Term Solutions, And Repair-First Service.",
-      "priceRange": "$$",
-      "logo": "https://www.valiantdoor.com/assets/logo/valiant-logo-gold.png",
-      "image": "https://www.valiantdoor.com/assets/home-optimized/shield-192.webp",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "3588 Pimlico Dr",
-        "addressLocality": "Pleasanton",
-        "addressRegion": "CA",
-        "postalCode": "94588",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Pleasanton, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Dublin, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Livermore, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Fremont, CA"
-        },
-        {
-          "@type": "City",
-          "name": "San Ramon, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Danville, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Sunol, CA"
-        }
-      ],
-      "sameAs": [
-        "https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w",
-        "https://www.yelp.com/biz/valiant-garage-door-pleasanton",
-        "https://www.tiktok.com/@valiantdoor"
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "9254094974",
-          "contactType": "customer service",
-          "areaServed": "US-CA",
-          "availableLanguage": [
-            "English"
-          ]
-        }
-      ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 37.676357,
-        "longitude": -121.894745
-      },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "34",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "openingHours": "Mo-Su 00:00-23:59",
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Availability",
-          "value": "Open 24 hours a day, 7 days a week"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Parts warranty",
-          "value": "10-year parts warranty on qualifying installed parts"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "After-hours service charge",
-          "value": "Flat $100 service charge for appointments at 7:00 PM or later before approved parts, repairs, or upgrades"
-        }
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.valiantdoor.com/#website",
-      "url": "https://www.valiantdoor.com/",
-      "name": "Valiant Garage Door",
-      "publisher": {
-        "@id": "https://www.valiantdoor.com/#business"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.valiantdoor.com/garage-door-spring-replacement#webpage",
-      "url": "https://www.valiantdoor.com/garage-door-spring-replacement",
-      "name": "Broken Spring Repair Pleasanton | Valiant Garage Door",
-      "description": "Broken spring repair in Pleasanton with clear starting prices, 30-60 minute install timing, safe balancing, and DuraMaster spring warranty options from Valiant Garage Door.",
-      "inLanguage": "en-US",
-      "isPartOf": {
-        "@id": "https://www.valiantdoor.com/#website"
-      },
-      "about": [
-        {
-          "@id": "https://www.valiantdoor.com/#business"
-        },
-        {
-          "@type": "Thing",
-          "name": "Valiant Garage Door 24/7 warranty and after-hours policy",
-          "description": "Open 24 hours a day, 7 days a week; qualifying installed parts include a 10-year parts warranty; appointments at 7:00 PM or later have a flat $100 after-hours service charge."
-        }
-      ],
-      "breadcrumb": {
-        "@id": "https://www.valiantdoor.com/garage-door-spring-replacement#breadcrumb"
-      },
-      "dateModified": "2026-07-08",
-      "primaryImageOfPage": "https://www.valiantdoor.com/assets/strategic-growth-review/valiant-duramaster-springs-technical-graphic.webp",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [
-          "h1",
-          "[aria-labelledby$=\"service-policies\"]"
-        ]
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.valiantdoor.com/garage-door-spring-replacement#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.valiantdoor.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Garage Door Spring Replacement",
-          "item": "https://www.valiantdoor.com/garage-door-spring-replacement"
-        }
-      ]
-    },
-    {
-      "@type": "Service",
-      "@id": "https://www.valiantdoor.com/garage-door-spring-replacement#service",
-      "name": "Garage Door Spring Replacement in Pleasanton & Nearby Cities",
-      "serviceType": "Garage door spring replacement",
-      "description": "Broken spring repair in Pleasanton with clear starting prices, 30-60 minute install timing, safe balancing, and DuraMaster spring warranty options from Valiant Garage Door.",
-      "provider": {
-        "@id": "https://www.valiantdoor.com/#business"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Pleasanton, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Dublin, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Livermore, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Fremont, CA"
-        },
-        {
-          "@type": "City",
-          "name": "San Ramon, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Danville, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Sunol, CA"
-        }
-      ],
-      "url": "https://www.valiantdoor.com/garage-door-spring-replacement",
-      "warranty": {
-        "@type": "WarrantyPromise",
-        "durationOfWarranty": {
-          "@type": "QuantitativeValue",
-          "value": 10,
-          "unitCode": "ANN"
-        },
-        "warrantyScope": "10-year warranty on garage door repairs and installed parts"
-      },
-      "hoursAvailable": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "24/7 broken spring repair and garage door spring replacement",
-          "availability": "https://schema.org/InStock",
-          "priceCurrency": "USD",
-          "description": "Valiant Garage Door is available 24 hours a day, 7 days a week. Qualifying installed parts include a 10-year parts warranty."
-        },
-        {
-          "@type": "Offer",
-          "name": "After-hours service charge",
-          "priceCurrency": "USD",
-          "price": "100",
-          "description": "Flat $100 service charge for appointments at 7:00 PM or later, before approved parts, repairs, or upgrades."
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Availability",
-          "value": "Open 24 hours a day, 7 days a week"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Parts warranty",
-          "value": "10-year parts warranty on qualifying installed parts"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "After-hours service charge",
-          "value": "Flat $100 service charge for appointments at 7:00 PM or later before approved parts, repairs, or upgrades"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.valiantdoor.com/garage-door-spring-replacement#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much does garage door spring replacement cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Single spring installation starts at $159+, double spring installation starts at $189+, and torsion system rebuilds or Wayne Dalton conversions start at $249+. Final pricing depends on door weight, spring size, cycle rating, conversion needs, and required safety corrections."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you handle garage door spring repair?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Valiant Garage Door provides garage door spring repair for broken torsion springs, extension springs, door balance problems, and spring replacement when needed."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How quickly can broken springs be replaced?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most single or double spring installations take about 30 minutes to 1 hour once the correct spring size is confirmed. Torsion rebuilds, Wayne Dalton conversions, heavy doors, or extra safety corrections can take longer."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you convert Wayne Dalton spring systems?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Valiant Garage Door can rebuild torsion systems and perform Wayne Dalton conversions when the existing spring setup is unsafe, worn out, or better served by a standard torsion spring system. These conversions start at $249+."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is garage door spring replacement safe to do yourself?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Garage door springs are under high tension and can cause severe injury if handled incorrectly. Valiant completes spring replacement with winding, balance testing, cable checks, and opener force checks before the door is returned to service."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What warranty comes with DuraMaster springs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Valiant offers a 10-year warranty on qualifying spring replacement work, and DuraMaster spring hardware can include SSC DuraMaster registered product warranty coverage when the product registration applies."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide same-day appointments?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Same-day scheduling is available when technician and parts availability allow."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are parts included in the quoted price?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Pricing is itemized so labor and required parts are transparent before approval."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you service both residential and commercial doors?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We handle residential doors and many light-commercial service requests."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer emergency service?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Call 9254094974 for priority scheduling on urgent door safety issues."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the best company for garage door spring replacement in Livermore?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Valiant Garage Door serves Livermore from the Pleasanton area with same-day spring replacement when route position and spring inventory allow. The visit includes spring sizing, safe winding, balance testing, cable checks, and opener force checks."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+
 <!-- Microsoft Ads UET tracking tag -->
 <script>(function(w, d, t, u, o) {w[u] = w[u] || [], o.ts = (new Date).getTime();var n = d.createElement(t);n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : ""),n.async = 1, n.onload = n.onreadystatechange = function() {var s = this.readyState;s && "loaded" !== s && "complete" !== s ||(o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad"),n.onload = n.onreadystatechange = null)};var i = d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n, i);})(window, document, "script", "uetq", {ti: "187250229",enableAutoSpaTracking: true});</script><!-- You can set default Consent Mode right after the UET tag --><script>window.uetq = window.uetq || [];window.uetq.push('consent', 'default', {'ad_storage': 'denied'});</script><!-- Implement a cookie banner or another method to collect user consent. When a user grants consent (e.g., selects 'Accept' on your banner), update the consent settings using the command below. --><script>window.uetq = window.uetq || [];window.uetq.push('consent', 'update', {'ad_storage': 'granted'});</script>
 <!-- End Microsoft Ads UET tracking tag -->
@@ -668,81 +245,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="valiant:primary-keyword" content="broken spring repair and garage door spring replacement Pleasanton CA">
 <meta name="valiant:high-intent-focus" content="broken garage door spring repair near me; same-day garage door repair; high-intent garage door service; Valiant Garage Door project proof; East Bay garage door repair">
 <meta name="valiant:service-area-focus" content="Pleasanton">
-<script type="application/ld+json" data-valiant-page-intent="">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://www.valiantdoor.com/garage-door-spring-replacement#valiant-page-intent",
-  "url": "https://www.valiantdoor.com/garage-door-spring-replacement",
-  "name": "Broken Spring Repair Pleasanton | Valiant Garage Door",
-  "keywords": [
-    "broken spring repair and garage door spring replacement Pleasanton CA",
-    "broken garage door spring repair near me",
-    "same-day garage door repair",
-    "high-intent garage door service",
-    "Valiant Garage Door project proof",
-    "East Bay garage door repair"
-  ],
-  "about": [
-    {
-      "@type": "Service",
-      "name": "broken spring repair and garage door spring replacement",
-      "areaServed": "Pleasanton",
-      "warranty": {
-        "@type": "WarrantyPromise",
-        "durationOfWarranty": {
-          "@type": "QuantitativeValue",
-          "value": 10,
-          "unitCode": "ANN"
-        },
-        "warrantyScope": "10-year warranty on garage door repairs and installed parts"
-      }
-    },
-    {
-      "@type": "LocalBusiness",
-      "name": "Valiant Garage Door",
-      "telephone": "9254094974"
-    },
-    {
-      "@type": "Thing",
-      "name": "Valiant Garage Door 24/7 warranty and after-hours policy",
-      "description": "Open 24 hours a day, 7 days a week; qualifying installed parts include a 10-year parts warranty; appointments at 7:00 PM or later have a flat $100 after-hours service charge."
-    }
-  ],
-  "image": [
-    "https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp",
-    "https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp",
-    "https://www.valiantdoor.com/assets/icons/google.svg",
-    "https://www.valiantdoor.com/assets/icons/yelp.svg",
-    "https://www.valiantdoor.com/assets/icons/facebook.svg",
-    "https://www.valiantdoor.com/assets/icons/instagram.svg"
-  ],
-  "dateModified": "2026-07-08",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [
-      "h1",
-      "[aria-labelledby$=\"service-policies\"]"
-    ]
-  }
-}</script></head>
-  <body class="page-services page-geo has-sticky-call">
-        <div class="home-sticky-call" role="region" aria-label="Emergency repair call button">
-      <a class="home-sticky-call-button" href="tel:9254094974">Tap to Call for Emergency Repair.</a>
-    </div>
-<!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T74PV8L5"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<link rel="stylesheet" href="/css/global-chrome.min.css?v=fa7313ee4a0f">
+<link rel="stylesheet" href="/css/service-premium.min.css?v=f266a72c4564">
+<link rel="stylesheet" href="/css/before-after.min.css?v=33128a17e507">
 
-    <header class="site-header site-header-dark">
+<meta name="contractor-license" content="CA Contractor License #1160068">
+<link rel="stylesheet" href="/css/credentials.min.css?v=c6b7a3ba5484">
+
+<script type="application/ld+json" data-valiant-business-graph>{"@context":"https://schema.org","@graph":[{"@type":["HomeAndConstructionBusiness","LocalBusiness"],"@id":"https://www.valiantdoor.com/#business","name":"Valiant Garage Door","legalName":"Valiant Garage Door LLC","url":"https://www.valiantdoor.com/","telephone":"9254094974","email":"vm@valiantdoor.com","description":"Pleasanton-based garage door repair, spring replacement, opener service, maintenance, new door installation and commercial garage door service across the Tri-Valley and nearby East Bay communities.","logo":"https://www.valiantdoor.com/assets/logo/valiant-logo-gold.png","image":"https://www.valiantdoor.com/assets/home-optimized/shield-192.webp","address":{"@type":"PostalAddress","streetAddress":"3588 Pimlico Dr","addressLocality":"Pleasanton","addressRegion":"CA","postalCode":"94588","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":37.6980775,"longitude":-121.8631748},"areaServed":[{"@type":"City","name":"Pleasanton, CA"},{"@type":"City","name":"Dublin, CA"},{"@type":"City","name":"Livermore, CA"},{"@type":"City","name":"Fremont, CA"},{"@type":"City","name":"San Ramon, CA"},{"@type":"City","name":"Danville, CA"},{"@type":"City","name":"Sunol, CA"}],"sameAs":["https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w","https://www.yelp.com/biz/valiant-garage-door-pleasanton","https://www.instagram.com/valiantgaragedoor","https://www.linkedin.com/company/valiant-garage-door","https://www.facebook.com/ValiantGD","https://www.pinterest.com/valiantgd","https://www.x.com/valiantgd","https://www.tiktok.com/@valiantdoor","https://www.youtube.com/@Valiantdoor","https://nextdoor.com/page/valiant-garage-door-pleasanton/","https://www.diamondcertified.org/report/valiant-garage-door/"],"hasMap":"https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w","identifier":{"@type":"PropertyValue","propertyID":"California CSLB contractor license","value":"1160068"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"California Contractor License #1160068","credentialCategory":"Contractor license","identifier":"1160068","recognizedBy":{"@type":"Organization","name":"California Contractors State License Board","url":"https://www.cslb.ca.gov/"},"url":"https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=1160068"},"hasCertification":{"@type":"Certification","name":"Diamond Certified","certificationIdentification":"2953","description":"Diamond Certified since August 2026.","issuedBy":{"@type":"Organization","name":"Diamond Certified","url":"https://www.diamondcertified.org/"},"url":"https://www.diamondcertified.org/report/valiant-garage-door/"},"additionalProperty":[{"@type":"PropertyValue","name":"Contractor's bond","value":"$25,000 with American Contractors Indemnity Company; bond 101085976; effective July 7, 2026."},{"@type":"PropertyValue","name":"LLC employee/worker bond","value":"$100,000 with Allegheny Casualty Company; bond ACC006A003914; effective July 8, 2026."},{"@type":"PropertyValue","name":"Liability insurance","value":"$2,000,000 with Spinnaker Insurance Company; policy CSG0050855800; effective July 5, 2026 through July 5, 2027."},{"@type":"PropertyValue","name":"Workers' compensation record","value":"CSLB exemption for no employees; effective July 9, 2026."}],"contactPoint":[{"@type":"ContactPoint","telephone":"9254094974","contactType":"customer service","areaServed":"US-CA","availableLanguage":["English"]}],"priceRange":"$","openingHours":"Mo-Su 00:00-23:59","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"makesOffer":[{"@type":"Offer","@id":"https://www.valiantdoor.com/#emergency-offer","name":"After-Hours Emergency Garage Door Service","description":"After-hours appointments at 7:00 PM or later have a $99 service charge before approved parts, repairs, conversions, or upgrades.","price":"99","priceCurrency":"USD","availability":"https://schema.org/InStock","availableAtOrFrom":{"@type":"Place","name":"Pleasanton, CA and the East Bay"}}]},{"@type":"WebSite","@id":"https://www.valiantdoor.com/#website","url":"https://www.valiantdoor.com/","name":"Valiant Garage Door","publisher":{"@id":"https://www.valiantdoor.com/#business"}},{"@type":"WebPage","@id":"https://www.valiantdoor.com/garage-door-spring-replacement#webpage","url":"https://www.valiantdoor.com/garage-door-spring-replacement","name":"Broken Spring Repair Pleasanton | Valiant Garage Door","description":"Broken spring repair in Pleasanton with clear starting prices, 30-60 minute install timing, safe balancing, and DuraMaster spring warranty options from Valiant Garage Door.","inLanguage":"en-US","isPartOf":{"@id":"https://www.valiantdoor.com/#website"},"about":[{"@id":"https://www.valiantdoor.com/#business"},{"@type":"Thing","name":"Valiant Garage Door 24/7 warranty and after-hours policy","description":"Open 24 hours a day, 7 days a week; qualifying installed parts include a lifetime parts warranty; appointments at 7:00 PM or later have a flat $99 after-hours service charge."}],"breadcrumb":{"@id":"https://www.valiantdoor.com/garage-door-spring-replacement#breadcrumb"},"dateModified":"2026-07-08","primaryImageOfPage":"https://www.valiantdoor.com/assets/strategic-growth-review/valiant-duramaster-springs-technical-graphic.webp","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","[aria-labelledby$=\"service-policies\"]"]}},{"@type":"BreadcrumbList","@id":"https://www.valiantdoor.com/garage-door-spring-replacement#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.valiantdoor.com/"},{"@type":"ListItem","position":2,"name":"Garage Door Spring Replacement","item":"https://www.valiantdoor.com/garage-door-spring-replacement"}]},{"@type":"Service","@id":"https://www.valiantdoor.com/garage-door-spring-replacement#service","name":"Garage Door Spring Replacement in Pleasanton & Nearby Cities","serviceType":"Garage door spring replacement","description":"Broken spring repair in Pleasanton with clear starting prices, 30-60 minute install timing, safe balancing, and DuraMaster spring warranty options from Valiant Garage Door.","provider":{"@id":"https://www.valiantdoor.com/#business"},"areaServed":[{"@type":"City","name":"Pleasanton, CA"},{"@type":"City","name":"Dublin, CA"},{"@type":"City","name":"Livermore, CA"},{"@type":"City","name":"Fremont, CA"},{"@type":"City","name":"San Ramon, CA"},{"@type":"City","name":"Danville, CA"},{"@type":"City","name":"Sunol, CA"}],"url":"https://www.valiantdoor.com/garage-door-spring-replacement","hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"offers":[{"@type":"Offer","name":"24/7 broken spring repair and garage door spring replacement","availability":"https://schema.org/InStock","priceCurrency":"USD","description":"Urgent requests are accepted by phone 24/7, with dispatch timing confirmed based on availability. Qualifying installed parts include a lifetime parts warranty."},{"@type":"Offer","name":"After-hours service charge","priceCurrency":"USD","price":"99","description":"Flat $99 service charge for appointments at 7:00 PM or later, before approved parts, repairs, or upgrades."}],"additionalProperty":[{"@type":"PropertyValue","name":"Availability","value":"Open 24 hours a day, 7 days a week"},{"@type":"PropertyValue","name":"Parts warranty","value":"lifetime parts warranty on qualifying installed parts"},{"@type":"PropertyValue","name":"After-hours service charge","value":"Flat $99 service charge for appointments at 7:00 PM or later before approved parts, repairs, or upgrades"}]},{"@type":"FAQPage","@id":"https://www.valiantdoor.com/garage-door-spring-replacement#faq","mainEntity":[{"@type":"Question","name":"What Is The Best Company For Garage Door Spring Replacement In Livermore?","acceptedAnswer":{"@type":"Answer","text":"Valiant Garage Door serves Livermore from the Pleasanton area with same-day spring replacement when route position and spring inventory allow. The visit includes spring sizing, safe winding, balance testing, cable checks, and opener force checks."}},{"@type":"Question","name":"How Much Does Garage Door Spring Replacement Cost?","acceptedAnswer":{"@type":"Answer","text":"Single spring installation starts at $159+, double spring installation starts at $189+, hi-lift rebuild/conversion parts packages start at $459, complete torsion rebuild parts packages start at $459 for one spring or $549 for two, and Wayne-Dalton TorqueMaster conversion parts packages start at $549 for one spring or $649 for two. Each rebuild or conversion package adds $250 installation labor. Final pricing depends on door weight, spring size, cycle rating, conversion needs, and required safety corrections."}},{"@type":"Question","name":"Do You Handle Garage Door Spring Repair?","acceptedAnswer":{"@type":"Answer","text":"Valiant Garage Doors Owner/Founder - Certified Master technician Valentino Ramirez provides garage door spring Replacement for broken torsion springs, extension springs, door balance problems, and hi-lift and roof-pitch applications, including hi-lift rebuild/conversion parts packages from $459 plus $250 installation labor."}},{"@type":"Question","name":"How Quickly Can Broken Springs Be Replaced?","acceptedAnswer":{"@type":"Answer","text":"Most single or double spring installations take about 30 minutes to 1 hour once the correct spring size is confirmed. Same-day scheduling is available when technician and spring availability allow."}},{"@type":"Question","name":"Do You Convert Wayne Dalton Spring Systems?","acceptedAnswer":{"@type":"Answer","text":"Yes. Valiant can rebuild torsion systems and perform Wayne Dalton conversions when the existing spring setup is unsafe, worn out, or better served by a standard torsion spring system. Wayne-Dalton TorqueMaster conversion parts packages start at $549 for a single-spring setup or $649 for a double-spring setup, plus $250 installation labor."}},{"@type":"Question","name":"Is Garage Door Spring Replacement Safe To Do Yourself?","acceptedAnswer":{"@type":"Answer","text":"No. Garage door springs are under high tension and can cause severe injury if handled incorrectly. Valiant completes winding, balance testing, cable checks, and opener force checks before returning the door to service."}},{"@type":"Question","name":"What Warranty Comes With DuraMaster Springs?","acceptedAnswer":{"@type":"Answer","text":"Qualifying spring replacement work includes a 10-year warranty, and DuraMaster spring hardware can include SSC DuraMaster registered product warranty coverage when product registration applies."}},{"@type":"Question","name":"Do You Provide Same-Day Appointments?","acceptedAnswer":{"@type":"Answer","text":"Yes. Same-Day scheduling is available when technician and parts availability allow."}},{"@type":"Question","name":"Are Parts Included In The Quoted Price?","acceptedAnswer":{"@type":"Answer","text":"Pricing is itemized so labor and required parts are transparent before approval."}},{"@type":"Question","name":"Do You Service Both Residential And Commercial Doors?","acceptedAnswer":{"@type":"Answer","text":"Yes. We handle residential doors and many light-commercial service requests."}},{"@type":"Question","name":"Do You Offer Emergency Service?","acceptedAnswer":{"@type":"Answer","text":"Yes. Call (925) 409-4974 for priority scheduling on urgent door safety issues."}},{"@type":"Question","name":"Do You Offer Broken Spring Repair In Pleasanton?","acceptedAnswer":{"@type":"Answer","text":"Yes. Broken spring repair Pleasanton calls are routed for same-day scheduling when technician and spring availability allow."}},{"@type":"Question","name":"How long does garage door spring replacement take?","acceptedAnswer":{"@type":"Answer","text":"Many standard residential spring replacements take about 30 minutes to 1 hour after diagnosis when the correct spring size is available. More complex doors, multiple springs, damaged cables, worn bearings, or balance issues can add time."}},{"@type":"Question","name":"How much does it cost to replace garage door springs in Alameda County?","acceptedAnswer":{"@type":"Answer","text":"Spring replacement cost in Alameda County depends on door weight, spring size, number of springs, cycle rating, cable or bearing condition, access, and whether emergency routing is needed. Valiant provides the spring size and repair scope before work begins."}},{"@type":"Question","name":"Who offers the most durable garage door springs in the Tri-Valley area?","acceptedAnswer":{"@type":"Answer","text":"Valiant Garage Door sizes springs to the actual door weight and balance requirement instead of guessing from the old spring alone. Higher-cycle spring options may be recommended when the door is used often or when long-term durability matters."}},{"@type":"Question","name":"Is it safe to replace garage door springs myself?","acceptedAnswer":{"@type":"Answer","text":"No. Garage door springs are under high tension and can cause severe injury. If a spring is broken, stop using the opener and have a trained garage door technician replace and balance the spring system."}}]},{"@type":"VideoObject","name":"DuraMaster Spring Hardware Overview","description":"Overview of DuraMaster garage door spring hardware and warranty coverage available through Valiant Garage Door.","thumbnailUrl":"https://img.youtube.com/vi/t65x9q7ssRU/hqdefault.jpg","uploadDate":"2026-06-28","embedUrl":"https://www.youtube.com/embed/t65x9q7ssRU"},{"@type":"WebPage","@id":"https://www.valiantdoor.com/garage-door-spring-replacement#valiant-page-intent","url":"https://www.valiantdoor.com/garage-door-spring-replacement","name":"Broken Spring Repair Pleasanton | Valiant Garage Door","keywords":["broken spring repair and garage door spring replacement Pleasanton CA","broken garage door spring repair near me","same-day garage door repair","high-intent garage door service","Valiant Garage Door project proof","East Bay garage door repair"],"about":[{"@type":"Service","name":"broken spring repair and garage door spring replacement","areaServed":"Pleasanton"},{"@id":"https://www.valiantdoor.com/#business"},{"@type":"Thing","name":"Valiant Garage Door 24/7 warranty and after-hours policy","description":"Open 24 hours a day, 7 days a week; qualifying installed parts include a lifetime parts warranty; appointments at 7:00 PM or later have a flat $99 after-hours service charge."}],"image":["https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp","https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp","https://www.valiantdoor.com/assets/icons/google.svg","https://www.valiantdoor.com/assets/icons/yelp.svg","https://www.valiantdoor.com/assets/icons/facebook.svg","https://www.valiantdoor.com/assets/icons/instagram.svg"],"dateModified":"2026-07-08","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","[aria-labelledby$=\"service-policies\"]"]}},{"@type":"ItemList","@id":"https://www.valiantdoor.com/garage-door-spring-replacement#warranty-schedule","name":"Valiant Garage Door warranty schedule","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WarrantyPromise","name":"Lifetime parts warranty","warrantyScope":"Lifetime warranty on qualifying installed repair parts"}},{"@type":"ListItem","position":2,"item":{"@type":"WarrantyPromise","name":"Valiant Endurance Max 10-year spring warranty","durationOfWarranty":{"@type":"QuantitativeValue","value":10,"unitCode":"ANN"},"warrantyScope":"10-year spring warranty on Valiant Endurance Max; Valiant Endurance and Endurance Pro carry a 5-year spring warranty"}},{"@type":"ListItem","position":3,"item":{"@type":"WarrantyPromise","name":"5-year garage door opener warranty","durationOfWarranty":{"@type":"QuantitativeValue","value":5,"unitCode":"ANN"},"warrantyScope":"5-year warranty on qualifying installed garage door openers"}}]}]}</script>
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0133/9738.js" async="async"></script>
+<link rel="stylesheet" href="/css/seo-reference-additions.css?v=20261024">
+<link rel="stylesheet" href="/css/spring-calculator.css?v=20261110-interactive">
+<script src="/js/spring-calculator.js?v=20261110-interactive" defer></script>
+</head>
+  <body class="page-services page-geo has-sticky-call page-service-premium service-spring">
+        <div class="home-sticky-call" role="region" aria-label="Emergency repair call button">
+      <a class="home-sticky-call-button" href="tel:+19254094974">Tap to Call for Emergency Repair.</a>
+    </div>
+<header class="site-header site-header-dark">
       <div class="container nav">
         <a class="logo" href="/" aria-label="Valiant Garage Door home">
           <img class="logo-shield" src="/assets/Valiant%20Shield%20Final.webp" alt="Valiant Garage Door shield logo" loading="eager" width="709" height="984">
           <img class="logo-wordmark" src="/assets/logo/valiant-logo-gold.webp" alt="Valiant Garage Door" loading="eager" width="1421" height="430">
           <span class="sr-only">Valiant Garage Door Home</span>
         </a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
           <span class="sr-only">Toggle navigation</span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -768,7 +295,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a class="nav-social-link nav-social-tiktok" href="https://www.tiktok.com/@valiantdoor" target="_blank" rel="noopener noreferrer" aria-label="TikTok profile">
               <img src="/assets/icons/tiktok.svg" alt="Valiant Garage Door on TikTok" width="18" height="18" loading="lazy" decoding="async">
             </a>
-            <a class="nav-social-link nav-social-nextdoor" href="https://nextdoor.com/pages/valiant-garage-door-san-leandro-ca" target="_blank" rel="noopener noreferrer" aria-label="Nextdoor profile">
+            <a class="nav-social-link nav-social-nextdoor" href="https://nextdoor.com/page/valiant-garage-door-pleasanton/" target="_blank" rel="noopener noreferrer" aria-label="Nextdoor profile">
               <img src="/assets/icons/nextdoor.svg" alt="Valiant Garage Door on Nextdoor" width="18" height="18" loading="lazy" decoding="async">
             </a>
             <a class="nav-social-link nav-social-thumbtack" href="https://www.thumbtack.com/ca/pleasanton/garage-door-repair/valiant-garage-door/service/573243425352556573" target="_blank" rel="noopener noreferrer" aria-label="Thumbtack profile">
@@ -781,25 +308,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <summary>Services</summary>
             <div class="nav-dropdown-menu">
               <a href="/services">Services Overview</a>
-              <a href="/same-day-garage-door-repair-pleasanton">Garage Door Repair</a>
+              <a href="/garage-door-repair">Garage Door Repair</a>
               <a href="/garage-door-spring-replacement">Spring Replacement</a>
+              <a href="/garage-door-cable-repair">Cable Repair</a>
+              <a href="/garage-door-off-track-repair">Off-Track Repair</a>
+              <a href="/safety-sensors">Safety Sensors</a>
               <a href="/garage-door-opener-repair">Opener Repair</a>
               <a href="/garage-door-openers">Openers &amp; Pricing</a>
               <a href="/services/garage-door-maintenance">Maintenance &amp; Tune-Ups</a>
               <a href="/emergency-garage-door-repair">Emergency Service</a>
+              <a href="/garage-door-repair-pleasanton">Same-Day Service (Pleasanton)</a>
               <a href="/services/commercial">Commercial Service</a>
-              <a href="/instant-estimate">Instant Estimate</a>
+              <a href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true">Instant Estimate</a>
               <a href="/quote">Request Appointment</a>
-              <a href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
+              <a href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
             </div>
           </details>
           <details class="nav-dropdown nav-dropdown-proof">
             <summary>Reviews &amp; Proof</summary>
             <div class="nav-dropdown-menu">
               <a href="/reviews-and-proof">Reviews &amp; Proof Overview</a>
+              <a href="/google-business-profile">Google Business Profile</a>
               <a href="/mission">Mission</a>
               <a href="/mastertech">Mastertech</a>
-              <a href="/about-valentino-ramirez">About Valentino</a>
+              <a href="/about-valentino-ramirez">About Valentino</a><a href="/credentials">License, Bonds &amp; Insurance</a><a href="/credentials">License, Bonds &amp; Insurance</a>
               <a href="/case-studies">Case Studies</a>
               <a href="/idea-certified-garage-door-technician">IDEA Certified Technician</a>
             </div>
@@ -808,12 +340,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <summary>Menu</summary>
             <div class="nav-dropdown-menu">
               <a href="/service-areas">Service Areas</a>
+              <a href="/garage-door-repair-pleasanton">Garage Door Repair Pleasanton</a>
               <a href="/faq">FAQ</a>
               <a href="/blog">Blog</a>
               <a href="/partners">Partners</a>
               <a href="/business-card">Business Card</a>
               <a href="/Garage-Door-Service-Excellence">Valiant Service Excellence Protocol</a>
-              <a href="/amazon-alexa">Amazon &amp; Alexa App</a>
               <a href="/privacy">Privacy</a>
               <a href="/terms">Terms</a>
               <a href="/site-map">Site Map</a>
@@ -828,27 +360,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <main class="services-shell geo-shell">
       <nav class="geo-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/garage-door-spring-replacement">Garage Door Spring Replacement</a></nav>
       <section class="geo-hero spring-duramaster-hero">
-        <img class="spring-hero-bg" src="/assets/duramaster-spring-cutout.webp" alt="Valiant DuraMaster gold torsion spring hero image" width="534" height="360" loading="eager" fetchpriority="high" decoding="async">
         <div class="spring-hero-copy">
-          <p class="geo-eyebrow">DuraMaster spring upgrade · Pleasanton and nearby East Bay communities</p>
-          <h1>DuraMaster Garage Door Spring Replacement In Pleasanton</h1>
-          <p>Valiant installs DuraMaster torsion springs for broken spring repair, high-cycle upgrades, cleaner powder-coated protection, safe rebalancing, and same-day emergency scheduling across Pleasanton and nearby East Bay cities.</p>
+          <p class="geo-eyebrow" style="color:rgba(234, 159, 10, 0.88);">Garage Door Spring Replacement in Pleasanton, CA | Valiant Garage Door</p>
+          <h1>Garage Door Spring Replacement in Pleasanton and the Tri-Valley</h1>
+          <p>Valiant Uses Premium DuraMaster torsion springs for broken spring Replacements.<br>Cleaner powder-Coated protection, Safe rebalancing, and same-day emergency scheduling across Pleasanton Tri-Valley &amp; East Bay cities.</p>
+          <div class="service-premium-actions" aria-label="Spring Replacement options">
+            <a class="btn" href="tel:+19254094974">Call for Spring Replacement</a>
+            <a class="btn service-primary" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate</a>
+            <a class="btn" href="sms:+19254094974">Text Valiant</a>
+          </div>
+          <p><a class="geo-text-link" href="/offers/spring-replacement-75-off">View the current $75 spring replacement offer and eligibility terms &rarr;</a></p>
         </div>
+        <img class="spring-hero-bg" src="/assets/springs/2026/valiant-real-parts-real-precision-spring.webp" sizes="(max-width: 760px) 100vw, 560px" alt="Valiant Garage Door precision torsion spring with IDEA Certified and 12-plus years experience badges" width="1200" height="1506" loading="eager" fetchpriority="high" decoding="async">
       </section>
 
 <section class="geo-stats" aria-label="Company trust signals">
-  <article><strong>12+ Years</strong><span>Hands-On Garage Door Experience</span></article>
-  <article><strong>10,000+</strong><span>Garage Doors Serviced</span></article>
-  <article><strong>500+</strong><span>Springs Replaced Yearly</span></article>
-  <article><strong>Same-Day</strong><span>Priority Response Across Core Service Areas</span></article>
+  <article><strong>12+ Years</strong><span>Valentino's Hands-On Industry Experience</span></article>
+  <article><strong>10,000+</strong><span>Doors Serviced Across Valentino's Career</span></article>
+  <article><strong>IDEA</strong><span>Certified Garage Door Technician</span></article>
+  <article><strong>Same-Day</strong><span>Immediate Response Across<br>Tri-Valley East Bay</span></article>
+</section>
+
+<section class="geo-section spring-estimator" id="spring-calculator" aria-labelledby="spring-calculator-title" data-spring-calculator>
+  <div class="sc-heading">
+    <div><p class="sc-kicker">A clearer picture. A better starting point.</p><h2 id="spring-calculator-title">Build your spring service estimate.</h2><p class="sc-intro">See the system behind your door. Choose single- or double-car, your door construction and a spring package. Your estimated spring setup and installed price update together.</p></div>
+    <span class="sc-live-pill">Interactive system view</span>
+  </div>
+  <div class="sc-widget">
+    <div class="sc-scene">
+      <div class="sc-scene-top"><span>THE VALIANT STANDARD</span><span class="sc-finish-label" data-sc-finish>Valiant Endurance · 5-year warranty</span></div>
+      <div data-sc-scene id="sc-system"></div>
+      <button type="button" class="sc-door-touch" data-sc-operate aria-controls="sc-system" aria-label="Open the illustrated garage door">Tap the door to open</button>
+      <div class="sc-scene-bottom"><span class="sc-door-caption"><span data-sc-door>Double-car · 25-gauge steel · 2 springs</span><small>Illustrative system · actual sizing confirmed on site</small></span><span class="sc-dispatch-badge" data-sc-dispatch data-urgency="0">Scheduled daytime</span></div>
+    </div>
+    <div class="sc-motion-controls">
+      <button type="button" class="sc-operate" data-sc-operate aria-controls="sc-system">Open door</button>
+      <div class="sc-position-control"><div class="sc-range-heading"><label for="sc-position">Try the door</label><output for="sc-position" data-sc-position>Closed</output></div><input type="range" id="sc-position" class="sc-range" min="0" max="100" value="0" aria-valuetext="Closed"><div class="sc-range-ticks"><span>Closed</span><span>Open</span></div></div>
+      <p>Interactive illustration of a working system. Never operate a real door with a broken spring.</p>
+    </div>
+    <div class="sc-explore"><div class="sc-component-buttons" role="group" aria-label="Explore the garage door system"><button type="button" data-sc-inspect="springs" aria-pressed="true">Torsion springs</button><button type="button" data-sc-inspect="cables" aria-pressed="false">Cables &amp; drums</button><button type="button" data-sc-inspect="tracks" aria-pressed="false">Track system</button></div><p data-sc-help aria-live="polite">Torsion springs counterbalance the door. Your selected package, wire size and spring count update the system above.</p></div>
+    <div class="sc-breakdown" aria-live="polite" aria-atomic="true">
+      <div class="sc-price-item"><span>Springs &amp; hardware</span><strong data-sc-hardware>$198.00</strong><small data-sc-unit-price>$99.00 × 2 springs</small></div>
+      <div class="sc-price-item"><span>Installation labor</span><strong data-sc-installation>$189.00</strong></div>
+      <div class="sc-price-item"><span>After-hours charge</span><strong data-sc-afterhours>$0.00</strong></div>
+      <div class="sc-price-item"><span data-sc-total-label>Estimated installed price</span><strong data-sc-total>$387.00</strong><small>Before tax</small></div>
+    </div>
+    <div class="sc-controls">
+      <div class="sc-field sc-service-field"><label for="sc-service">Service needed</label><select id="sc-service"><option value="springs">Spring replacement</option><option value="hilift">Hi-lift rebuild / conversion · parts from $459</option><option value="wayne">Wayne Dalton conversion · parts from $549 / $649</option><option value="rebuild">Complete torsion rebuild · parts from $459 / $549</option></select><small class="sc-field-note" data-sc-service-note>Spring price includes your selected Endurance package, size adjustment and replacement count. Installation is itemized separately below.</small></div>
+      <fieldset><legend>Garage door size</legend><div class="sc-segments">
+        <label><input type="radio" name="sc-door" value="single"><span><svg viewBox="0 0 24 18" aria-hidden="true"><path d="M6 16V2h12v14M8 6h8M8 10h8M8 14h8"/></svg>Single-car</span></label>
+        <label><input type="radio" name="sc-door" value="double" checked><span><svg viewBox="0 0 24 18" aria-hidden="true"><path d="M2 16V2h20v14M4 6h16M4 10h16M4 14h16M12 2v14"/></svg>Double-car</span></label>
+      </div></fieldset>
+      <div class="sc-field"><label for="sc-finish">Valiant spring package</label><select id="sc-finish"><option value="endurance">Endurance — 5-year warranty · from $99/spring</option><option value="pro">Endurance Pro — 5-year warranty · from $129/spring</option><option value="max">Endurance Max — 10-year warranty · from $149/spring</option></select><small class="sc-field-note"><strong data-sc-warranty>5-year warranty</strong><br><span data-sc-spec>Base reference: .207 × 22.5 / 2&quot;. Length and inside diameter are confirmed by your technician.</span></small></div>
+      <div class="sc-field"><label for="sc-type">Door construction</label><select id="sc-type"><option value="noninsulated">Non-insulated steel</option><option value="insulated">Insulated steel</option><option value="wood">Wood</option><option value="carriage">Carriage door · 4 springs</option><option value="fullview">Full-view glass / aluminum · 4 springs</option></select></div>
+      <div class="sc-field"><label for="sc-profile">Door construction details</label><select id="sc-profile"><option value="steel25">25-gauge steel</option><option value="steel24">24-gauge steel</option></select></div>
+      <div class="sc-field sc-setup"><span class="sc-setup-label">Estimated spring setup</span><strong data-sc-setup>2 × .207 in. torsion springs</strong><small class="sc-field-note" data-sc-size-price>Door-construction estimating preset · $0.00 size adjustment per spring.</small></div>
+      <div class="sc-field"><label for="sc-count">Replacement spring count</label><select id="sc-count"><option value="1">1 spring</option><option value="2" selected>2 springs</option><option value="4">4 springs</option></select><small class="sc-field-note" data-sc-count-note>Single-car defaults to one spring; double-car defaults to two. Your technician confirms the actual configuration.</small></div>
+      <div class="sc-urgency"><div class="sc-range-heading"><label for="sc-urgency">Response &amp; service window</label><output for="sc-urgency" data-sc-urgency>Scheduled daytime</output></div><input type="range" min="0" max="2" step="1" value="0" id="sc-urgency" class="sc-range" aria-valuetext="Scheduled daytime"><div class="sc-range-ticks" aria-hidden="true"><span>Scheduled<br>daytime</span><span>Priority<br>daytime request</span><span>After hours<br>7 PM or later</span></div></div>
+    </div>
+    <p class="sc-note"><strong>Parts + installation + your selected service window.</strong> The estimate includes your selected spring or service parts package, installation labor and a $99 after-hours charge when selected. Tax and additional repairs are not included. Conversion and rebuild packages show starting prices. Spring sizes shown are estimating presets. Your technician verifies door weight, height, drums, spring dimensions and final scope before work.<span class="sc-field-note" data-sc-availability>Scheduling is confirmed based on technician, route and parts availability.</span></p>
+    <div class="sc-action-row"><p>Not sure what’s above your door?<br><a class="sc-photo-link" href="sms:+19254094974" data-sc-text>Text a photo of your broken spring</a></p><a class="sc-quote-link" href="/quote">Get my exact quote <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+  </div>
+  <p class="sc-safety"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 10 18H2Z"/><path d="M12 9v5m0 3v1"/></svg><span>Springs are under extreme tension. If one is broken, stop using the opener and leave the repair to a trained technician. Need urgent help? <a href="tel:+19254094974">Call (925) 409-4974</a>.</span></p>
+  <noscript><p>Valiant Endurance springs start at $99 each with a 5-year warranty; Endurance Pro at $129 each with a 5-year warranty; Endurance Max at $149 each with a 10-year warranty. Base wire size is .207; each size step adds $10 per spring. Standard installation is $159 for one spring, $189 for two or $250 for four. Hi-lift parts packages start at $459; complete torsion rebuild parts packages at $459 for one spring or $549 for two; Wayne Dalton conversion parts packages at $549 for one spring or $649 for two. Add $250 installation labor to each rebuild/conversion package. Four-spring rebuild/conversion packages need a custom quote. Appointments at 7 PM or later add $99. Call for your installed estimate.</p></noscript>
 </section>
 
 <section class="geo-section" aria-labelledby="spring-service-policies">
   <h2 id="spring-service-policies">Spring Repair Availability, Warranty &amp; After-Hours Policy</h2>
   <div class="geo-card-grid">
-    <article class="geo-card"><h3>Open 24/7</h3><p>Valiant Garage Door is available 24 hours a day, 7 days a week for broken spring repair, emergency garage door repair, and unsafe stuck-door calls.</p></article>
-    <article class="geo-card"><h3>10-Year Parts Warranty</h3><p>Qualifying spring replacement parts are backed by a 10-year parts warranty, documented on the estimate or invoice for the completed spring repair.</p></article>
-    <article class="geo-card"><h3>After-Hours Service Charge</h3><p>Appointments at 7:00 PM or later have a flat $100 after-hours service charge before approved parts, repairs, conversions, or upgrades.</p></article>
+    <article class="geo-card"><h3>24/7 Phone Intake</h3><p>Urgent requests are accepted by phone 24/7. Dispatch timing is confirmed based on technician, route, and parts availability.</p></article>
+    <article class="geo-card"><h3>5- and 10-Year Spring Warranties</h3><p>Valiant Endurance and Endurance Pro include a 5-year spring warranty. Endurance Max includes a 10-year spring warranty. Your selected coverage is documented on the estimate or invoice.</p></article>
+    <article class="geo-card"><h3>After-Hours Service Charge</h3><p>Appointments at 7:00 PM or later have a flat $99 after-hours service charge before approved parts, repairs, conversions, or upgrades.</p></article>
   </div>
 </section>
 
@@ -858,14 +440,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <article class="geo-card spring-duramaster-card">
       <img src="/assets/strategic-growth-review/valiant-duramaster-springs-technical-graphic.webp" alt="DuraMaster spring upgrade slide showing performance, protection, warranty, and strategic spring replacement value" width="1376" height="768" loading="lazy" decoding="async">
     </article>
-    <article class="geo-card spring-premium-card">
-      <img src="/assets/spring-replacement-product.webp" alt="Valiant Garage Door gold DuraMaster premium torsion spring product" width="534" height="360" loading="lazy" decoding="async">
-      <div class="spring-premium-card-copy">
-        <h3>DuraMaster Premium Spring Option</h3>
-        <p>Valiant DuraMaster ultra high-cycle powder-coated torsion springs are built for longer service life, cleaner corrosion protection, dependable balance, and stronger long-term performance than standard replacement hardware.</p>
-      </div>
-    </article>
+
   </div>
+</section>
+
+<section class="endurance-max-section" aria-labelledby="endurance-max-main-title">
+  <h2 id="endurance-max-main-title">Schedule Premium Torsion Spring Installation </h2>
+  <article class="endurance-max-card">
+    <div class="endurance-max-media"><img src="/assets/springs/valiant-endurance-max-torsion-spring.webp" alt="Valiant Endurance Max branded torsion spring" width="604" height="610" loading="lazy" decoding="async"></div>
+    <div class="endurance-max-copy">
+      <p class="endurance-max-kicker">Valiant premium spring system</p>
+      <h3>Valiant Endurance Max – Torsion Springs</h3>
+      <p class="endurance-max-price">Starting at $149</p>
+      <p>Valiant Endurance Max is an additional premium torsion spring option—not a replacement for DuraMaster. Its high-tensile steel construction is designed for dependable torque, repeated operating cycles, reliable balance, and strong resistance to wear.</p>
+      <ul class="endurance-max-features" aria-label="Endurance Max features"><li>High durability</li><li>Consistent torque</li><li>Wear resistant</li><li>Low maintenance</li></ul>
+      <p class="endurance-max-note">Product pricing starts at $149. Final installed pricing depends on door weight, spring size, cycle rating, spring count, labor, conversions, and required safety corrections.</p>
+      <a class="endurance-max-cta" href="/quote">Request a Spring Estimate</a>
+    </div>
+  </article>
 </section>
 
 <section class="geo-section" aria-labelledby="duramaster-spring-upgrade-visual">
@@ -878,21 +470,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section>
 
 <section class="geo-section">
-  <h2>What We Handle</h2>
+  <h2>Broken Springs and Counterbalance Problems</h2>
   <div class="geo-card-grid">
-    <article class="geo-card"><h3>Common Problems</h3><ul>
-      <li>Broken springs, snapped cables, worn rollers, and track misalignment</li>
-      <li>Noisy operation, uneven travel, door binding, and opener force issues</li>
-      <li>Sensor faults, remote connectivity failures, and safety reverse failures</li>
-    </ul></article>
-    <article class="geo-card"><h3>Spring Replacement Starting Prices</h3><p>Single spring installation starts at $159+, double spring installation starts at $189+, and torsion system rebuilds or Wayne Dalton conversions start at $249+.</p><p>Final estimates are based on door weight, spring size, cycle rating, conversion needs, parts, and required safety corrections.</p></article>
+    <article class="geo-card"><h3>Common Problems</h3><ul><li>A visible break in the installed spring or a sudden loss of lift support</li><li>Assessment of the spring arrangement and the door it counterbalances</li><li>Related cable, drum and bearing findings that affect the approved repair</li></ul></article>
+    <article class="geo-card"><h3>Spring Replacement Starting Prices</h3><p>Single spring installation starts at $159+, double spring installation starts at $189+, hi-lift rebuild/conversion parts packages start at $459, complete torsion rebuild parts packages start at $459 for one spring or $549 for two, and Wayne-Dalton TorqueMaster conversion parts packages start at $549 for one spring or $649 for two. Each rebuild or conversion package adds $250 installation labor.</p><p>Final estimates are based on door weight, spring size, cycle rating, conversion needs, parts, and required safety corrections.</p></article>
     <article class="geo-card"><h3>Install Duration</h3><p>Most single or double spring installations take about 30 minutes to 1 hour once the correct spring size is confirmed.</p><p>We prioritize secure-close and safety-critical requests first; torsion rebuilds, Wayne Dalton conversions, or heavy doors may take longer.</p></article>
   </div>
 </section>
-<section class="geo-section">
-  <h2>Expert Answer</h2>
-  <blockquote class="geo-expert">"Garage Door Springs Usually Fail From Cycle Fatigue, Poor Balance, Or Corrosion Long Before The Rest Of The Door System Wears Out."</blockquote>
-  <p>Valiant Garage Door replaces spring systems across Pleasanton, Dublin, Livermore, Fremont, and San Ramon with matched cycle ratings, door balance checks, and opener force testing.</p>
+<section class="geo-section" aria-labelledby="torsion-vs-extension-springs">
+  <h2 id="torsion-vs-extension-springs">Torsion Springs vs. Extension Springs</h2>
+  <div class="geo-card-grid">
+    <article class="geo-card"><h3>Torsion Springs</h3><p>Torsion springs mount horizontally above the door on a metal shaft and twist to store energy, releasing it evenly as the door opens. Most garage doors installed in the last 20+ years use torsion springs because they last longer, wind more predictably, and put less strain on the opener. Valiant's DuraMaster and Endurance Max torsion springs are powder-coated, high-cycle upgrades to this standard setup.</p></article>
+    <article class="geo-card"><h3>Extension Springs</h3><p>Extension springs run along the horizontal tracks on either side of the door and stretch to store energy. They're common on older garage doors and some Wayne Dalton systems. Extension springs require a separate safety cable running through the coil &mdash; without it, a broken spring can become a projectile. Valiant checks for a working safety cable on every extension-spring job and can convert an unsafe setup to a torsion system.</p></article>
+    <article class="geo-card"><h3>Which One Do I Have?</h3><p>If the spring sits directly above the door on a shaft, it's torsion. If it runs along the upper track and stretches when the door closes, it's extension. Valentino identifies the spring type, cycle rating, and any safety gaps during the initial visit, before quoting the repair.</p></article>
+  </div>
+</section>
+
+<section class="geo-section" aria-labelledby="meet-valentino">
+  <h2 id="meet-valentino">Meet Your Certified Technician</h2>
+  <div class="geo-card-grid">
+    <article class="geo-card"><h3>Valentino Ramirez, Owner &amp; Master Technician</h3><p><a class="geo-text-link" href="/mastertech">Valentino Ramirez</a> founded Valiant Garage Door and holds a Master Technician Certification along with IDEA (Institute of Door Dealer Education and Accreditation) certifications in Commercial Sectional Door Installation, Commercial Rolling Door Systems, Commercial Sectional Systems, and Residential Installation. He has 12+ years of hands-on garage door experience across Pleasanton and the Tri-Valley/East Bay.</p><p>See <a class="geo-text-link" href="/idea-certified-garage-door-technician">Valiant's IDEA certified technician credentials</a> or check the <a class="geo-text-link" href="https://dooreducation.com/find-certified-technicians/" target="_blank" rel="noopener noreferrer">IDEA Certified Technician Directory</a> directly.</p></article>
+    <article class="geo-card"><h3>Safety Process On Every Spring Job</h3><p>Every spring replacement includes spring sizing to the actual door weight, safe winding with professional winding bars, balance testing, cable and pulley inspection, and opener force testing before the door is returned to service. Extension-spring jobs are checked for a working safety cable; if one is missing, Valentino flags it and offers a torsion conversion.</p></article>
+  </div>
+  <blockquote class="geo-expert">"Garage door springs usually fail from cycle fatigue, poor balance, or corrosion long before the rest of the door system wears out." &mdash; Valentino Ramirez, Owner/Master Technician, Valiant Garage Door</blockquote>
+</section>
+
+<section class="geo-section" aria-labelledby="spring-warning-signs">
+  <h2 id="spring-warning-signs">Warning Signs You Need Spring Replacement</h2>
+  <div class="geo-card-grid">
+    <article class="geo-card"><h3>Loud Bang Or Pop</h3><p>A sudden loud bang from the garage is almost always a torsion or extension spring snapping under tension. Stop using the opener immediately and call for service.</p></article>
+    <article class="geo-card"><h3>Door Feels Heavy Or Falls Fast</h3><p>If the door feels noticeably heavier when lifted manually, or drops faster than normal when disconnected from the opener, the spring is losing tension and nearing failure.</p></article>
+    <article class="geo-card"><h3>Visible Gap In The Coil</h3><p>A visible gap or separation in the torsion spring coil means it has already broken, even if the door still appears to move.</p></article>
+    <article class="geo-card"><h3>Opener Straining Or Grinding</h3><p>An opener that strains, grinds, or reverses unexpectedly is often compensating for a weakened spring rather than an opener problem on its own.</p></article>
+    <article class="geo-card"><h3>Uneven Or Crooked Closing</h3><p>A door that closes unevenly or looks crooked on one side can point to one spring failing while the other still holds tension &mdash; common on double-spring systems.</p></article>
+    <article class="geo-card"><h3>Frayed Cables Near The Spring</h3><p>Cables that look frayed, kinked, or rusted near the spring assembly are a related failure point and should be inspected at the same time as the spring.</p></article>
+  </div>
 </section>
 <section class="geo-section">
   <h2>Spring Replacement Context</h2>
@@ -902,36 +514,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <article class="geo-card"><h3>Safety And Warranty</h3><p>Garage door springs are under high tension and should not be replaced as a DIY repair. Valiant completes winding, balance testing, cable checks, and opener force checks.</p><p>Qualifying spring replacement work includes a 10-year warranty, and DuraMaster hardware can include SSC DuraMaster registered product warranty coverage when product registration applies.</p></article>
   </div>
 </section>
-<section class="geo-section" aria-labelledby="livermore-spring-answer">
-  <h2 id="livermore-spring-answer">Livermore Garage Door Spring Replacement Answer</h2>
-  <p>If you are comparing the best company for garage door spring replacement in Livermore, Valiant Garage Door is a Pleasanton-based option serving Livermore with same-day spring replacement when technician route position and spring inventory allow. The visit includes spring sizing, safe winding, door balance testing, cable checks, and opener force checks.</p>
+<section class="geo-section">
+  <div style="aspect-ratio: 16 / 9; width: 100%; max-width: 800px; margin: 0 auto; border-radius: 8px; overflow: hidden; background: #000">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/t65x9q7ssRU" title="DuraMaster Hype Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border: none; display: block"></iframe>
+  </div>
 </section>
 <section class="geo-section">
-  <h2>Service Areas</h2>
-  <p>Primary coverage includes Pleasanton, Dublin, Livermore, Fremont, San Ramon, and nearby East Bay communities handled by availability.</p>
+  <h2>Spring Replacement Service Coverage</h2>
+  <p>Primary coverage includes Pleasanton, Dublin, Livermore, San Ramon, Danville, Fremont, Sunol, Tri-Valley &amp; East Bay communities.</p>
   <ul class="geo-inline-list">
-    <li>Pleasanton, CA</li><li>Dublin, CA</li><li>Livermore, CA</li><li>Fremont, CA</li><li>San Ramon, CA</li>
+    <li>Pleasanton, CA</li><li>Dublin, CA</li><li>Livermore, CA</li><li>San Ramon, CA</li><li>Danville, CA</li><li>Fremont, CA</li><li>Sunol, CA</li>
   </ul>
 </section>
 
       <section class="geo-section">
-<h2>Frequently Asked Questions</h2>
+<h2>Spring Replacement Pricing, Timing and Warranty</h2>
 <div class="geo-faq-list">
 <details class="geo-faq-item"><summary>What Is The Best Company For Garage Door Spring Replacement In Livermore?</summary><p>Valiant Garage Door serves Livermore from the Pleasanton area with same-day spring replacement when route position and spring inventory allow. The visit includes spring sizing, safe winding, balance testing, cable checks, and opener force checks.</p></details>
-<details class="geo-faq-item"><summary>How Much Does Garage Door Spring Replacement Cost?</summary><p>Single spring installation starts at $159+, double spring installation starts at $189+, and torsion system rebuilds or Wayne Dalton conversions start at $249+. Final pricing depends on door weight, spring size, cycle rating, conversion needs, and required safety corrections.</p></details>
-<details class="geo-faq-item"><summary>Do You Handle Garage Door Spring Repair?</summary><p>Yes. Valiant Garage Door provides garage door spring repair for broken torsion springs, extension springs, door balance problems, and spring replacement when needed.</p></details>
+<details class="geo-faq-item"><summary>How Much Does Garage Door Spring Replacement Cost?</summary><p>Single spring installation starts at $159+, double spring installation starts at $189+, hi-lift rebuild/conversion parts packages start at $459, complete torsion rebuild parts packages start at $459 for one spring or $549 for two, and Wayne-Dalton TorqueMaster conversion parts packages start at $549 for one spring or $649 for two. Each rebuild or conversion package adds $250 installation labor. Final pricing depends on door weight, spring size, cycle rating, conversion needs, and required safety corrections.</p></details>
+<details class="geo-faq-item"><summary>Do You Handle Garage Door Spring Repair?</summary><p>Valiant Garage Doors Owner/Founder - Certified Master technician Valentino Ramirez provides garage door spring Replacement for broken torsion springs, extension springs, door balance problems, and hi-lift and roof-pitch applications, including hi-lift rebuild/conversion parts packages from $459 plus $250 installation labor.</p></details>
 <details class="geo-faq-item"><summary>How Quickly Can Broken Springs Be Replaced?</summary><p>Most single or double spring installations take about 30 minutes to 1 hour once the correct spring size is confirmed. Same-day scheduling is available when technician and spring availability allow.</p></details>
-<details class="geo-faq-item"><summary>Do You Convert Wayne Dalton Spring Systems?</summary><p>Yes. Valiant can rebuild torsion systems and perform Wayne Dalton conversions when the existing spring setup is unsafe, worn out, or better served by a standard torsion spring system. These conversions start at $249+.</p></details>
+<details class="geo-faq-item"><summary>Do You Convert Wayne Dalton Spring Systems?</summary><p>Yes. Valiant can rebuild torsion systems and perform Wayne Dalton conversions when the existing spring setup is unsafe, worn out, or better served by a standard torsion spring system. Wayne-Dalton TorqueMaster conversion parts packages start at $549 for a single-spring setup or $649 for a double-spring setup, plus $250 installation labor.</p></details>
 <details class="geo-faq-item"><summary>Is Garage Door Spring Replacement Safe To Do Yourself?</summary><p>No. Garage door springs are under high tension and can cause severe injury if handled incorrectly. Valiant completes winding, balance testing, cable checks, and opener force checks before returning the door to service.</p></details>
 <details class="geo-faq-item"><summary>What Warranty Comes With DuraMaster Springs?</summary><p>Qualifying spring replacement work includes a 10-year warranty, and DuraMaster spring hardware can include SSC DuraMaster registered product warranty coverage when product registration applies.</p></details>
 <details class="geo-faq-item"><summary>Do You Provide Same-Day Appointments?</summary><p>Yes. Same-Day scheduling is available when technician and parts availability allow.</p></details>
 <details class="geo-faq-item"><summary>Are Parts Included In The Quoted Price?</summary><p>Pricing is itemized so labor and required parts are transparent before approval.</p></details>
-<details class="geo-faq-item"><summary>Do You Service Both Residential And Commercial Doors?</summary><p>Yes. We handle residential doors and many light-Commercial service requests.</p></details>
-<details class="geo-faq-item"><summary>Do You Offer Emergency Service?</summary><p>Yes. Call 9254094974 for priority scheduling on urgent door safety issues.</p></details>
-<details class="geo-faq-item"><summary>Do You Offer Broken Spring Repair In Pleasanton?</summary><p>Yes. Broken spring repair Pleasanton calls are routed for same-Day scheduling when technician and spring availability allow.</p></details>
+<details class="geo-faq-item"><summary>Do You Service Both Residential And Commercial Doors?</summary><p>Yes. We handle residential doors and many light-commercial service requests.</p></details>
+<details class="geo-faq-item"><summary>Do You Offer Emergency Service?</summary><p>Yes. Call (925) 409-4974 for priority scheduling on urgent door safety issues.</p></details>
+<details class="geo-faq-item"><summary>Do You Offer Broken Spring Repair In Pleasanton?</summary><p>Yes. Broken spring repair Pleasanton calls are routed for same-day scheduling when technician and spring availability allow.</p></details>
 </div>
 </section>
-      <section class="geo-section"><h2>Related Resources</h2><div class="geo-link-grid">
+      <section class="geo-section"><h2>Spring Types, Costs and Failure Warning Signs</h2><div class="geo-link-grid">
 <a class="geo-link-card" href="/garage-door-repair-pleasanton"><h3>Pleasanton Garage Door Repair</h3><p>Local repair coverage for Pleasanton neighborhoods and nearby communities.</p></a>
 <a class="geo-link-card" href="/garage-door-repair-dublin-ca"><h3>Dublin Garage Door Repair</h3><p>Fast service for Dublin homes and light commercial doors.</p></a>
 <a class="geo-link-card" href="/garage-door-repair-livermore"><h3>Livermore Garage Door Repair</h3><p>Same-Day repair support for Livermore properties.</p></a>
@@ -948,11 +561,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div></section>
 
 
-<section class="geo-section" aria-labelledby="search-atlas-spring-gap-answers"><h2 id="search-atlas-spring-gap-answers">Search Atlas Spring Gap Answers</h2><div class="geo-faq-list"><details class="geo-faq-item"><summary>How long does garage door spring replacement take?</summary><p>Many standard residential spring replacements take about 30 minutes to 1 hour after diagnosis when the correct spring size is available. More complex doors, multiple springs, damaged cables, worn bearings, or balance issues can add time.</p></details><details class="geo-faq-item"><summary>How much does it cost to replace garage door springs in Alameda County?</summary><p>Spring replacement cost in Alameda County depends on door weight, spring size, number of springs, cycle rating, cable or bearing condition, access, and whether emergency routing is needed. Valiant provides the spring size and repair scope before work begins.</p></details><details class="geo-faq-item"><summary>Who offers the most durable garage door springs in the Tri-Valley area?</summary><p>Valiant Garage Door sizes springs to the actual door weight and balance requirement instead of guessing from the old spring alone. Higher-cycle spring options may be recommended when the door is used often or when long-term durability matters.</p></details><details class="geo-faq-item"><summary>Is it safe to replace garage door springs myself?</summary><p>No. Garage door springs are under high tension and can cause severe injury. If a spring is broken, stop using the opener and have a trained garage door technician replace and balance the spring system.</p></details></div></section>
+<section class="geo-section" aria-labelledby="search-atlas-spring-gap-answers"><h2 id="search-atlas-spring-gap-answers">Garage Door Spring Gap Answers</h2><div class="geo-faq-list"><details class="geo-faq-item"><summary>How long does garage door spring replacement take?</summary><p>Many standard residential spring replacements take about 30 minutes to 1 hour after diagnosis when the correct spring size is available. More complex doors, multiple springs, damaged cables, worn bearings, or balance issues can add time.</p></details><details class="geo-faq-item"><summary>How much does it cost to replace garage door springs in Alameda County?</summary><p>Spring replacement cost in Alameda County depends on door weight, spring size, number of springs, cycle rating, cable or bearing condition, access, and whether emergency routing is needed. Valiant provides the spring size and repair scope before work begins.</p></details><details class="geo-faq-item"><summary>Who offers the most durable garage door springs in the Tri-Valley area?</summary><p>Valiant Garage Door sizes springs to the actual door weight and balance requirement instead of guessing from the old spring alone. Higher-cycle spring options may be recommended when the door is used often or when long-term durability matters.</p></details><details class="geo-faq-item"><summary>Is it safe to replace garage door springs myself?</summary><p>No. Garage door springs are under high tension and can cause severe injury. If a spring is broken, stop using the opener and have a trained garage door technician replace and balance the spring system.</p></details></div></section>
 
 <section class="geo-section service-cross-links" aria-labelledby="service-cross-links-title">
-  <h2 id="service-cross-links-title">Garage Door Service Links</h2>
-  <p>Use these connected service pages to compare emergency repair, spring replacement, opener installation, maintenance, and custom/new door options without losing the main path.</p>
+  <h2 id="service-cross-links-title">Compare Spring Work With Related Door Repairs</h2>
+  <p>Review cable repair, opener service and maintenance when assessing the full spring-replacement scope. The door's counterbalance and connected hardware should be considered together.</p>
   <div class="geo-link-grid">
 <a class="geo-link-card" href="/services"><h3>Services Overview</h3><p>Start here for every garage door repair, spring, opener, maintenance, and service-area path.</p></a>
 <a class="geo-link-card" href="/emergency-garage-door-repair"><h3>Emergency Garage Door Repair</h3><p>Primary urgent repair hub for stuck doors, broken springs, snapped cables, and unsafe doors.</p></a>
@@ -963,16 +576,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <a class="geo-link-card" href="/service-areas"><h3>Service Areas</h3><p>Connected city pages for Pleasanton, Dublin, Livermore, Fremont, San Ramon, Danville, Sunol, and nearby East Bay routes.</p></a>
   </div>
 </section>
+<section class="geo-section" aria-labelledby="valiant-warranty-schedule"><h2 id="valiant-warranty-schedule">Valiant Warranty Coverage</h2><div class="geo-card-grid"><article class="geo-card"><h3>Lifetime Parts Warranty</h3><p>Qualifying installed repair parts are backed by a lifetime parts warranty when documented on the estimate or invoice.</p></article><article class="geo-card"><h3>Valiant Endurance Spring Warranties</h3><p>Endurance and Endurance Pro carry a 5-year spring warranty. Endurance Max carries a 10-year spring warranty.</p></article><article class="geo-card"><h3>5-Year Garage Door Opener Warranty</h3><p>Qualifying installed garage door openers are backed by a 5-year warranty.</p></article></div><p><a class="geo-text-link" href="/warranty">Read the Valiant warranty summary</a></p></section>
 <section class="geo-section geo-cta-strip">
-        <h2>Need Help Right Now?</h2>
-        <p>Call <a href="tel:9254094974">9254094974</a> Or <a href="/quote">Request spring replacement service online</a>, Or <a href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book free estimate instantly</a>.</p>
+        <h2>Request Broken-Spring Service Without Operating the Door</h2>
+        <p>Call <a href="tel:+19254094974">(925) 409-4974</a> Or <a href="/quote">Request spring replacement service online</a>, Or <a href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book free estimate instantly</a>.</p>
+        <p class="geo-cta-photo" style="margin-top:0.6rem;font-size:0.95rem;opacity:0.9;">Not sure if it&apos;s the spring? <a href="/instant-estimate">Send photos for a written estimate</a>.</p>
       </section>
 
 <section class="valiant-companycam-native-proof valiant-companycam-native-proof--compact" aria-labelledby="native-companycam-proof-heading">
             <div class="valiant-companycam-native-proof__intro">
-              <p class="geo-eyebrow">Native crawlable CompanyCam proof</p>
+              <p class="geo-eyebrow">Recent Local Garage Door Work</p>
               <h2 id="native-companycam-proof-heading">Real field photos for broken spring repair and garage door spring replacement Pleasanton CA</h2>
-              <p>These are Valiant job photos saved as normal crawlable image elements with descriptive filenames, alt text, captions, page context, and project-record links. The live Trusty/CompanyCam gallery stays on the site, and these native images give Google and AI search engines direct image context.</p>
+
             </div>
             <div class="valiant-companycam-grid">
               <figure class="valiant-companycam-card">
@@ -988,7 +603,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <figcaption>Before and after view of a Danville garage door spring and hardware repair from the CompanyCam project record. <a href="https://app.companycam.com/projects/104942719" target="_blank" rel="noopener noreferrer">CompanyCam project record</a></figcaption>
             </figure>
             </div>
-          </section></main>
+          </section>
+      <section class="service-premium-cta-band" aria-label="Schedule Spring Replacement">
+        <h2>Arrange a Spring Assessment Without Forcing the Door</h2>
+        <p>If the spring is visibly broken or the door suddenly became heavy, leave the opener off. Let us know whether a vehicle is trapped and request confirmation of availability for the installed spring system.</p>
+        <div class="service-premium-actions" aria-label="Spring Replacement options">
+            <a class="btn" href="tel:+19254094974">Call for Spring Replacement</a>
+            <a class="btn service-primary" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate</a>
+            <a class="btn" href="sms:+19254094974">Text Valiant</a>
+          </div>
+      </section>
+
+<section class="geo-section" id="dublin-spring-service-link">
+  <h2>Need Spring Repair In Dublin?</h2>
+  <p>See local service details, warning signs, and scheduling information for <a href="/broken-spring-repair-dublin-ca">broken garage door spring repair in Dublin, CA</a>.</p>
+</section>
+
+<section class="before-after-proof" id="verified-before-after">
+  <h2>Verified Garage Door Repair Results</h2>
+  <p>These matched CompanyCam comparisons document component conditions before service and the verified result after Valiant Garage Door completed the related work. The technician captions are used as factual reference, and every pair comes from the same project.</p>
+  <div class="before-after-proof-grid">
+    <article class="before-after-proof-card"><img src="/assets/companycam-before-after/3247537323-3247648690-comparison.webp" alt="Dublin Powder-Coated Garage Door Spring Replacement before and after comparison" width="1200" height="675" loading="lazy" decoding="async"><div><h3>Dublin Powder-Coated Garage Door Spring Replacement</h3><p>A broken torsion spring was replaced with a new powder-coated torsion spring at this Dublin garage door.</p><a href="/garage-door-before-after#project-3247537323-3247648690">View documented project →</a></div></article><article class="before-after-proof-card"><img src="/assets/companycam-before-after/3245042303-3245132174-comparison.webp" alt="Dublin Broken Garage Door Spring Repair before and after comparison" width="1200" height="675" loading="lazy" decoding="async"><div><h3>Dublin Broken Garage Door Spring Repair</h3><p>A broken torsion spring was replaced with new torsion-spring hardware at this Dublin garage door.</p><a href="/garage-door-before-after#project-3245042303-3245132174">View documented project →</a></div></article>
+  </div>
+  <p><a class="btn btn-secondary" href="/garage-door-before-after">See all 24 before-and-after projects</a></p>
+</section>
+<p class="valiant-process-reference"><a href="/proof-before-proposal">Proof Before Proposal</a> — Documented findings, clear recommendations, and completed-work evidence. <a href="/proof-before-proposal#recognition">Credentials &amp; Housecall Pro recognition</a> · <a href="/proof-before-proposal#experience">Industry appearance</a></p>
+<section class="geo-section valiant-context-videos" data-valiant-context-videos><h2>Documented garage door work</h2><p>These field videos show the components, inspections and service work behind our recommendations.</p><details><summary>View related repair and inspection videos</summary><ul><li><a href="/videos/companycam/18976484">Garage Door Operation Test After Spring Work in San Ramon, CA</a></li><li><a href="/videos/companycam/19084263">Torsion Spring Temporary Repair Inspection in Pleasanton, CA</a></li><li><a href="/videos/companycam/21073377">Torsion Spring Condition Check in San Ramon, CA</a></li><li><a href="/videos/companycam/21073383">Torsion Spring and Cable Inspection in San Ramon, CA</a></li><li><a href="/videos/companycam/21750839">Torsion System Walk-Through in Santa Clara, CA</a></li><li><a href="/videos/companycam/21781287">Why DIY Garage Door Spring Replacement Is Dangerous</a></li><li><a href="/videos/companycam/21962561">What Do Garage Door Torsion Springs Look Like in Danville?</a></li><li><a href="/videos/companycam/21963465">What Does a Garage Door Torsion Spring Assembly Look Like?</a></li><li><a href="/videos/companycam/22210923">Torsion Tube and Header Inspection in Pleasanton, CA</a></li><li><a href="/videos/companycam/22211015">Torsion Spring Drum and Bearing Inspection in Pleasanton, CA</a></li><li><a href="/videos/how-to/how-do-duramaster-springs-reduce-rust-exposure">How Do DuraMaster Garage Door Springs Reduce Rust Exposure?</a></li><li><a href="/videos/how-to/how-do-professionals-release-tension-from-a-garage-door-spring">How Do Professionals Release Tension From a Garage Door Spring?</a></li><li><a href="/videos/how-to/how-does-a-professional-replace-a-broken-garage-door-spring">How Does a Professional Replace a Broken Garage Door Spring?</a></li><li><a href="/videos/how-to/how-is-a-surewinder-used-for-garage-door-spring-service">How Is a SureWinder Used for Garage Door Spring Service?</a></li></ul></details></section>
+
+<section class="valiant-seo-reference container" data-valiant-seo-reference="areas" aria-label="Repair service areas"><h2>Repair service areas</h2><ul><li><a href="/garage-door-repair-pleasanton">Garage door repair in Pleasanton</a></li><li><a href="/garage-door-repair-dublin-ca">Garage door repair in Dublin</a></li><li><a href="/garage-door-repair-livermore">Garage door repair in Livermore</a></li><li><a href="/garage-door-repair-san-ramon">Garage door repair in San Ramon</a></li><li><a href="/garage-door-repair-danville">Garage door repair in Danville</a></li><li><a href="/garage-door-repair-fremont">Garage door repair in Fremont</a></li><li><a href="/garage-door-repair-sunol">Garage door repair in Sunol</a></li></ul></section>
+
+<section class="valiant-seo-reference container" data-valiant-seo-reference="guides" aria-label="Related repair guides and services"><h2>Related repair guides and services</h2><ul><li><a href="/blog/garage-door-repair-cost-pleasanton">Garage door repair costs in Pleasanton</a></li><li><a href="/blog/garage-door-spring-replacement-cost">Garage door spring replacement costs</a></li><li><a href="/wayne-dalton-torsion-conversion">Wayne-Dalton TorqueMaster conversion</a></li></ul></section>
+</main>
+<aside class="valiant-credentials" data-valiant-credential-details aria-label="Valiant Garage Door credentials">
+  <details>
+    <summary>Licensed · Diamond Certified · Bonded · Insured <span>View verification details</span></summary>
+    <dl>
+      <div><dt>California contractor license</dt><dd><a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=1160068" target="_blank" rel="noopener noreferrer">CSLB #1160068</a> · Valiant Garage Door LLC</dd></div>
+      <div><dt>Diamond Certified</dt><dd><a href="https://www.diamondcertified.org/report/valiant-garage-door/" target="_blank" rel="noopener noreferrer">Certificate #2953</a> · Certified since August 2026</dd></div>
+      <div><dt>Contractor’s bond</dt><dd>$25,000 · American Contractors Indemnity Company · Bond #101085976 · Effective July 7, 2026</dd></div>
+      <div><dt>LLC employee/worker bond</dt><dd>$100,000 · Allegheny Casualty Company · Bond #ACC006A003914 · Effective July 8, 2026</dd></div>
+      <div><dt>Liability insurance</dt><dd>$2,000,000 · Spinnaker Insurance Company · Policy #CSG0050855800 · July 5, 2026 – July 5, 2027</dd></div>
+      <div><dt>Workers’ compensation record</dt><dd>CSLB exemption for no employees, effective July 9, 2026. The LLC employee/worker bond is separate from workers’ compensation insurance.</dd></div>
+    </dl>
+    <p><a href="/credentials">License, certification &amp; insurance information →</a> · <a href="/quote">Request service</a></p>
+  </details>
+</aside>
+
 
     <footer class="site-footer">
       <div class="container footer-content">
@@ -998,26 +658,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <nav class="footer-links" aria-label="Footer">
           <a href="/">Home</a>
-          <a href="/services">Services</a>
+          <a href="/services">Services</a><a href="/short-repair-videos">Repair Videos</a><a href="/garage-door-before-after">Before &amp; After</a>
           <a href="/gallery">Gallery</a>
           <a href="/blog">Blog</a>
           <a href="/faq">FAQ</a>
           <a href="/mission">Mission</a>
           <a href="/service-areas">Service Areas</a>
           <a href="/quote">Request Appointment</a>
-          <a href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
+          <a href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
           <a href="/business-card">Business Card</a><a href="/site-map">Site Map</a>
-        </nav>
+        <a href="/google-business-profile">Google Business Profile</a></nav>
         <div class="footer-legal">
           <p>Valiant Garage Door LLC<br>All Rights Reserved<br>3588 Pimlico Dr<br>Pleasanton, CA 94588</p>
         </div>
       </div>
-    </footer>
+    <p class="contractor-license" style="margin:12px auto 0;text-align:center;font-size:.78rem;letter-spacing:.06em;color:#b7b1a6">CA Contractor License #1160068</p></footer>
 
-    <script src="/js/main.min.js?v=20260702-bot-close"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="/js/surefire-local-lead-manager.js?v=20260612-current"></script>
+    <script src="/js/main.min.js?v=1210ec5c42a2"></script>
 
 
 
+<script src="/js/global-chrome.min.js?v=d5806a68578c" defer></script>
 </body></html>

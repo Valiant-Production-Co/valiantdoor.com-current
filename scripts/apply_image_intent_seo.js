@@ -77,7 +77,7 @@ function wordsFromSlug(route, title) {
   }
   let service = 'same-day garage door repair';
   if (t.includes('spring') || t.includes('broken-spring')) service = 'broken spring repair and garage door spring replacement';
-  else if (t.includes('emergency') || t.includes('after-hours') || t.includes('24/7')) service = '24/7 emergency garage door repair';
+  else if (t.includes('emergency') || t.includes('after-hours') || t.includes('24/7')) service = 'urgent garage door repair';
   else if (t.includes('opener') || t.includes('liftmaster') || t.includes('remote') || t.includes('keypad') || t.includes('motor')) service = 'garage door opener repair';
   else if (t.includes('cable')) service = 'garage door cable repair';
   else if (t.includes('off-track') || t.includes('off track') || t.includes('track')) service = 'off-track garage door repair';
@@ -92,7 +92,7 @@ function wordsFromSlug(route, title) {
     'Valiant Garage Door project proof',
     'East Bay garage door repair',
   ];
-  if (service.includes('emergency')) secondary.unshift('book 24/7 emergency garage door repair East Bay');
+  if (service.includes('emergency')) secondary.unshift('request urgent garage door repair East Bay');
   if (service.includes('spring')) secondary.unshift('broken garage door spring repair near me');
   return {primary, secondary: [...new Set(secondary)], area, service};
 }
@@ -154,7 +154,7 @@ function upsertIntent($, canonical, title, route, intent, imgs) {
     keywords: [intent.primary, ...intent.secondary],
     about: [
       { '@type': 'Service', name: intent.service, areaServed: intent.area },
-      { '@type': 'LocalBusiness', name: 'Valiant Garage Door', telephone: '9254094974' }
+      { '@id': 'https://www.valiantdoor.com/#business' }
     ],
     image: imgs.slice(0, 6).map(src => src.startsWith('http') ? src : SITE + src),
     dateModified: TODAY
@@ -290,10 +290,6 @@ const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
   </sitemap>
   <sitemap>
     <loc>https://www.valiantdoor.com/sitemap-blog.xml</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.valiantdoor.com/sitemap-searchatlas-growth.xml</loc>
     <lastmod>${TODAY}</lastmod>
   </sitemap>
   <sitemap>

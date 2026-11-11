@@ -1,15 +1,11 @@
 <!DOCTYPE html><html lang="en"><head>
-<!-- Google Tag Manager -->
 <script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T74PV8L5');
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 <meta name="google-site-verification" content="VXT725p0jjN_ThMK3nusayRLUZaGuhZ7Oun1LD6KtOU">
-<script async="" src="//594683.tctm.co/t.js"></script>
-<script nowprocket="" nitro-exclude="" type="text/javascript" id="sa-dynamic-optimization" data-uuid="d9a71fe5-2db0-4f05-828b-2ae02031da04" src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gImQ5YTcxZmU1LTJkYjAtNGYwNS04MjhiLTJhZTAyMDMxZGEwNCI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="></script>
+<script async="" src="https://594683.tctm.co/t.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Garage Door Maintenance | Valiant Garage Door</title>
@@ -82,7 +78,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
 
       .page-maintenance .maintenance-video-link::after {
-        content: "Watch maintenance overview";
+        content: "▶  Watch the Valiant Maintenance Experience";
         position: absolute;
         left: 50%;
         bottom: clamp(14px, 4vw, 24px);
@@ -90,18 +86,103 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 42px;
-        padding: 0 18px;
-        border: 1px solid rgba(245, 242, 236, 0.72);
-        border-radius: 999px;
-        background: rgba(8, 9, 13, 0.82);
-        color: #f5f2ec;
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
+        min-height: 64px;
+        padding: 0 clamp(22px, 4vw, 38px);
+        border: 1px solid rgba(255, 225, 145, 0.9);
+        border-radius: 12px;
+        background: #c7a34b;
+        color: #08090b;
+        font-size: clamp(0.98rem, 2vw, 1.22rem);
+        font-weight: 900;
+        letter-spacing: 0.045em;
         text-transform: uppercase;
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.34);
+        box-shadow:
+          0 14px 32px rgba(0, 0, 0, 0.48),
+          0 0 0 6px rgba(199, 163, 75, 0.12);
         white-space: nowrap;
+        transition:
+          background-color 180ms ease,
+          box-shadow 180ms ease,
+          transform 180ms ease;
+      }
+
+      .page-maintenance .maintenance-video-link:hover::after,
+      .page-maintenance .maintenance-video-link:focus-visible::after {
+        background: #f5d987;
+        box-shadow:
+          0 18px 40px rgba(0, 0, 0, 0.54),
+          0 0 0 8px rgba(199, 163, 75, 0.18);
+        transform: translateX(-50%) translateY(-3px);
+      }
+
+      .page-maintenance .maintenance-video-link:focus-visible {
+        outline: 3px solid #f5d987;
+        outline-offset: 4px;
+      }
+
+      .page-maintenance .maintenance-info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin: 24px 0 44px;
+      }
+
+      .page-maintenance .maintenance-info-panel {
+        position: relative;
+        overflow: hidden;
+        margin: 24px 0;
+        padding: clamp(24px, 4vw, 38px);
+        border: 1px solid rgba(199, 163, 75, 0.4);
+        border-radius: 16px;
+        background:
+          linear-gradient(145deg, rgba(24, 25, 28, 0.98), rgba(10, 11, 13, 0.98));
+        box-shadow:
+          0 18px 42px rgba(0, 0, 0, 0.28),
+          inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      }
+
+      .page-maintenance .maintenance-info-grid .maintenance-info-panel {
+        height: 100%;
+        margin: 0;
+      }
+
+      .page-maintenance .maintenance-info-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(245, 217, 135, 0.78), transparent);
+        pointer-events: none;
+      }
+
+      .page-maintenance .geo-section > h2,
+      .page-maintenance .maintenance-info-panel > h2 {
+        margin-top: 0;
+        color: #e0c783;
+        font-family: "Great Vibes", "Brush Script MT", "Snell Roundhand", "Segoe Script", cursive;
+        font-size: clamp(2.35rem, 5.8vw, 4rem);
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        line-height: 1.08;
+        text-transform: none;
+        text-shadow: 0 0 18px rgba(199, 163, 75, 0.2);
+      }
+
+      .page-maintenance .maintenance-info-panel > p,
+      .page-maintenance .maintenance-info-panel > ul {
+        color: #d7d5d0;
+      }
+
+      .page-maintenance .maintenance-info-panel > p:last-child,
+      .page-maintenance .maintenance-info-panel > ul:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 900px) {
+        .page-maintenance .maintenance-info-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 760px) {
@@ -115,10 +196,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .page-maintenance .maintenance-video-link::after {
-          min-height: 38px;
-          padding: 0 14px;
-          font-size: 0.66rem;
-          letter-spacing: 0.06em;
+          width: calc(100% - 28px);
+          min-height: 56px;
+          padding: 10px 16px;
+          font-size: 0.88rem;
+          letter-spacing: 0.035em;
+          line-height: 1.2;
+          text-align: center;
+          white-space: normal;
+        }
+
+        .page-maintenance .maintenance-info-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          margin: 18px 0 34px;
+        }
+
+        .page-maintenance .maintenance-info-panel {
+          margin: 18px 0;
+          padding: 22px 20px;
+          border-radius: 14px;
+        }
+
+        .page-maintenance .geo-section > h2,
+        .page-maintenance .maintenance-info-panel > h2 {
+          font-size: clamp(2.15rem, 12vw, 3.25rem);
         }
       }
 
@@ -133,25 +235,247 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         text-transform: none;
         line-height: 1;
       }
-    </style>
 
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YH9SQLKHQ2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-YH9SQLKHQ2');
-      gtag('config', 'AW-17968443655');
-      gtag('config', 'AW-17909190639');
-    </script>
-    <script>
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "xbiv7tx2p3");
-    </script>
-      <script>
+      .page-maintenance .maintenance-plans-grid,
+      .page-maintenance .maintenance-products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 28px;
+      }
+
+      .page-maintenance .maintenance-plan-card,
+      .page-maintenance .maintenance-product-card {
+        display: flex;
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid rgba(199, 163, 75, 0.38);
+        border-radius: 16px;
+        background: #0d0e10;
+        color: #f5f2ec;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+      }
+
+      .page-maintenance .maintenance-plan-card {
+        flex-direction: column;
+      }
+
+      .page-maintenance .maintenance-plan-card--popular {
+        border-color: #c7a34b;
+        box-shadow: 0 18px 42px rgba(199, 163, 75, 0.16);
+      }
+
+      .page-maintenance .maintenance-card-media,
+      .page-maintenance .maintenance-product-media {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        background: #050607;
+      }
+
+      .page-maintenance .maintenance-card-media {
+        aspect-ratio: 16 / 9;
+      }
+
+      .page-maintenance .maintenance-card-media img,
+      .page-maintenance .maintenance-product-media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .page-maintenance .maintenance-card-media::after,
+      .page-maintenance .maintenance-product-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-bottom: 1px solid rgba(199, 163, 75, 0.34);
+        pointer-events: none;
+      }
+
+      .page-maintenance .maintenance-plan-badge,
+      .page-maintenance .maintenance-product-kicker {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        min-height: 28px;
+        padding: 5px 10px;
+        border: 1px solid rgba(199, 163, 75, 0.52);
+        border-radius: 999px;
+        color: #c7a34b;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .page-maintenance .maintenance-plan-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        z-index: 1;
+        background: rgba(5, 6, 7, 0.9);
+      }
+
+      .page-maintenance .maintenance-plan-body,
+      .page-maintenance .maintenance-product-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 24px;
+      }
+
+      .page-maintenance .maintenance-plan-body h3,
+      .page-maintenance .maintenance-product-body h3 {
+        margin: 12px 0 8px;
+        color: #f5f2ec;
+        line-height: 1.18;
+      }
+
+      .page-maintenance .maintenance-plan-type {
+        margin: 0;
+        color: #c7a34b;
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .page-maintenance .maintenance-plan-price {
+        margin: 10px 0 12px;
+        color: #f5f2ec;
+        font-size: clamp(2rem, 5vw, 2.7rem);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .page-maintenance .maintenance-plan-price span {
+        color: #a7a7a7;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .page-maintenance .maintenance-plan-summary,
+      .page-maintenance .maintenance-product-body p {
+        color: #c9c7c2;
+      }
+
+      .page-maintenance .maintenance-plan-card h4 {
+        margin: 18px 0 8px;
+        color: #f5f2ec;
+        font-size: 0.84rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .page-maintenance .maintenance-plan-card ul,
+      .page-maintenance .maintenance-product-card ul {
+        margin: 0 0 22px;
+        padding-left: 20px;
+        color: #d7d5d0;
+      }
+
+      .page-maintenance .maintenance-plan-card li,
+      .page-maintenance .maintenance-product-card li {
+        margin-bottom: 8px;
+      }
+
+      .page-maintenance .maintenance-plan-use-case {
+        margin-top: 0;
+        padding: 12px 14px;
+        border-left: 2px solid #c7a34b;
+        background: #151619;
+        color: #d7d5d0;
+      }
+
+      .page-maintenance .maintenance-card-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        margin-top: auto;
+        padding: 12px 18px;
+        border: 1px solid #c7a34b;
+        border-radius: 10px;
+        background: #c7a34b;
+        color: #050607;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+      }
+
+      .page-maintenance .maintenance-card-cta:hover,
+      .page-maintenance .maintenance-card-cta:focus-visible {
+        background: #f5f2ec;
+        color: #050607;
+        transform: translateY(-2px);
+      }
+
+      .page-maintenance .maintenance-card-cta:focus-visible {
+        outline: 3px solid #f5f2ec;
+        outline-offset: 3px;
+      }
+
+      .page-maintenance .maintenance-products-intro {
+        max-width: 74ch;
+      }
+
+      .page-maintenance .maintenance-product-card {
+        flex-direction: row;
+      }
+
+      .page-maintenance .maintenance-product-media {
+        flex: 0 0 46%;
+        min-height: 360px;
+      }
+
+      .page-maintenance .maintenance-product-media--spring img {
+        object-fit: contain;
+        padding: 18px;
+      }
+
+      @media (max-width: 900px) {
+        .page-maintenance .maintenance-plans-grid,
+        .page-maintenance .maintenance-products-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page-maintenance .maintenance-plans-grid,
+        .page-maintenance .maintenance-products-grid {
+          gap: 18px;
+          margin-top: 20px;
+        }
+
+        .page-maintenance .maintenance-plan-body,
+        .page-maintenance .maintenance-product-body {
+          padding: 20px;
+        }
+
+        .page-maintenance .maintenance-product-card {
+          flex-direction: column;
+        }
+
+        .page-maintenance .maintenance-product-media {
+          flex-basis: auto;
+          min-height: 0;
+          aspect-ratio: 16 / 10;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .page-maintenance .maintenance-card-cta {
+          transition: none;
+        }
+      }
+    </style>
+<script>
     (function(w, d, t, u, o) {
         w[u] = w[u] || [], o.ts = (new Date).getTime();
         var n = d.createElement(t);
@@ -200,394 +524,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         } catch (error) {}
       })();
     </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "HomeAndConstructionBusiness",
-        "LocalBusiness"
-      ],
-      "@id": "https://www.valiantdoor.com/#business",
-      "makesOffer": [
-        {
-          "@type": "Offer",
-          "@id": "https://www.valiantdoor.com/#emergency-offer",
-          "name": "After-Hours Emergency Garage Door Service",
-          "description": "24/7 after-hours emergency garage door service. Flat-rate $100 emergency service call.",
-          "price": "100",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
-          "availableAtOrFrom": { "@type": "Place", "name": "Pleasanton, CA and the East Bay" }
-        }
-      ],
-      "warranty": {
-        "@type": "WarrantyPromise",
-        "durationOfWarranty": { "@type": "QuantitativeValue", "value": 10, "unitCode": "ANN" },
-        "warrantyScope": "10-year warranty on garage door repairs and installed parts"
-      },
-      "name": "Valiant Garage Door",
-      "alternateName": "Valiant",
-      "url": "https://www.valiantdoor.com/",
-      "telephone": "9254094974",
-      "email": "vm@valiantdoor.com",
-      "description": "Valiant Garage Door Is Pleasanton-Based, Serving Danville, Fremont, Sunol and Surrounding Areas With Expert Garage Door Repair, Emergency Service, Spring Replacement,Openers,Complex Systems, And Precision System Upgrades. We’re Known For Fast Response, Honest Pricing, Clear Long-Term Solutions, And Repair-First Service.",
-      "priceRange": "$$",
-      "logo": "https://www.valiantdoor.com/assets/logo/valiant-logo-gold.png",
-      "image": "https://www.valiantdoor.com/assets/home-optimized/shield-192.webp",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "3588 Pimlico Dr",
-        "addressLocality": "Pleasanton",
-        "addressRegion": "CA",
-        "postalCode": "94588",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Pleasanton, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Dublin, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Livermore, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Fremont, CA"
-        },
-        {
-          "@type": "City",
-          "name": "San Ramon, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Danville, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Sunol, CA"
-        }
-      ],
-      "sameAs": [
-        "https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w",
-        "https://www.yelp.com/biz/valiant-garage-door-pleasanton",
-        "https://www.tiktok.com/@valiantdoor"
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "9254094974",
-          "contactType": "customer service",
-          "areaServed": "US-CA",
-          "availableLanguage": [
-            "English"
-          ]
-        }
-      ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 37.676357,
-        "longitude": -121.894745
-      },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "34",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "openingHours": "Mo-Su 00:00-23:59",
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Availability",
-          "value": "Open 24 hours a day, 7 days a week"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Parts warranty",
-          "value": "10-year parts warranty on qualifying installed parts"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "After-hours service charge",
-          "value": "Flat $100 service charge for appointments at 7:00 PM or later before approved parts, repairs, or upgrades"
-        }
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.valiantdoor.com/#website",
-      "url": "https://www.valiantdoor.com/",
-      "name": "Valiant Garage Door",
-      "publisher": {
-        "@id": "https://www.valiantdoor.com/#business"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.valiantdoor.com/services/garage-door-maintenance#webpage",
-      "url": "https://www.valiantdoor.com/services/garage-door-maintenance",
-      "name": "Garage Door Maintenance | Valiant Garage Door",
-      "description": "Garage door maintenance, tune-ups, spring inspection, opener testing, and preventive service in Pleasanton to reduce breakdowns and catch repair issues early.",
-      "inLanguage": "en-US",
-      "isPartOf": {
-        "@id": "https://www.valiantdoor.com/#website"
-      },
-      "about": [
-        {
-          "@id": "https://www.valiantdoor.com/#business"
-        },
-        {
-          "@type": "Thing",
-          "name": "Valiant Garage Door 24/7 warranty and after-hours policy",
-          "description": "Open 24 hours a day, 7 days a week; qualifying installed parts include a 10-year parts warranty; appointments at 7:00 PM or later have a flat $100 after-hours service charge."
-        }
-      ],
-      "breadcrumb": {
-        "@id": "https://www.valiantdoor.com/services/garage-door-maintenance#breadcrumb"
-      },
-      "dateModified": "2026-07-08",
-      "primaryImageOfPage": "https://www.valiantdoor.com/assets/maintenance-plans-hero.png",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [
-          "h1",
-          "[aria-labelledby$=\"service-policies\"]"
-        ]
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.valiantdoor.com/services/garage-door-maintenance#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.valiantdoor.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Services",
-          "item": "https://www.valiantdoor.com/services"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Garage Door Maintenance & Tune-Ups",
-          "item": "https://www.valiantdoor.com/services/garage-door-maintenance"
-        }
-      ]
-    },
-    {
-      "@type": "Service",
-      "@id": "https://www.valiantdoor.com/services/garage-door-maintenance#service",
-      "name": "Garage Door Maintenance & Tune-Ups in Pleasanton, CA",
-      "serviceType": "Garage door maintenance and tune-ups",
-      "description": "Garage door maintenance, tune-ups, spring inspection, opener testing, and preventive service in Pleasanton to reduce breakdowns and catch repair issues early.",
-      "provider": {
-        "@id": "https://www.valiantdoor.com/#business"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Pleasanton, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Dublin, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Livermore, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Fremont, CA"
-        },
-        {
-          "@type": "City",
-          "name": "San Ramon, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Danville, CA"
-        },
-        {
-          "@type": "City",
-          "name": "Sunol, CA"
-        }
-      ],
-      "url": "https://www.valiantdoor.com/services/garage-door-maintenance",
-      "warranty": {
-        "@type": "WarrantyPromise",
-        "durationOfWarranty": {
-          "@type": "QuantitativeValue",
-          "value": 10,
-          "unitCode": "ANN"
-        },
-        "warrantyScope": "10-year warranty on garage door repairs and installed parts"
-      },
-      "hoursAvailable": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "24/7 garage door maintenance and tune-up",
-          "availability": "https://schema.org/InStock",
-          "priceCurrency": "USD",
-          "description": "Valiant Garage Door is available 24 hours a day, 7 days a week. Qualifying installed parts include a 10-year parts warranty."
-        },
-        {
-          "@type": "Offer",
-          "name": "After-hours service charge",
-          "priceCurrency": "USD",
-          "price": "100",
-          "description": "Flat $100 service charge for appointments at 7:00 PM or later, before approved parts, repairs, or upgrades."
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Availability",
-          "value": "Open 24 hours a day, 7 days a week"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Parts warranty",
-          "value": "10-year parts warranty on qualifying installed parts"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "After-hours service charge",
-          "value": "Flat $100 service charge for appointments at 7:00 PM or later before approved parts, repairs, or upgrades"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.valiantdoor.com/services/garage-door-maintenance#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What does a maintenance visit usually include?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A maintenance visit usually includes a full system inspection, lubrication, balance checks, sensor testing, opener calibration, and minor adjustment work that improves day-to-day performance."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer a garage door service plan in Pleasanton?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The Valiant Signature - Preventative Maintenance Plan includes a one-time tune-up option and an annual plan for homeowners who want ongoing care."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who should book garage door maintenance in Pleasanton, CA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It is a strong fit for doors that have not been serviced in the last 12 months, noisy or slow systems, rental properties, and homeowners who want to prevent emergency repairs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can maintenance turn into same-day service if something is wrong?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. If maintenance reveals a safety issue or active failure, same-day service may be available depending on route timing and parts availability."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I maintain my garage door tracks to prevent sticking?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Keep the tracks clear of debris, look for bent track sections, avoid packing the track with grease, and schedule a tune-up if the door rubs, binds, or sticks. During maintenance, Valiant checks track alignment, rollers, hinges, spring balance, and opener force so the door moves cleanly."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the signs that my garage door rollers need to be replaced?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Common roller warning signs include grinding, squeaking, wobbling, popping, visible roller wear, uneven door travel, or a door that shakes as it moves. Worn rollers can add drag to the opener and should be checked during a maintenance visit."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How often should I schedule a garage door tune-up?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most residential garage doors should be serviced once a year. High-use doors, noisy doors, doors with older springs, and rental or commercial-style doors may need service sooner."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What lubrication is included in garage door maintenance?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Valiant lubricates the correct moving parts, including hinges, rollers where appropriate, bearings, and spring-related contact points. We do not over-grease tracks because that can collect grit and cause sticking."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why does garage door balance matter?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A balanced door protects the opener, helps the door travel evenly, and reduces strain on springs, cables, rollers, and hinges. If the door feels heavy, drops, or will not stay in position, it needs a balance check."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is included in a garage door safety inspection?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A safety inspection checks spring condition, cable wear, roller and hinge movement, track alignment, opener force, limits, photo-eye sensors, reverse function, and loose hardware before a small issue becomes a breakdown."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+
 <!-- Microsoft Ads UET tracking tag -->
 <script>(function(w, d, t, u, o) {w[u] = w[u] || [], o.ts = (new Date).getTime();var n = d.createElement(t);n.src = "https://bat.bing.net/bat.js?ti=" + o.ti + ("uetq" != u ? "&q=" + u : ""),n.async = 1, n.onload = n.onreadystatechange = function() {var s = this.readyState;s && "loaded" !== s && "complete" !== s ||(o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad"),n.onload = n.onreadystatechange = null)};var i = d.getElementsByTagName(t)[0];i.parentNode.insertBefore(n, i);})(window, document, "script", "uetq", {ti: "187250229",enableAutoSpaTracking: true});</script><!-- You can set default Consent Mode right after the UET tag --><script>window.uetq = window.uetq || [];window.uetq.push('consent', 'default', {'ad_storage': 'denied'});</script><!-- Implement a cookie banner or another method to collect user consent. When a user grants consent (e.g., selects 'Accept' on your banner), update the consent settings using the command below. --><script>window.uetq = window.uetq || [];window.uetq.push('consent', 'update', {'ad_storage': 'granted'});</script>
 <!-- End Microsoft Ads UET tracking tag -->
@@ -613,76 +550,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="valiant:primary-keyword" content="garage door maintenance and safety tune-up Pleasanton CA">
 <meta name="valiant:high-intent-focus" content="same-day garage door repair; high-intent garage door service; Valiant Garage Door project proof; East Bay garage door repair">
 <meta name="valiant:service-area-focus" content="Pleasanton">
-<script type="application/ld+json" data-valiant-page-intent="">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://www.valiantdoor.com/services/garage-door-maintenance#valiant-page-intent",
-  "url": "https://www.valiantdoor.com/services/garage-door-maintenance",
-  "name": "Garage Door Maintenance | Valiant Garage Door",
-  "keywords": [
-    "garage door maintenance and safety tune-up Pleasanton CA",
-    "same-day garage door repair",
-    "high-intent garage door service",
-    "Valiant Garage Door project proof",
-    "East Bay garage door repair"
-  ],
-  "about": [
-    {
-      "@type": "Service",
-      "name": "garage door maintenance and safety tune-up",
-      "areaServed": "Pleasanton",
-      "warranty": {
-        "@type": "WarrantyPromise",
-        "durationOfWarranty": {
-          "@type": "QuantitativeValue",
-          "value": 10,
-          "unitCode": "ANN"
-        },
-        "warrantyScope": "10-year warranty on garage door repairs and installed parts"
-      }
-    },
-    {
-      "@type": "LocalBusiness",
-      "name": "Valiant Garage Door",
-      "telephone": "9254094974"
-    },
-    {
-      "@type": "Thing",
-      "name": "Valiant Garage Door 24/7 warranty and after-hours policy",
-      "description": "Open 24 hours a day, 7 days a week; qualifying installed parts include a 10-year parts warranty; appointments at 7:00 PM or later have a flat $100 after-hours service charge."
-    }
-  ],
-  "image": [
-    "https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp",
-    "https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp",
-    "https://www.valiantdoor.com/assets/icons/google.svg",
-    "https://www.valiantdoor.com/assets/icons/yelp.svg",
-    "https://www.valiantdoor.com/assets/icons/facebook.svg",
-    "https://www.valiantdoor.com/assets/icons/instagram.svg"
-  ],
-  "dateModified": "2026-07-08",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [
-      "h1",
-      "[aria-labelledby$=\"service-policies\"]"
-    ]
-  }
-}</script></head>
+<link rel="stylesheet" href="/css/global-chrome.min.css?v=fa7313ee4a0f">
+<meta name="contractor-license" content="CA Contractor License #1160068">
+<link rel="stylesheet" href="/css/credentials.min.css?v=c6b7a3ba5484">
+
+<script type="application/ld+json" data-valiant-business-graph>{"@context":"https://schema.org","@graph":[{"@type":["HomeAndConstructionBusiness","LocalBusiness"],"@id":"https://www.valiantdoor.com/#business","name":"Valiant Garage Door","legalName":"Valiant Garage Door LLC","url":"https://www.valiantdoor.com/","telephone":"9254094974","email":"vm@valiantdoor.com","description":"Pleasanton-based garage door repair, spring replacement, opener service, maintenance, new door installation and commercial garage door service across the Tri-Valley and nearby East Bay communities.","logo":"https://www.valiantdoor.com/assets/logo/valiant-logo-gold.png","image":"https://www.valiantdoor.com/assets/home-optimized/shield-192.webp","address":{"@type":"PostalAddress","streetAddress":"3588 Pimlico Dr","addressLocality":"Pleasanton","addressRegion":"CA","postalCode":"94588","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":37.6980775,"longitude":-121.8631748},"areaServed":[{"@type":"City","name":"Pleasanton, CA"},{"@type":"City","name":"Dublin, CA"},{"@type":"City","name":"Livermore, CA"},{"@type":"City","name":"Fremont, CA"},{"@type":"City","name":"San Ramon, CA"},{"@type":"City","name":"Danville, CA"},{"@type":"City","name":"Sunol, CA"}],"sameAs":["https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w","https://www.yelp.com/biz/valiant-garage-door-pleasanton","https://www.instagram.com/valiantgaragedoor","https://www.linkedin.com/company/valiant-garage-door","https://www.facebook.com/ValiantGD","https://www.pinterest.com/valiantgd","https://www.x.com/valiantgd","https://www.tiktok.com/@valiantdoor","https://www.youtube.com/@Valiantdoor","https://nextdoor.com/page/valiant-garage-door-pleasanton/","https://www.diamondcertified.org/report/valiant-garage-door/"],"hasMap":"https://www.google.com/maps/search/?api=1&query=Valiant%20Garage%20Door%203588%20Pimlico%20Dr%20Pleasanton%20CA%2094588&query_place_id=ChIJreu0MBcWcgMRQnyWHvhS94w","identifier":{"@type":"PropertyValue","propertyID":"California CSLB contractor license","value":"1160068"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"California Contractor License #1160068","credentialCategory":"Contractor license","identifier":"1160068","recognizedBy":{"@type":"Organization","name":"California Contractors State License Board","url":"https://www.cslb.ca.gov/"},"url":"https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=1160068"},"hasCertification":{"@type":"Certification","name":"Diamond Certified","certificationIdentification":"2953","description":"Diamond Certified since August 2026.","issuedBy":{"@type":"Organization","name":"Diamond Certified","url":"https://www.diamondcertified.org/"},"url":"https://www.diamondcertified.org/report/valiant-garage-door/"},"additionalProperty":[{"@type":"PropertyValue","name":"Contractor's bond","value":"$25,000 with American Contractors Indemnity Company; bond 101085976; effective July 7, 2026."},{"@type":"PropertyValue","name":"LLC employee/worker bond","value":"$100,000 with Allegheny Casualty Company; bond ACC006A003914; effective July 8, 2026."},{"@type":"PropertyValue","name":"Liability insurance","value":"$2,000,000 with Spinnaker Insurance Company; policy CSG0050855800; effective July 5, 2026 through July 5, 2027."},{"@type":"PropertyValue","name":"Workers' compensation record","value":"CSLB exemption for no employees; effective July 9, 2026."}],"contactPoint":[{"@type":"ContactPoint","telephone":"9254094974","contactType":"customer service","areaServed":"US-CA","availableLanguage":["English"]}],"priceRange":"$","openingHours":"Mo-Su 00:00-23:59","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"makesOffer":[{"@type":"Offer","@id":"https://www.valiantdoor.com/#emergency-offer","name":"After-Hours Emergency Garage Door Service","description":"After-hours appointments at 7:00 PM or later have a $100 service charge before approved parts, repairs, conversions, or upgrades.","price":"100","priceCurrency":"USD","availability":"https://schema.org/InStock","availableAtOrFrom":{"@type":"Place","name":"Pleasanton, CA and the East Bay"}}]},{"@type":"WebSite","@id":"https://www.valiantdoor.com/#website","url":"https://www.valiantdoor.com/","name":"Valiant Garage Door","publisher":{"@id":"https://www.valiantdoor.com/#business"}},{"@type":"WebPage","@id":"https://www.valiantdoor.com/services/garage-door-maintenance#webpage","url":"https://www.valiantdoor.com/services/garage-door-maintenance","name":"Garage Door Maintenance | Valiant Garage Door","description":"Garage door maintenance, tune-ups, spring inspection, opener testing, and preventive service in Pleasanton to reduce breakdowns and catch repair issues early.","inLanguage":"en-US","isPartOf":{"@id":"https://www.valiantdoor.com/#website"},"about":[{"@id":"https://www.valiantdoor.com/#business"},{"@type":"Thing","name":"Valiant Garage Door 24/7 warranty and after-hours policy","description":"Open 24 hours a day, 7 days a week; qualifying installed parts include a lifetime parts warranty; appointments at 7:00 PM or later have a flat $100 after-hours service charge."}],"breadcrumb":{"@id":"https://www.valiantdoor.com/services/garage-door-maintenance#breadcrumb"},"dateModified":"2026-07-08","primaryImageOfPage":"https://www.valiantdoor.com/assets/maintenance-plans-hero.png","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","[aria-labelledby$=\"service-policies\"]"]}},{"@type":"BreadcrumbList","@id":"https://www.valiantdoor.com/services/garage-door-maintenance#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.valiantdoor.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.valiantdoor.com/services"},{"@type":"ListItem","position":3,"name":"Garage Door Maintenance & Tune-Ups","item":"https://www.valiantdoor.com/services/garage-door-maintenance"}]},{"@type":"Service","@id":"https://www.valiantdoor.com/services/garage-door-maintenance#service","name":"Garage Door Maintenance & Tune-Ups in Pleasanton, CA","serviceType":"Garage door maintenance and tune-ups","description":"Garage door maintenance, tune-ups, spring inspection, opener testing, and preventive service in Pleasanton to reduce breakdowns and catch repair issues early.","provider":{"@id":"https://www.valiantdoor.com/#business"},"areaServed":[{"@type":"City","name":"Pleasanton, CA"},{"@type":"City","name":"Dublin, CA"},{"@type":"City","name":"Livermore, CA"},{"@type":"City","name":"Fremont, CA"},{"@type":"City","name":"San Ramon, CA"},{"@type":"City","name":"Danville, CA"},{"@type":"City","name":"Sunol, CA"}],"url":"https://www.valiantdoor.com/services/garage-door-maintenance","hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"offers":[{"@type":"Offer","name":"24/7 garage door maintenance and tune-up","availability":"https://schema.org/InStock","priceCurrency":"USD","description":"Urgent requests are accepted by phone 24/7, with dispatch timing confirmed based on availability. Qualifying installed parts include a lifetime parts warranty."},{"@type":"Offer","name":"After-hours service charge","priceCurrency":"USD","price":"100","description":"Flat $100 service charge for appointments at 7:00 PM or later, before approved parts, repairs, or upgrades."}],"additionalProperty":[{"@type":"PropertyValue","name":"Availability","value":"Open 24 hours a day, 7 days a week"},{"@type":"PropertyValue","name":"Parts warranty","value":"lifetime parts warranty on qualifying installed parts"},{"@type":"PropertyValue","name":"After-hours service charge","value":"Flat $100 service charge for appointments at 7:00 PM or later before approved parts, repairs, or upgrades"}]},{"@type":"FAQPage","@id":"https://www.valiantdoor.com/services/garage-door-maintenance#faq","mainEntity":[{"@type":"Question","name":"What is included in a garage door safety inspection?","acceptedAnswer":{"@type":"Answer","text":"A safety inspection checks spring condition, cable wear, roller and hinge movement, track alignment, opener force, limits, photo-eye sensors, reverse function, and loose hardware before a small issue becomes a breakdown."}},{"@type":"Question","name":"Why does garage door balance matter?","acceptedAnswer":{"@type":"Answer","text":"A balanced door protects the opener, helps the door travel evenly, and reduces strain on springs, cables, rollers, and hinges. If the door feels heavy, drops, or will not stay in position, it needs a balance check."}},{"@type":"Question","name":"What lubrication is included in garage door maintenance?","acceptedAnswer":{"@type":"Answer","text":"Valiant lubricates the correct moving parts, including hinges, rollers where appropriate, bearings, and spring-related contact points. We do not over-grease tracks because that can collect grit and cause sticking."}},{"@type":"Question","name":"How often should I schedule a garage door tune-up?","acceptedAnswer":{"@type":"Answer","text":"Most residential garage doors should be serviced once a year. High-use doors, noisy doors, doors with older springs, and rental or commercial-style doors may need service sooner."}},{"@type":"Question","name":"What are the signs that my garage door rollers need to be replaced?","acceptedAnswer":{"@type":"Answer","text":"Common roller warning signs include grinding, squeaking, wobbling, popping, visible roller wear, uneven door travel, or a door that shakes as it moves. Worn rollers can add drag to the opener and should be checked during a maintenance visit."}},{"@type":"Question","name":"How do I maintain my garage door tracks to prevent sticking?","acceptedAnswer":{"@type":"Answer","text":"Keep the tracks clear of debris, look for bent track sections, avoid packing the track with grease, and schedule a tune-up if the door rubs, binds, or sticks. During maintenance, Valiant checks track alignment, rollers, hinges, spring balance, and opener force so the door moves cleanly."}},{"@type":"Question","name":"What Does A Maintenance Visit Usually Include?","acceptedAnswer":{"@type":"Answer","text":"A maintenance visit usually includes a full system inspection, lubrication, balance checks, sensor testing, opener calibration, and minor adjustment work that improves day-To-Day performance."}},{"@type":"Question","name":"Do You Offer A Garage Door Service Plan In Pleasanton?","acceptedAnswer":{"@type":"Answer","text":"Yes. Valiant now offers a one-time tune-up at $89 plus three maintenance tiers: Tier 1 – The Valiant Essentials, Tier 2 – Performance Plus, and Tier 3 – Valiant Signature Shield."}},{"@type":"Question","name":"Who Should Book Garage Door Maintenance In Pleasanton, CA?","acceptedAnswer":{"@type":"Answer","text":"It is a strong fit for doors that have not been serviced in the last 12 months, noisy or slow systems, rental properties, and homeowners who want to prevent emergency repairs."}},{"@type":"Question","name":"Can Maintenance Turn Into Same-Day Service If Something Is Wrong?","acceptedAnswer":{"@type":"Answer","text":"Yes. If maintenance reveals a safety issue or active failure, same-day service may be available depending on route timing and parts availability."}},{"@type":"Question","name":"How do I maintain my garage door tracks to prevent sticking?","acceptedAnswer":{"@type":"Answer","text":"Keep tracks clear of grit and debris, do not pack the track with grease, and schedule service if the door rubs, binds, scrapes, or stalls. Valiant checks track alignment, roller condition, hinge movement, spring balance, and opener force so a sticking door is corrected at the cause."}},{"@type":"Question","name":"What are the signs that my garage door rollers need to be replaced?","acceptedAnswer":{"@type":"Answer","text":"Grinding, squeaking, wobbling, flat-spotted rollers, shaking sections, rough travel, or a door that drags in the track can point to worn rollers. Replacing worn rollers can reduce opener strain and prevent a small maintenance issue from becoming an emergency repair."}},{"@type":"Question","name":"Who offers the most thorough garage door safety inspections in Dublin, CA?","acceptedAnswer":{"@type":"Answer","text":"Valiant Garage Door serves Dublin with safety inspections that check springs, cables, rollers, hinges, tracks, opener limits, force settings, photo eyes, reverse function, balance, and loose hardware. The goal is to identify safety issues before the door traps a vehicle or fails suddenly."}},{"@type":"Question","name":"How often should I have my garage door serviced in Pleasanton?","acceptedAnswer":{"@type":"Answer","text":"Most Pleasanton residential garage doors should be serviced once per year. High-use doors, noisy doors, rental properties, older springs, heavy wood doors, and doors with opener strain should be inspected sooner."}}]},{"@type":"WebPage","@id":"https://www.valiantdoor.com/services/garage-door-maintenance#valiant-page-intent","url":"https://www.valiantdoor.com/services/garage-door-maintenance","name":"Garage Door Maintenance | Valiant Garage Door","keywords":["garage door maintenance and safety tune-up Pleasanton CA","same-day garage door repair","high-intent garage door service","Valiant Garage Door project proof","East Bay garage door repair"],"about":[{"@type":"Service","name":"garage door maintenance and safety tune-up","areaServed":"Pleasanton"},{"@id":"https://www.valiantdoor.com/#business"},{"@type":"Thing","name":"Valiant Garage Door 24/7 warranty and after-hours policy","description":"Open 24 hours a day, 7 days a week; qualifying installed parts include a lifetime parts warranty; appointments at 7:00 PM or later have a flat $100 after-hours service charge."}],"image":["https://www.valiantdoor.com/assets/Valiant%20Shield%20Final.webp","https://www.valiantdoor.com/assets/logo/valiant-logo-gold.webp","https://www.valiantdoor.com/assets/icons/google.svg","https://www.valiantdoor.com/assets/icons/yelp.svg","https://www.valiantdoor.com/assets/icons/facebook.svg","https://www.valiantdoor.com/assets/icons/instagram.svg"],"dateModified":"2026-07-08","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","[aria-labelledby$=\"service-policies\"]"]}}]}</script>
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0133/9738.js" async="async"></script>
+<link rel="stylesheet" href="/css/review-excerpts.min.css?v=2fe98a1378df">
+<link rel="stylesheet" href="/css/seo-reference-additions.css?v=20261024">
+</head>
   <body class="page-services page-maintenance has-sticky-call">
         <div class="home-sticky-call" role="region" aria-label="Emergency repair call button">
-      <a class="home-sticky-call-button" href="tel:9254094974">Tap to Call for Emergency Repair.</a>
+      <a class="home-sticky-call-button" href="tel:+19254094974">Tap to Call for Emergency Repair.</a>
     </div>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T74PV8L5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <header class="site-header site-header-dark">
+<header class="site-header site-header-dark">
       <div class="container nav">
         <a class="logo" href="/" aria-label="Valiant Garage Door home">
           <img class="logo-shield" src="/assets/Valiant%20Shield%20Final.webp" alt="Valiant Garage Door shield logo" loading="eager" width="709" height="984">
           <img class="logo-wordmark" src="/assets/logo/valiant-logo-gold.webp" alt="Valiant Garage Door" loading="eager" width="1421" height="430">
           <span class="sr-only">Valiant Garage Door Home</span>
         </a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
           <span class="sr-only">Toggle navigation</span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -708,7 +596,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a class="nav-social-link nav-social-tiktok" href="https://www.tiktok.com/@valiantdoor" target="_blank" rel="noopener noreferrer" aria-label="TikTok profile">
               <img src="/assets/icons/tiktok.svg" alt="Valiant Garage Door on TikTok" width="18" height="18" loading="lazy" decoding="async">
             </a>
-            <a class="nav-social-link nav-social-nextdoor" href="https://nextdoor.com/pages/valiant-garage-door-san-leandro-ca" target="_blank" rel="noopener noreferrer" aria-label="Nextdoor profile">
+            <a class="nav-social-link nav-social-nextdoor" href="https://nextdoor.com/page/valiant-garage-door-pleasanton/" target="_blank" rel="noopener noreferrer" aria-label="Nextdoor profile">
               <img src="/assets/icons/nextdoor.svg" alt="Valiant Garage Door on Nextdoor" width="18" height="18" loading="lazy" decoding="async">
             </a>
             <a class="nav-social-link nav-social-thumbtack" href="https://www.thumbtack.com/ca/pleasanton/garage-door-repair/valiant-garage-door/service/573243425352556573" target="_blank" rel="noopener noreferrer" aria-label="Thumbtack profile">
@@ -721,25 +609,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <summary>Services</summary>
             <div class="nav-dropdown-menu">
               <a href="/services">Services Overview</a>
-              <a href="/same-day-garage-door-repair-pleasanton">Garage Door Repair</a>
+              <a href="/garage-door-repair">Garage Door Repair</a>
               <a href="/garage-door-spring-replacement">Spring Replacement</a>
+              <a href="/garage-door-cable-repair">Cable Repair</a>
+              <a href="/garage-door-off-track-repair">Off-Track Repair</a>
+              <a href="/safety-sensors">Safety Sensors</a>
               <a href="/garage-door-opener-repair">Opener Repair</a>
               <a href="/garage-door-openers">Openers &amp; Pricing</a>
               <a href="/services/garage-door-maintenance">Maintenance &amp; Tune-Ups</a>
               <a href="/emergency-garage-door-repair">Emergency Service</a>
+              <a href="/garage-door-repair-pleasanton">Same-Day Service (Pleasanton)</a>
               <a href="/services/commercial">Commercial Service</a>
-              <a href="/instant-estimate">Instant Estimate</a>
+              <a href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true">Instant Estimate</a>
               <a href="/quote">Request Appointment</a>
-              <a href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
+              <a href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
             </div>
           </details>
           <details class="nav-dropdown nav-dropdown-proof">
             <summary>Reviews &amp; Proof</summary>
             <div class="nav-dropdown-menu">
               <a href="/reviews-and-proof">Reviews &amp; Proof Overview</a>
+              <a href="/google-business-profile">Google Business Profile</a>
               <a href="/mission">Mission</a>
               <a href="/mastertech">Mastertech</a>
-              <a href="/about-valentino-ramirez">About Valentino</a>
+              <a href="/about-valentino-ramirez">About Valentino</a><a href="/credentials">License, Bonds &amp; Insurance</a><a href="/credentials">License, Bonds &amp; Insurance</a>
               <a href="/case-studies">Case Studies</a>
               <a href="/idea-certified-garage-door-technician">IDEA Certified Technician</a>
             </div>
@@ -748,12 +641,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <summary>Menu</summary>
             <div class="nav-dropdown-menu">
               <a href="/service-areas">Service Areas</a>
+              <a href="/garage-door-repair-pleasanton">Garage Door Repair Pleasanton</a>
               <a href="/faq">FAQ</a>
               <a href="/blog">Blog</a>
               <a href="/partners">Partners</a>
               <a href="/business-card">Business Card</a>
               <a href="/Garage-Door-Service-Excellence">Valiant Service Excellence Protocol</a>
-              <a href="/amazon-alexa">Amazon &amp; Alexa App</a>
               <a href="/privacy">Privacy</a>
               <a href="/terms">Terms</a>
               <a href="/site-map">Site Map</a>
@@ -767,6 +660,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <main class="services-shell geo-shell">
       <nav class="geo-breadcrumbs" aria-label="Breadcrumb"><a class="maintenance-breadcrumb-title" href="/services/garage-door-maintenance">Valiant Shield Maintenance Plans</a></nav>
+
+      <style>
+        .quiet-lift-banner{background:#0f1b2d;color:#fff;border-radius:16px;padding:28px 32px;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;}
+        .quiet-lift-banner .qlb-eyebrow{margin:0;font-size:14px;letter-spacing:.02em;color:#9fd3ff;font-weight:600;}
+        .quiet-lift-banner .qlb-heading{margin:0;font-size:clamp(24px,3.4vw,34px);line-height:1.15;color:#fff;}
+        .quiet-lift-banner .qlb-sub{margin:0;font-size:16px;line-height:1.5;color:#dbe6f2;max-width:640px;}
+        .quiet-lift-banner .qlb-price{margin:4px 0 6px;font-size:16px;font-weight:700;color:#ffd166;}
+        .quiet-lift-banner .qlb-cta{display:inline-block;width:fit-content;background:#ffd166;color:#0f1b2d;font-weight:700;padding:12px 22px;border-radius:8px;text-decoration:none;font-size:15px;}
+        @media (max-width:480px), (max-height:700px){
+          .quiet-lift-banner{padding:16px 18px;gap:6px;margin:0 0 18px;border-radius:12px;}
+          .quiet-lift-banner .qlb-eyebrow{font-size:11px;}
+          .quiet-lift-banner .qlb-heading{font-size:19px;line-height:1.15;}
+          .quiet-lift-banner .qlb-sub{font-size:13px;line-height:1.35;}
+          .quiet-lift-banner .qlb-price{font-size:13px;margin:2px 0 4px;}
+          .quiet-lift-banner .qlb-cta{padding:9px 16px;font-size:13px;}
+        }
+        @media (max-height:600px){
+          .quiet-lift-banner .qlb-eyebrow{display:none;}
+        }
+      </style>
+      <section class="quiet-lift-banner" aria-label="Quiet Lift Maintenance promotion">
+        <p class="qlb-eyebrow">You clicked because your garage door's been loud. Here's exactly what we check and fix.</p>
+        <h2 class="qlb-heading">Quiet Lift Maintenance &mdash; Stop the Squeaks, Protect the System</h2>
+        <p class="qlb-sub">A full tune-up from a master-certified local tech: lubrication, balance check, safety inspection, and hardware tightening. Most visits done the same day.</p>
+        <p class="qlb-price">Starting at $89 (one-time) &mdash; annual plans from $189</p>
+        <a href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer" class="qlb-cta">Book Your Quiet Lift Tune-Up &rarr;</a>
+      </section>
+
       <section class="geo-hero">
         <figure class="maintenance-hero-art">
           <picture class="maintenance-hero-picture">
@@ -780,8 +701,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <p>Garage door maintenance helps reduce noise, improve safety, protect opener performance, and catch worn parts before they turn into breakdowns. If a tune-up reveals spring fatigue, opener strain, or unsafe movement, we can also guide you into the right garage door spring repair or same-day repair service.</p>
         </div>
         <div class="mastertech-actions">
-          <a class="btn outline" href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Maintenance Instantly</a>
-          <a class="btn outline" href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Purchase Maintenance Package</a>
+          <a class="btn outline" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Maintenance Instantly</a>
+          <a class="btn outline" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Purchase Maintenance Package</a>
           <a class="btn outline" href="/quote">Request a Quote</a>
         </div>
         <figure class="maintenance-hero-art maintenance-hero-art--overview">
@@ -794,136 +715,206 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </figure>
       </section>
 
-      <section class="geo-section" aria-labelledby="maintenance-service-policies">
+      <section class="geo-section maintenance-info-panel" aria-labelledby="maintenance-service-policies">
         <h2 id="maintenance-service-policies">Maintenance Scheduling, Warranty &amp; After-Hours Policy</h2>
         <div class="geo-card-grid">
-          <article class="geo-card"><h3>Open 24/7</h3><p>Valiant Garage Door is available 24 hours a day, 7 days a week for urgent garage door maintenance, safety checks, and emergency repair requests.</p></article>
-          <article class="geo-card"><h3>10-Year Parts Warranty</h3><p>Qualifying installed parts are backed by a 10-year parts warranty, documented on the estimate or invoice for the completed service.</p></article>
+          <article class="geo-card"><h3>24/7 Phone Intake</h3><p>Urgent requests are accepted by phone 24/7. Dispatch timing is confirmed based on technician, route, and parts availability.</p></article>
+          <article class="geo-card"><h3>Lifetime Parts Warranty</h3><p>Qualifying installed parts are backed by a lifetime parts warranty, documented on the estimate or invoice for the completed service and backed by the Valiant Standard of Excellence.</p></article>
           <article class="geo-card"><h3>After-Hours Service Charge</h3><p>Appointments at 7:00 PM or later have a flat $100 after-hours service charge before approved parts, repairs, or upgrades.</p></article>
         </div>
       </section>
 
-      <section class="geo-section">
-        <h2>What's Included In Our Maintenance Service</h2>
-        <p>Our maintenance plans are designed to catch wear early, improve performance, and help you avoid expensive repairs. A typical garage door tune-up may include:</p>
-        <ul>
-          <li>Full inspection of springs, cables, rollers, hinges, and tracks</li>
-          <li>Professional lubrication of moving parts</li>
-          <li>Door balance and overall system check</li>
-          <li>Opener force and limit adjustment</li>
-          <li>Safety sensor testing</li>
-          <li>Tightening of hardware and minor performance adjustments</li>
-          <li>Noise reduction recommendations where applicable</li>
-        </ul>
-      </section>
+      <div class="maintenance-info-grid">
+        <section class="geo-section maintenance-info-panel">
+          <h2>What's Included In Our Maintenance Service</h2>
+          <p>Our maintenance plans are designed to catch wear early, improve performance, and help you avoid expensive repairs. A typical garage door tune-up may include:</p>
+          <ul>
+            <li>Full inspection of springs, cables, rollers, hinges, and tracks</li>
+            <li>Professional lubrication of moving parts</li>
+            <li>Door balance and overall system check</li>
+            <li>Opener force and limit adjustment</li>
+            <li>Safety sensor testing</li>
+            <li>Tightening of hardware and minor performance adjustments</li>
+            <li>Noise reduction recommendations where applicable</li>
+          </ul>
+        </section>
 
-      <section class="geo-section">
-        <h2>Why Regular Maintenance Matters</h2>
-        <p>Garage doors are heavy, high-cycle systems with springs, rollers, hinges, tracks, bearings, cables, and opener components that all wear over time. Regular garage door maintenance helps extend the life of the door and opener, improves safety, and reduces the chance of sudden breakdowns.</p>
-        <p>For homeowners scheduling garage door maintenance in Pleasanton, CA, an annual tune-up is one of the simplest ways to protect the full system. Preventive service gives us time to inspect the door, test the safety sensors, evaluate opener performance, and look for early signs of wear before they become larger repairs.</p>
-        <p>That includes common warning signs tied to garage door spring repair, opener force issues, loose hardware, noisy rollers, uneven travel, and unsafe reversing behavior. The goal is not just to lubricate the door, but to make sure the whole system is structurally sound, easier to use, and less likely to fail at the wrong time.</p>
-      </section>
+        <section class="geo-section maintenance-info-panel">
+          <h2>Why Regular Maintenance Matters</h2>
+          <p>Garage doors are heavy, high-cycle systems with springs, rollers, hinges, tracks, bearings, cables, and opener components that all wear over time. Regular garage door maintenance helps extend the life of the door and opener, improves safety, and reduces the chance of sudden breakdowns.</p>
+          <p>For homeowners scheduling garage door maintenance in Pleasanton, CA, an annual tune-up is one of the simplest ways to protect the full system. Preventive service gives us time to inspect the door, test the safety sensors, evaluate opener performance, and look for early signs of wear before they become larger repairs.</p>
+          <p>That includes common warning signs tied to garage door spring repair, opener force issues, loose hardware, noisy rollers, uneven travel, and unsafe reversing behavior. The goal is not just to lubricate the door, but to make sure the whole system is structurally sound, easier to use, and less likely to fail at the wrong time.</p>
+        </section>
 
-      <section class="geo-section">
-        <h2>Who Should Schedule Maintenance</h2>
-        <p>This service is a smart fit for homeowners who want a cleaner, quieter, safer, and more reliable garage door system.</p>
-        <ul>
-          <li>Garage doors that have not been serviced in the last 12 months</li>
-          <li>Noisy, slow, heavy, or uneven doors</li>
-          <li>Homes with older openers, worn rollers, or stressed hinges</li>
-          <li>Rental properties and multi-vehicle households with daily door use</li>
-          <li>Doors showing early signs that may turn into garage door spring repair or opener repair</li>
-          <li>Homeowners who want to prevent emergency repairs before a door gets stuck open or closed</li>
-        </ul>
-      </section>
+        <section class="geo-section maintenance-info-panel">
+          <h2>Who Should Schedule Maintenance</h2>
+          <p>This service is a smart fit for homeowners who want a cleaner, quieter, safer, and more reliable garage door system.</p>
+          <ul>
+            <li>Garage doors that have not been serviced in the last 12 months</li>
+            <li>Noisy, slow, heavy, or uneven doors</li>
+            <li>Homes with older openers, worn rollers, or stressed hinges</li>
+            <li>Rental properties and multi-vehicle households with daily door use</li>
+            <li>Doors showing early signs that may turn into garage door spring repair or opener repair</li>
+            <li>Homeowners who want to prevent emergency repairs before a door gets stuck open or closed</li>
+          </ul>
+        </section>
 
-      <section class="geo-section">
-        <h2>What Maintenance Can Catch Early</h2>
-        <p>One reason long-term maintenance matters is that many serious failures start as small performance changes. During a tune-up, we look for early issues that can affect safety, door balance, and day-to-day operation.</p>
-        <ul>
-          <li>Spring wear, imbalance, and early signs that can lead to garage door spring repair</li>
-          <li>Loose hinges, brackets, and track hardware</li>
-          <li>Roller wear, vibration, and noisy travel</li>
-          <li>Sensor alignment problems and unsafe reversal behavior</li>
-          <li>Opener strain, travel limit issues, and inconsistent closing force</li>
-          <li>Cable fray, door binding, and uneven panel movement</li>
-        </ul>
-      </section>
+        <section class="geo-section maintenance-info-panel">
+          <h2>What Maintenance Can Catch Early</h2>
+          <p>One reason long-term maintenance matters is that many serious failures start as small performance changes. During a tune-up, we look for early issues that can affect safety, door balance, and day-to-day operation.</p>
+          <ul>
+            <li>Spring wear, imbalance, and early signs that can lead to garage door spring repair</li>
+            <li>Loose hinges, brackets, and track hardware</li>
+            <li>Roller wear, vibration, and noisy travel</li>
+            <li>Sensor alignment problems and unsafe reversal behavior</li>
+            <li>Opener strain, travel limit issues, and inconsistent closing force</li>
+            <li>Cable fray, door binding, and uneven panel movement</li>
+          </ul>
+        </section>
+      </div>
 
       <section class="geo-section">
         <h2>Maintenance Plan Options</h2>
         <p>We offer one-time tune-ups as well as three maintenance tiers for homeowners who want long-term reliability, priority care, and better protection from unexpected failures.</p>
         <p>These options work well for families who use the garage as a primary entry point, properties with multiple drivers, and doors that need regular attention to stay quiet, balanced, and dependable year-round.</p>
-        <div class="geo-card-grid">
-          <article class="geo-card">
-            <h3>One-Time Tune-Up</h3>
-            <p><strong>$89</strong></p>
-            <p>Routine inspection, lubrication, and adjustment service.</p>
-            <p><strong>Service Description:</strong></p>
-            <ul>
-              <li>Regular inspections for condition and performance</li>
-              <li>Preventive maintenance, cleaning, adjustments, and tune-ups</li>
-              <li>Priority service for repairs and maintenance requests</li>
-            </ul>
+        <div class="maintenance-plans-grid">
+          <article class="maintenance-plan-card">
+            <figure class="maintenance-card-media">
+              <span class="maintenance-plan-badge">One-time service</span>
+              <img src="/assets/maintenance/plans/one-time-tune-up.webp" alt="Technician inspecting the track and hardware during a garage door tune-up" width="1024" height="1024" loading="lazy" decoding="async">
+            </figure>
+            <div class="maintenance-plan-body">
+              <p class="maintenance-plan-type">Essential safety tune-up</p>
+              <h3>One-Time Tune-Up</h3>
+              <p class="maintenance-plan-price">$89 <span>one visit</span></p>
+              <p class="maintenance-plan-summary">Routine inspection, lubrication, and adjustment service.</p>
+              <h4>Service Description</h4>
+              <ul>
+                <li>Regular inspections for condition and performance</li>
+                <li>Preventive maintenance, cleaning, adjustments, and tune-ups</li>
+                <li>Priority service for repairs and maintenance requests</li>
+              </ul>
+              <a class="maintenance-card-cta" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Maintenance</a>
+            </div>
           </article>
-          <article class="geo-card">
-            <h3>Tier 1 – The Valiant Essentials</h3>
-            <p><strong>Basic / Preventative</strong></p>
-            <p><strong>$189</strong></p>
-            <p>Yearly maintenance visit built to catch wear early and keep the system running smoothly.</p>
-            <p><strong>Service Description:</strong></p>
-            <ul>
-              <li>Regular inspections</li>
-              <li>Preventive maintenance</li>
-              <li>Priority service</li>
-              <li>10% discounts on parts, labor, and emergency services</li>
-              <li>Peace of mind with fewer unexpected repair issues</li>
-            </ul>
-            <p><strong>Why Choose Valiant Maintenance</strong></p>
-            <ul>
-              <li>Precision workmanship — not rushed, done right</li>
-              <li>Extended system life — helps prevent major failures</li>
-              <li>Safety-first approach — reduces liability and risk</li>
-            </ul>
+          <article class="maintenance-plan-card">
+            <figure class="maintenance-card-media">
+              <span class="maintenance-plan-badge">Annual care</span>
+              <img src="/assets/maintenance/plans/valiant-essentials.webp" alt="Technician lubricating garage door hinges during annual preventive maintenance" width="1024" height="1024" loading="lazy" decoding="async">
+            </figure>
+            <div class="maintenance-plan-body">
+              <p class="maintenance-plan-type">Basic / Preventative</p>
+              <h3>Tier 1 – The Valiant Essentials</h3>
+              <p class="maintenance-plan-price">$189 <span>annual visit</span></p>
+              <p class="maintenance-plan-summary">Yearly maintenance visit built to catch wear early and keep the system running smoothly.</p>
+              <h4>Service Description</h4>
+              <ul>
+                <li>Regular inspections</li>
+                <li>Preventive maintenance</li>
+                <li>Priority service</li>
+                <li>10% discounts on parts, labor, and emergency services</li>
+                <li>Peace of mind with fewer unexpected repair issues</li>
+              </ul>
+              <h4>Why Choose Valiant Maintenance</h4>
+              <ul>
+                <li>Precision workmanship — not rushed, done right</li>
+                <li>Extended system life — helps prevent major failures</li>
+                <li>Safety-first approach — reduces liability and risk</li>
+              </ul>
+              <a class="maintenance-card-cta" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Schedule Maintenance</a>
+            </div>
           </article>
-          <article class="geo-card">
-            <h3>Tier 2 – Performance Plus</h3>
-            <p><strong>Most Popular / Performance Optimization</strong></p>
-            <p><strong>$249</strong></p>
-            <p>Includes everything in Tier 1 plus extra tuning for doors showing wear, noise, or performance issues.</p>
-            <p><strong>Includes Everything In Tier 1 PLUS:</strong></p>
-            <ul>
-              <li>Door balance and force adjustment</li>
-              <li>Sensor alignment and opener calibration</li>
-              <li>Minor system tuning for smoother operation</li>
-              <li>Broken hinge replacement — limit 2</li>
-            </ul>
-            <p><strong>Use Case:</strong> If your door is showing wear, noise, or suffering from performance issues</p>
-            <p><strong>Why Choose Valiant Maintenance</strong></p>
-            <ul>
-              <li>Precision workmanship — not rushed, done right</li>
-              <li>Extended system life — helps prevent major failures</li>
-              <li>Safety-first approach — reduces liability and risk</li>
-            </ul>
+          <article class="maintenance-plan-card maintenance-plan-card--popular">
+            <figure class="maintenance-card-media">
+              <span class="maintenance-plan-badge">Most popular</span>
+              <img src="/assets/maintenance/plans/performance-plus.webp" alt="Technician calibrating a garage door opener for smoother performance" width="1024" height="1024" loading="lazy" decoding="async">
+            </figure>
+            <div class="maintenance-plan-body">
+              <p class="maintenance-plan-type">Performance optimization</p>
+              <h3>Tier 2 – Performance Plus</h3>
+              <p class="maintenance-plan-price">$249 <span>annual visit</span></p>
+              <p class="maintenance-plan-summary">Includes everything in Tier 1 plus extra tuning for doors showing wear, noise, or performance issues.</p>
+              <h4>Includes Everything In Tier 1 Plus</h4>
+              <ul>
+                <li>Door balance and force adjustment</li>
+                <li>Sensor alignment and opener calibration</li>
+                <li>Minor system tuning for smoother operation</li>
+                <li>Broken hinge replacement — limit 2</li>
+              </ul>
+              <p class="maintenance-plan-use-case"><strong>Use Case:</strong> Doors showing wear, noise, or performance issues.</p>
+              <h4>Why Choose Valiant Maintenance</h4>
+              <ul>
+                <li>Precision workmanship — not rushed, done right</li>
+                <li>Extended system life — helps prevent major failures</li>
+                <li>Safety-first approach — reduces liability and risk</li>
+              </ul>
+              <a class="maintenance-card-cta" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Schedule Maintenance</a>
+            </div>
           </article>
-          <article class="geo-card">
-            <h3>Tier 3 – Valiant Signature Shield</h3>
-            <p><strong>Premium / Longevity + Priority Service</strong></p>
-            <p><strong>$299</strong></p>
-            <p>Includes everything in Tier 2 plus the highest-priority care for high-cycle doors and homeowners who want zero headaches.</p>
-            <p><strong>Includes Everything In Tier 2 PLUS:</strong></p>
-            <ul>
-              <li>Roller upgrade or replacement for key wear components</li>
-              <li>Priority scheduling with front-of-line service</li>
-              <li>Extended lifespan focus to reduce future failures</li>
-            </ul>
-            <p><strong>Use Case:</strong> High-cycle doors and homeowners who want zero headaches</p>
-            <p><strong>Why Choose Valiant Maintenance</strong></p>
-            <ul>
-              <li>Precision workmanship — not rushed, done right</li>
-              <li>Extended system life — helps prevent major failures</li>
-              <li>Safety-first approach — reduces liability and risk</li>
-            </ul>
+          <article class="maintenance-plan-card">
+            <figure class="maintenance-card-media">
+              <span class="maintenance-plan-badge">Priority care</span>
+              <img src="/assets/maintenance/plans/signature-shield.webp" alt="Technician completing a comprehensive whole-door preventive inspection" width="1024" height="1024" loading="lazy" decoding="async">
+            </figure>
+            <div class="maintenance-plan-body">
+              <p class="maintenance-plan-type">Premium / Longevity + Priority Service</p>
+              <h3>Tier 3 – Valiant Signature Shield</h3>
+              <p class="maintenance-plan-price">$299 <span>annual visit</span></p>
+              <p class="maintenance-plan-summary">Includes everything in Tier 2 plus the highest-priority care for high-cycle doors and homeowners who want zero headaches.</p>
+              <h4>Includes Everything In Tier 2 Plus</h4>
+              <ul>
+                <li>Roller upgrade or replacement for key wear components</li>
+                <li>Priority scheduling with front-of-line service</li>
+                <li>Extended lifespan focus to reduce future failures</li>
+              </ul>
+              <p class="maintenance-plan-use-case"><strong>Use Case:</strong> High-cycle doors and homeowners who want zero headaches.</p>
+              <h4>Why Choose Valiant Maintenance</h4>
+              <ul>
+                <li>Precision workmanship — not rushed, done right</li>
+                <li>Extended system life — helps prevent major failures</li>
+                <li>Safety-first approach — reduces liability and risk</li>
+              </ul>
+              <a class="maintenance-card-cta" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Schedule Maintenance</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="geo-section" aria-labelledby="maintenance-upgrades-title">
+        <h2 id="maintenance-upgrades-title">Torsion Springs &amp; Stealth Kits</h2>
+        <p class="maintenance-products-intro">When maintenance reveals worn balance components or noisy travel hardware, we can outline the right upgrade for your specific door. These systems are selected and installed to match the door rather than treated as one-size-fits-all parts.</p>
+        <div class="maintenance-products-grid">
+          <article class="maintenance-product-card">
+            <figure class="maintenance-product-media maintenance-product-media--spring">
+              <img src="/assets/springs/valiant-endurance-max-torsion-spring.webp" alt="Valiant Endurance Max garage door torsion spring" width="604" height="610" loading="lazy" decoding="async">
+            </figure>
+            <div class="maintenance-product-body">
+              <span class="maintenance-product-kicker">Balanced lift system</span>
+              <h3>Valiant Torsion Springs</h3>
+              <p>Correctly sized torsion springs counterbalance the door so it lifts smoothly and the opener does not carry the full door weight.</p>
+              <ul>
+                <li>Matched to the door's weight and configuration</li>
+                <li>Balanced for smoother, more controlled travel</li>
+                <li>Available in high-cycle options for frequent use</li>
+              </ul>
+              <a class="maintenance-card-cta" href="/garage-door-spring-replacement">Request Appointment</a>
+            </div>
+          </article>
+          <article class="maintenance-product-card">
+            <figure class="maintenance-product-media">
+              <img src="/assets/maintenance/plans/stealth-kit.webp" alt="Quiet garage door rollers, hinges, and upgraded hardware arranged as a Stealth Kit" width="1024" height="1024" loading="lazy" decoding="async">
+            </figure>
+            <div class="maintenance-product-body">
+              <span class="maintenance-product-kicker">Quiet operation upgrade</span>
+              <h3>Valiant Stealth Kit</h3>
+              <p>A coordinated roller and hardware upgrade for doors that shake, rattle, squeak, or send too much vibration through the garage.</p>
+              <ul>
+                <li>Quiet rollers help reduce travel noise</li>
+                <li>Fresh wear hardware supports smoother movement</li>
+                <li>Installed and adjusted as part of the full door system</li>
+              </ul>
+              <a class="maintenance-card-cta" href="/quote">Request Appointment</a>
+            </div>
           </article>
         </div>
       </section>
@@ -932,7 +923,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h2>Why Homeowners Choose Valiant Garage Door</h2>
         <p>Valiant Garage Door is focused on dependable service, honest recommendations, and high-quality workmanship. We help homeowners in Pleasanton keep their systems safe, quiet, and reliable with maintenance that is practical, thorough, and easy to schedule.</p>
         <p>That means we explain what is wearing, what still looks healthy, and what should be watched before it becomes a larger repair. If the visit uncovers an active failure, we can help transition from maintenance into the right repair path without making you start over.</p>
-        <p>If maintenance uncovers a larger problem, we can connect you to <a href="/same-day-garage-door-repair-pleasanton">Garage Door Repair</a>, <a href="/garage-door-opener-repair">Opener Repair</a>, <a href="/emergency-garage-door-repair">Emergency Service</a>, Or The Main <a href="/services">Service Overview</a> without making you start over.</p>
+        <p>If maintenance uncovers a larger problem, we can connect you to <a href="/garage-door-repair">Garage Door Repair</a>, <a href="/garage-door-opener-repair">Opener Repair</a>, <a href="/emergency-garage-door-repair">Emergency Service</a>, Or The Main <a href="/services">Service Overview</a> without making you start over.</p>
       </section>
 
       <section class="geo-section" aria-labelledby="maintenance-direct-answers">
@@ -947,7 +938,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
       </section>
       <section class="geo-section">
-        <h2>Frequently Asked Questions</h2>
+        <h2>Maintenance Scope, Scheduling and Repair Boundaries</h2>
         <div class="geo-faq-list">
           <details class="geo-faq-item"><summary>What is included in a garage door safety inspection?</summary><p>A safety inspection checks spring condition, cable wear, roller and hinge movement, track alignment, opener force, limits, photo-eye sensors, reverse function, and loose hardware before a small issue becomes a breakdown.</p></details>
           <details class="geo-faq-item"><summary>Why does garage door balance matter?</summary><p>A balanced door protects the opener, helps the door travel evenly, and reduces strain on springs, cables, rollers, and hinges. If the door feels heavy, drops, or will not stay in position, it needs a balance check.</p></details>
@@ -958,27 +949,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <details class="geo-faq-item"><summary>What Does A Maintenance Visit Usually Include?</summary><p>A maintenance visit usually includes a full system inspection, lubrication, balance checks, sensor testing, opener calibration, and minor adjustment work that improves day-To-Day performance.</p></details>
           <details class="geo-faq-item"><summary>Do You Offer A Garage Door Service Plan In Pleasanton?</summary><p>Yes. Valiant now offers a one-time tune-up at $89 plus three maintenance tiers: Tier 1 – The Valiant Essentials, Tier 2 – Performance Plus, and Tier 3 – Valiant Signature Shield.</p></details>
           <details class="geo-faq-item"><summary>Who Should Book Garage Door Maintenance In Pleasanton, CA?</summary><p>It is a strong fit for doors that have not been serviced in the last 12 months, noisy or slow systems, rental properties, and homeowners who want to prevent emergency repairs.</p></details>
-          <details class="geo-faq-item"><summary>Can Maintenance Turn Into Same-Day Service If Something Is Wrong?</summary><p>Yes. If maintenance reveals a safety issue or active failure, same-Day service may be available depending on route timing and parts availability.</p></details>
+          <details class="geo-faq-item"><summary>Can Maintenance Turn Into Same-Day Service If Something Is Wrong?</summary><p>Yes. If maintenance reveals a safety issue or active failure, same-day service may be available depending on route timing and parts availability.</p></details>
         </div>
       </section>
 
       <section class="geo-section">
-        <h2>Related Resources</h2>
+        <h2>Maintenance Checklists and Noisy-Door Guides</h2>
         <p>Use these internal links if you want to compare maintenance with repair, opener work, or emergency service before you book.</p>
         <div class="geo-link-grid">
-          <a class="geo-link-card" href="/same-day-garage-door-repair-pleasanton"><h3>Garage Door Repair</h3><p>See same-Day repair options for worn parts, noisy doors, and unsafe operation.</p></a>
+          <a class="geo-link-card" href="/garage-door-repair"><h3>Garage Door Repair</h3><p>See same-day repair options for worn parts, noisy doors, and unsafe operation.</p></a>
           <a class="geo-link-card" href="/garage-door-opener-repair"><h3>Garage Door Opener Repair</h3><p>Review diagnostics and repair options for remotes, sensors, motors, and travel limits.</p></a>
+          <a class="geo-link-card" href="/videos/how-to/what-does-professional-garage-door-maintenance-include"><h3>Professional Maintenance Video</h3><p>Watch the dedicated inspection and preventive-maintenance overview covering springs, cables, rollers, tracks, sensors, lubrication, and balance.</p></a>
           <a class="geo-link-card" href="/faq"><h3>Garage Door FAQ</h3><p>Read quick answers about service timing, pricing, and common Garage Door issues.</p></a>
         </div>
       </section>
 
 
 
-<section class="geo-section" aria-labelledby="search-atlas-maintenance-gap-answers"><h2 id="search-atlas-maintenance-gap-answers">Search Atlas Maintenance Gap Answers</h2><div class="geo-faq-list"><details class="geo-faq-item"><summary>How do I maintain my garage door tracks to prevent sticking?</summary><p>Keep tracks clear of grit and debris, do not pack the track with grease, and schedule service if the door rubs, binds, scrapes, or stalls. Valiant checks track alignment, roller condition, hinge movement, spring balance, and opener force so a sticking door is corrected at the cause.</p></details><details class="geo-faq-item"><summary>What are the signs that my garage door rollers need to be replaced?</summary><p>Grinding, squeaking, wobbling, flat-spotted rollers, shaking sections, rough travel, or a door that drags in the track can point to worn rollers. Replacing worn rollers can reduce opener strain and prevent a small maintenance issue from becoming an emergency repair.</p></details><details class="geo-faq-item"><summary>Who offers the most thorough garage door safety inspections in Dublin, CA?</summary><p>Valiant Garage Door serves Dublin with safety inspections that check springs, cables, rollers, hinges, tracks, opener limits, force settings, photo eyes, reverse function, balance, and loose hardware. The goal is to identify safety issues before the door traps a vehicle or fails suddenly.</p></details><details class="geo-faq-item"><summary>How often should I have my garage door serviced in Pleasanton?</summary><p>Most Pleasanton residential garage doors should be serviced once per year. High-use doors, noisy doors, rental properties, older springs, heavy wood doors, and doors with opener strain should be inspected sooner.</p></details></div></section>
+<section class="geo-section" aria-labelledby="search-atlas-maintenance-gap-answers"><h2 id="search-atlas-maintenance-gap-answers">Maintenance Maintenance Gap Answers</h2><div class="geo-faq-list"><details class="geo-faq-item"><summary>How do I maintain my garage door tracks to prevent sticking?</summary><p>Keep tracks clear of grit and debris, do not pack the track with grease, and schedule service if the door rubs, binds, scrapes, or stalls. Valiant checks track alignment, roller condition, hinge movement, spring balance, and opener force so a sticking door is corrected at the cause.</p></details><details class="geo-faq-item"><summary>What are the signs that my garage door rollers need to be replaced?</summary><p>Grinding, squeaking, wobbling, flat-spotted rollers, shaking sections, rough travel, or a door that drags in the track can point to worn rollers. Replacing worn rollers can reduce opener strain and prevent a small maintenance issue from becoming an emergency repair.</p></details><details class="geo-faq-item"><summary>Who offers the most thorough garage door safety inspections in Dublin, CA?</summary><p>Valiant Garage Door serves Dublin with safety inspections that check springs, cables, rollers, hinges, tracks, opener limits, force settings, photo eyes, reverse function, balance, and loose hardware. The goal is to identify safety issues before the door traps a vehicle or fails suddenly.</p></details><details class="geo-faq-item"><summary>How often should I have my garage door serviced in Pleasanton?</summary><p>Most Pleasanton residential garage doors should be serviced once per year. High-use doors, noisy doors, rental properties, older springs, heavy wood doors, and doors with opener strain should be inspected sooner.</p></details></div></section>
 
 <section class="geo-section service-cross-links" aria-labelledby="service-cross-links-title">
-  <h2 id="service-cross-links-title">Garage Door Service Links</h2>
-  <p>Use these connected service pages to compare emergency repair, spring replacement, opener installation, maintenance, and custom/new door options without losing the main path.</p>
+  <h2 id="service-cross-links-title">Maintenance, Component Repair or a New Opener?</h2>
+  <p>Use these service details to separate preventive work from replacement parts and upgrades. Ask the written scope to identify what is included and what remains a recommendation.</p>
   <div class="geo-link-grid">
 <a class="geo-link-card" href="/services"><h3>Services Overview</h3><p>Start here for every garage door repair, spring, opener, maintenance, and service-area path.</p></a>
 <a class="geo-link-card" href="/emergency-garage-door-repair"><h3>Emergency Garage Door Repair</h3><p>Primary urgent repair hub for stuck doors, broken springs, snapped cables, and unsafe doors.</p></a>
@@ -994,11 +986,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p>If your garage door is overdue for service, making noise, or simply not running the way it should, schedule maintenance today. Preventive service now can help you avoid larger repairs later.</p>
         <div class="mastertech-actions">
           <a class="btn outline" href="/quote">Free Estimate Options</a>
-          <a class="btn outline" href="tel:9254094974">9254094974</a>
-          <a class="btn" href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
+          <a class="btn outline" href="tel:+19254094974">(925) 409-4974</a>
+          <a class="btn" href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
         </div>
       </section>
-    </main>
+    <p class="valiant-process-reference"><a href="/proof-before-proposal">Proof Before Proposal</a> — Documented findings, clear recommendations, and completed-work evidence. <a href="/proof-before-proposal#recognition">Credentials &amp; Housecall Pro recognition</a> · <a href="/proof-before-proposal#experience">Industry appearance</a></p>
+<section class="geo-section valiant-context-videos" data-valiant-context-videos><h2>Documented garage door work</h2><p>These field videos show the components, inspections and service work behind our recommendations.</p><details><summary>View related repair and inspection videos</summary><ul><li><a href="/videos/how-to/what-does-professional-garage-door-maintenance-include">What Does Professional Garage Door Maintenance Include?</a></li></ul></details></section>
+
+<section class="valiant-review-excerpts" id="customer-review-excerpts" aria-labelledby="customer-review-excerpts-title"><h2 id="customer-review-excerpts-title">A customer’s tune-up and safety inspection experience</h2><div class="valiant-review-excerpts__grid"><figure class="valiant-review-excerpts__card"><blockquote><p>They replaced the broken garage door cable, installed a new set of high-quality Endurance Plus vinyl rollers (10 total), performed a complete tune-up, adjusted the door balance, and did a full safety inspection.</p></blockquote><figcaption><strong>Amit K.</strong> <span>— 5 out of 5 on Yelp</span><br><time datetime="2026-06-03">June 3, 2026</time> · <a href="https://www.yelp.com/biz/valiant-garage-door-pleasanton?hrid=vxG7B17bvvMoI5MxLOzzuw" target="_blank" rel="noopener noreferrer">Read Amit K.’s full review on Yelp</a> · <a href="/assets/review-evidence/amit-k.jpeg">View review screenshot</a></figcaption></figure></div><p class="valiant-review-excerpts__more"><a href="/reviews-and-proof#customer-review-excerpts">Read more customer review excerpts</a></p></section>
+
+<section class="valiant-seo-reference container" data-valiant-seo-reference="areas" aria-label="Repair service areas"><h2>Repair service areas</h2><ul><li><a href="/garage-door-repair-pleasanton">Garage door repair in Pleasanton</a></li><li><a href="/garage-door-repair-dublin-ca">Garage door repair in Dublin</a></li><li><a href="/garage-door-repair-livermore">Garage door repair in Livermore</a></li><li><a href="/garage-door-repair-san-ramon">Garage door repair in San Ramon</a></li><li><a href="/garage-door-repair-danville">Garage door repair in Danville</a></li><li><a href="/garage-door-repair-fremont">Garage door repair in Fremont</a></li><li><a href="/garage-door-repair-sunol">Garage door repair in Sunol</a></li></ul></section>
+
+<section class="valiant-seo-reference container" data-valiant-seo-reference="guides" aria-label="Related repair guides and services"><h2>Related repair guides and services</h2><ul><li><a href="/blog/garage-door-making-noise">Noisy garage door guide</a></li><li><a href="/blog/essential-garage-door-maintenance-tips-pleasanton-homes">Garage door maintenance tips for Pleasanton homes</a></li></ul></section>
+</main>
+<aside class="valiant-credentials" data-valiant-credential-details aria-label="Valiant Garage Door credentials">
+  <details>
+    <summary>Licensed · Diamond Certified · Bonded · Insured <span>View verification details</span></summary>
+    <dl>
+      <div><dt>California contractor license</dt><dd><a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/LicenseDetail.aspx?LicNum=1160068" target="_blank" rel="noopener noreferrer">CSLB #1160068</a> · Valiant Garage Door LLC</dd></div>
+      <div><dt>Diamond Certified</dt><dd><a href="https://www.diamondcertified.org/report/valiant-garage-door/" target="_blank" rel="noopener noreferrer">Certificate #2953</a> · Certified since August 2026</dd></div>
+      <div><dt>Contractor’s bond</dt><dd>$25,000 · American Contractors Indemnity Company · Bond #101085976 · Effective July 7, 2026</dd></div>
+      <div><dt>LLC employee/worker bond</dt><dd>$100,000 · Allegheny Casualty Company · Bond #ACC006A003914 · Effective July 8, 2026</dd></div>
+      <div><dt>Liability insurance</dt><dd>$2,000,000 · Spinnaker Insurance Company · Policy #CSG0050855800 · July 5, 2026 – July 5, 2027</dd></div>
+      <div><dt>Workers’ compensation record</dt><dd>CSLB exemption for no employees, effective July 9, 2026. The LLC employee/worker bond is separate from workers’ compensation insurance.</dd></div>
+    </dl>
+    <p><a href="/credentials">License, certification &amp; insurance information →</a> · <a href="/quote">Request service</a></p>
+  </details>
+</aside>
+
 
     <footer class="site-footer">
       <div class="container footer-content">
@@ -1008,26 +1023,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <nav class="footer-links" aria-label="Footer">
           <a href="/">Home</a>
-          <a href="/services">Services</a>
+          <a href="/services">Services</a><a href="/short-repair-videos">Repair Videos</a><a href="/garage-door-before-after">Before &amp; After</a>
           <a href="/gallery">Gallery</a>
           <a href="/blog">Blog</a>
           <a href="/faq">FAQ</a>
           <a href="/mission">Mission</a>
           <a href="/service-areas">Service Areas</a>
           <a href="/quote">Request Appointment</a>
-          <a href="https://book.housecallpro.com/book/Valiant-garage-door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
+          <a href="https://book.housecallpro.com/book/Valiant-Garage-Door/ae8e4a137c8c49b4b264073541533a7a?v2=true" target="_blank" rel="noopener noreferrer">Book Free Estimate Instantly</a>
           <a href="/business-card">Business Card</a><a href="/site-map">Site Map</a>
-        </nav>
+        <a href="/google-business-profile">Google Business Profile</a></nav>
         <div class="footer-legal">
           <p>Valiant Garage Door LLC<br>All Rights Reserved<br>3588 Pimlico Dr<br>Pleasanton, CA 94588</p>
         </div>
       </div>
-    </footer>
+    <p class="contractor-license" style="margin:12px auto 0;text-align:center;font-size:.78rem;letter-spacing:.06em;color:#b7b1a6">CA Contractor License #1160068</p></footer>
 
-    <script src="/js/main.min.js?v=20260702-bot-close"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="/js/surefire-local-lead-manager.js?v=20260612-current"></script>
+    <script src="/js/main.min.js?v=1210ec5c42a2"></script>
 
 
 
+<script src="/js/global-chrome.min.js?v=d5806a68578c" defer></script>
 </body></html>

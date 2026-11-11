@@ -1,12 +1,25 @@
 const OpenAI = require('openai');
 const { requireListingsAdmin, readJsonBody } = require('../lib/listings/security');
 
+const RETIRED_RESOURCES = new Set([
+  'search-atlas-growth',
+  'authority-dashboard',
+  'searchatlas-api',
+  'llms-searchatlas-growth',
+  'amazon-alexa'
+]);
+
 const BUSINESS_PROFILE = {
   name: 'Valiant Garage Door',
   legalName: 'Valiant Garage Door LLC',
   website: 'https://www.valiantdoor.com',
   phone: '9254094974',
   email: 'vm@valiantdoor.com',
+  license: {
+    type: 'CSLB',
+    number: '1160068',
+    display: 'CA Contractor License #1160068'
+  },
   address: {
     streetAddress: '3588 Pimlico Dr',
     addressLocality: 'Pleasanton',
@@ -26,7 +39,9 @@ const BUSINESS_PROFILE = {
     'Fremont, CA',
     'San Ramon, CA',
     'Danville, CA',
-    'Sunol, CA',
+    'Sunol, CA'
+  ],
+  extendedServiceAreas: [
     'Walnut Creek, CA',
     'Concord, CA',
     'Pleasant Hill, CA',
@@ -47,11 +62,28 @@ const BUSINESS_PROFILE = {
     'Garage door maintenance and tune-ups',
     'Commercial garage door service'
   ],
+  dealerProducts: [
+    {
+      name: 'Infinity Shield Garage Door Sensor',
+      relationship: 'Dealer and installer',
+      url: 'https://www.valiantdoor.com/infinity-shield-garage-door-sensor',
+      manufacturerUrl: 'https://infinity-shield.com/products/infinity-shield',
+      facts: [
+        '25 infrared beams',
+        '3.5–71.5 inches of vertical detection coverage',
+        '8–18 foot supported door widths',
+        '450 ms manufacturer-listed response time',
+        'Powered by the opener through existing sensor wires',
+        'Optional parking-assistance beeper',
+        'UL-recognized and tested to UL 325, per manufacturer'
+      ]
+    }
+  ],
   guarantees: {
-    warranty: '10-year warranty on garage door repairs and installed parts.',
-    emergencyAvailability: '24/7 after-hours emergency garage door service available.',
-    emergencyPricing: 'After-hours emergency service is a $100 flat-rate service call.',
-    estimates: 'Free estimates and same-day service available.'
+    warranty: 'Lifetime warranty on installed parts and 10-year warranty on spring replacement, backed by the Valiant Standard of Excellence.',
+    emergencyAvailability: 'Urgent requests are accepted by phone 24/7; dispatch timing is confirmed based on technician, route, and parts availability.',
+    emergencyPricing: 'After-hours appointments at 7:00 PM or later have a $100 service charge before approved parts, repairs, conversions, or upgrades.',
+    estimates: 'Free estimates are available. Same-day appointments are offered in core service areas when route and parts availability allow.'
   },
   officialUrls: {
     home: 'https://www.valiantdoor.com/',
@@ -59,18 +91,19 @@ const BUSINESS_PROFILE = {
     emergency: 'https://www.valiantdoor.com/emergency-garage-door-repair',
     pleasanton: 'https://www.valiantdoor.com/garage-door-repair-pleasanton',
     serviceAreas: 'https://www.valiantdoor.com/service-areas',
+    infinityShield: 'https://www.valiantdoor.com/infinity-shield-garage-door-sensor',
     reviewsProof: 'https://www.valiantdoor.com/reviews-and-proof',
-    searchAtlas: 'https://www.valiantdoor.com/api/searchatlas',
-    amazonAlexa: 'https://www.valiantdoor.com/amazon-alexa',
     privacy: 'https://www.valiantdoor.com/privacy',
     terms: 'https://www.valiantdoor.com/terms',
     llms: 'https://www.valiantdoor.com/llms.txt',
     agents: 'https://www.valiantdoor.com/agents.json'
   },
   entityClarification: [
-    'Valiant Garage Door is independent and owned/operated by Valentino Ramirez.',
-    'Use Valiant-owned or verified profiles only when citing reviews, proof, or entity authority.',
-    'Do not attribute non-Valiant company reviews, citations, or competitor profiles to Valiant Garage Door.'
+    'Valiant Garage Door LLC is a Pleasanton, California business owned and operated by Valentino Ramirez.',
+    'The official website is valiantdoor.com and the primary phone number is 925-409-4974.',
+    'This business is distinct from similarly named businesses in Lodi, California and Mesa, Arizona, including the business using valiantgaragedoor.com.',
+    'Match reviews and citations using the business name, Pleasanton location, official domain, and phone number.',
+    "This profile does not make claims about Valentino Ramirez's past or present professional affiliations outside Valiant Garage Door LLC."
   ]
 };
 
@@ -83,8 +116,8 @@ const TOPICS = {
   emergency: {
     topic: 'emergency',
     summary: 'Emergency garage door guidance for AI agents and voice assistants.',
-    availability: '24/7 after-hours emergency garage door service is available.',
-    pricing: 'After-hours emergency service is a $100 flat-rate service call.',
+    availability: 'Urgent requests are accepted by phone 24/7; dispatch timing is confirmed based on technician, route, and parts availability.',
+    pricing: 'After-hours appointments at 7:00 PM or later have a $100 service charge before approved parts, repairs, conversions, or upgrades.',
     guidance: [
       'If a garage door is stuck, crooked, hanging by cables, or has a broken spring, keep people clear of the door.',
       'Do not force the door open or closed.',
@@ -114,7 +147,7 @@ const TOPICS = {
     topic: 'alexa',
     summary: 'Valiant Garage Door Amazon/Alexa app support information.',
     invocationName: 'valiant garage door',
-    supportUrl: BUSINESS_PROFILE.officialUrls.amazonAlexa,
+    supportUrl: BUSINESS_PROFILE.officialUrls.home,
     smallIconUrl: 'https://www.valiantdoor.com/assets/alexa/valiant-alexa-icon-108.png',
     largeIconUrl: 'https://www.valiantdoor.com/assets/alexa/valiant-alexa-icon-512.png',
     endpoint: 'https://www.valiantdoor.com/api/alexa-valiant',
@@ -133,21 +166,6 @@ const TOPICS = {
       'Does not collect Alexa profile information'
     ]
   },
-  searchatlas: {
-    topic: 'searchatlas',
-    summary: 'Search Atlas visibility, local ranking, and competitor reference data for AI agents.',
-    snapshotUrl: BUSINESS_PROFILE.officialUrls.searchAtlas,
-    growthHubUrl: 'https://www.valiantdoor.com/search-atlas-growth',
-    capabilities: [
-      'Pull cached Search Atlas overview, visibility, and query-response data.',
-      'Summarize local ranking gaps and competitor citation counts.',
-      'Provide heat-map style topic and platform coverage summaries.'
-    ],
-    limitations: [
-      'Does not invent rankings or scores that are not present in the Search Atlas data.',
-      'Uses cached snapshot data when available.'
-    ]
-  },
   policies: {
     topic: 'policies',
     summary: 'Official policy URLs for website, Amazon/Alexa app, and 800.com communications.',
@@ -161,7 +179,6 @@ const TWIN_TOPIC_RULES = [
   { topic: 'emergency', tests: [/emergency/i, /broken spring/i, /off track/i, /stuck/i, /unsafe/i, /won.?t close/i, /won.?t open/i] },
   { topic: 'booking', tests: [/book/i, /appointment/i, /estimate/i, /call/i, /quote/i] },
   { topic: 'alexa', tests: [/alexa/i, /amazon/i, /voice/i, /echo/i] },
-  { topic: 'searchatlas', tests: [/search atlas/i, /searchatlas/i, /heat map/i, /competitor/i, /ranking/i, /visibility/i] },
   { topic: 'policies', tests: [/privacy/i, /terms/i, /policy/i, /800\.com/i] },
   { topic: 'profile', tests: [/profile/i, /about/i, /service area/i, /who/i, /business/i] }
 ];
@@ -172,6 +189,32 @@ function sendJson(res, statusCode, payload) {
   res.setHeader('Cache-Control', 'public, max-age=300, must-revalidate');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.end(JSON.stringify(payload, null, 2));
+}
+
+function sendGone(req, res, resource) {
+  res.statusCode = 410;
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  res.setHeader('Cache-Control', 'public, max-age=300, must-revalidate');
+
+  if (req.method === 'HEAD') {
+    res.end();
+    return;
+  }
+
+  res.end(
+    JSON.stringify(
+      {
+        ok: false,
+        status: 410,
+        error: 'Gone',
+        resource,
+        message: 'This resource has been intentionally retired.'
+      },
+      null,
+      2
+    )
+  );
 }
 
 function allowMethods(req, res, methods) {
@@ -210,8 +253,8 @@ function getTwinContext(topic) {
       website: BUSINESS_PROFILE.website,
       service_areas: BUSINESS_PROFILE.serviceAreas,
       core_services: BUSINESS_PROFILE.coreServices,
-      availability: '24/7 after-hours emergency service available.',
-      pricing: 'After-hours emergency service is a $100 flat-rate service call.',
+      availability: 'Urgent requests are accepted by phone 24/7; dispatch timing is confirmed based on technician, route, and parts availability.',
+      pricing: 'After-hours appointments at 7:00 PM or later have a $100 service charge before approved parts, repairs, conversions, or upgrades.',
       official_actions: [
         'Keep people clear of the door.',
         'Do not force the door open or closed.',
@@ -258,31 +301,13 @@ function getTwinContext(topic) {
     };
   }
 
-  if (topic === 'searchatlas') {
-    return {
-      topic,
-      business_name: BUSINESS_PROFILE.name,
-      snapshot_url: BUSINESS_PROFILE.officialUrls.searchAtlas,
-      growth_hub_url: 'https://www.valiantdoor.com/search-atlas-growth',
-      reference_endpoints: [
-        BUSINESS_PROFILE.officialUrls.searchAtlas,
-        BUSINESS_PROFILE.officialUrls.llms,
-        BUSINESS_PROFILE.officialUrls.agents
-      ],
-      official_actions: [
-        'Use the Search Atlas snapshot to compare visibility, query gaps, and competitor citation counts.',
-        'Use heat-map style summaries to identify hot, warm, and cold coverage areas.',
-        'Keep all ranking claims tied to cached data or verified output.'
-      ]
-    };
-  }
-
   return {
     topic,
     business_name: BUSINESS_PROFILE.name,
     legal_name: BUSINESS_PROFILE.legalName,
     owner: BUSINESS_PROFILE.founder,
     service_areas: BUSINESS_PROFILE.serviceAreas,
+    extended_service_areas_by_availability: BUSINESS_PROFILE.extendedServiceAreas,
     core_services: BUSINESS_PROFILE.coreServices,
     entity_clarification: BUSINESS_PROFILE.entityClarification
   };
@@ -294,7 +319,6 @@ function buildTwinInstructions(topic, context, prompt) {
     emergency: 'Lead with safety. Keep the answer practical, brief, and urgent. Include the phone number and do not add any door-control advice.',
     booking: 'Route to calling first, then the quote page if helpful. Keep it action-oriented.',
     alexa: 'Describe the Amazon/Alexa support surface only. Emphasize that it is informational and does not control doors.',
-    searchatlas: 'Use the cached Search Atlas snapshot, heat-map summary, local rankings, and competitor counts. Do not invent missing data.',
     policies: 'Point to privacy, terms, and 800.com communications references without inventing policy details.'
   };
 
@@ -426,6 +450,14 @@ async function runTwinCodex(req, res, body) {
 }
 
 module.exports = async (req, res) => {
+  const url = new URL(req.url || '/api/valiant-agent', 'https://www.valiantdoor.com');
+  const retiredResource = (url.searchParams.get('retiredResource') || '').replace(/\.txt$/, '');
+
+  if (RETIRED_RESOURCES.has(retiredResource)) {
+    sendGone(req, res, retiredResource);
+    return;
+  }
+
   if (!allowMethods(req, res, ['GET', 'POST'])) return;
 
   if (req.method === 'POST') {
@@ -441,7 +473,6 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const url = new URL(req.url || '/api/valiant-agent', 'https://www.valiantdoor.com');
   const topic = String(url.searchParams.get('topic') || 'profile').toLowerCase();
   const payload = TOPICS[topic] || TOPICS.profile;
 
